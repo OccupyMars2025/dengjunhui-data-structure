@@ -8,12 +8,17 @@
 
 #pragma once
 
-#include "Vector/Vector.h"
+#include <cstdio>
+#include <cstdlib>
 
-template <typename T> 
-void crc ( Vector<T> & V ) { //统计向量的特征（所有元素之和）
-   T crc = 0; 
-   Crc<T> *visitor = new Crc<T> ( crc );
-   V.traverse ( *visitor ); //以crc为基本操作进行遍历
-   printf ( "CRC =" ); print ( crc ); printf ( "\n" ); //输出统计得到的特征
-}
+#include "_share/util.h"
+#include "Stack/Stack.h"
+
+using Disk = int;
+
+void displayHanoi();
+void hanoi ( int, Stack<Disk>&, Stack<Disk>&, Stack<Disk>& );
+void move ( Stack<Disk>&, Stack<Disk>& );
+
+extern int nDisk; //盘子总数
+extern Stack<int> Sx, Sy, Sz; //用三个栈模拟三根柱子，每个盘子的半径用整数表示

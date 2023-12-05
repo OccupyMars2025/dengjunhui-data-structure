@@ -28,7 +28,7 @@ using namespace std;
 
 #include "double_Elem.h"
 #include "increase_Elem.h"
-#include "hailstone_Elem.h"
+#include "Hailstone_Elem.h"
 #include "increase_list.h"
 #include "increase_vector.h"
 

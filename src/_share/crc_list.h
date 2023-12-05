@@ -8,9 +8,13 @@
 
 #pragma once
 
-#include "list/list.h"
+#include "List/List.h"
+#include "UniPrint/print.h"
 
-template <typename T> void crc ( List<T> & L ) { //统计列表的特征（所有元素总和）
-   T crc = 0; L.traverse ( Crc<T> ( crc ) ); //以crc为基本操作进行遍历
+template <typename T> 
+void crc ( List<T> & L ) { //统计列表的特征（所有元素总和）
+   T crc = 0; 
+   Crc<T> *visitor = new Crc<T> ( crc );
+   L.traverse ( *visitor ); //以crc为基本操作进行遍历
    printf ( "CRC =" ); print ( crc ); printf ( "\n" ); //输出统计得到的特征
 }

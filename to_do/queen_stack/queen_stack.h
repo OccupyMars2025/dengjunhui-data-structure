@@ -8,12 +8,19 @@
 
 #pragma once
 
-#include "Vector/Vector.h"
+#include <iostream>
+using namespace std;
+#include <cstdio>
+#include <cstdlib>
+#include "Stack/Stack.h" //栈
+#include "queen.h" //引入皇后类
 
-template <typename T> 
-void crc ( Vector<T> & V ) { //统计向量的特征（所有元素之和）
-   T crc = 0; 
-   Crc<T> *visitor = new Crc<T> ( crc );
-   V.traverse ( *visitor ); //以crc为基本操作进行遍历
-   printf ( "CRC =" ); print ( crc ); printf ( "\n" ); //输出统计得到的特征
-}
+typedef enum {Continuous, Step} RunMode;
+
+extern RunMode runMode; //运行模式
+extern int nSolu; //解的总数
+extern int nCheck; //尝试的总次数
+
+void placeQueens ( Rank );
+void displayRow ( Queen& q, Rank );
+void displayProgress ( Stack<Queen>& S, Rank );

@@ -8,14 +8,16 @@
 
 #pragma once
 
-#include <typeinfo>
-
 /******************************************************************************************
- * 向量、列表等支持traverse()遍历操作的线性结构
+ * 将PQ_PQ_LeftHeap各方法的实现部分，简洁地引入PQ_PQ_LeftHeap.h
+ * 效果等同于将这些实现直接汇入PQ_PQ_LeftHeap.h
+ * 在export尚未被编译器支持前，如此可将定义与实现分离，以便课程讲解
  ******************************************************************************************/
-template <typename T> //元素类型
-void UniPrint::p ( T& s ) { //引用
-   printf ( "%s[%p]*%d:\n", typeid ( s ).name(), (void*) &s, s.size() ); //基本信息
-   s.traverse ( print ); //通过print()遍历输出所有元素
-   printf ( "\n" );
-}
+#include "_share/release.h"
+#include "_share/util.h"
+
+#include "PQ_LeftHeap_insert.h"
+#include "PQ_LeftHeap_delMax.h"
+#include "PQ_LeftHeap_getMax.h"
+//#include "PQ_LeftHeap_merge.recursive.h"
+#include "PQ_LeftHeap_merge.iterative.h"

@@ -6,14 +6,15 @@
  * Copyright (c) 2003-2023. All rights reserved.
  ******************************************************************************************/
 
-#pragma once
-
+#include "UniPrint/print.h"
 #include "Vector/Vector.h"
 
-template <typename T> 
-void crc ( Vector<T> & V ) { //统计向量的特征（所有元素之和）
-   T crc = 0; 
-   Crc<T> *visitor = new Crc<T> ( crc );
-   V.traverse ( *visitor ); //以crc为基本操作进行遍历
-   printf ( "CRC =" ); print ( crc ); printf ( "\n" ); //输出统计得到的特征
+Vector<int> //生成长度为n的随机有序向量，元素取值来自[min, max]
+randomSortedVector ( Rank n, int min, int max ) { //ACP, Vol.2, Algorithm S
+   /*DSA*/printf ( "creating a random sorted vector of size %d...\n", n );
+   Vector<int> A;
+   for ( int i = min; i <= max; i++ )
+      if ( rand() % ( max - i + 1 ) < (int)n )
+         { A.insert ( i ); n--; }
+   return A;
 }
