@@ -8,8 +8,16 @@
 
 #pragma once
 
-template <typename T> void List<T>::sort ( ListNodePosi<T> p, Rank n ) { //ÁĞ±íÇø¼äÅÅĞò
-   /*DSA*/// switch ( 1 ) {
+/**
+ * p: the first node of the interval
+ * n: the size of the interval
+ * 
+ * debug: (gdb)b List_sort.h:22
+*/
+template <typename T> 
+void List<T>::sort ( ListNodePosi<T> p, Rank n ) { //ÁĞ±íÇø¼äÅÅĞò
+   /*DSA*/
+   // switch ( 3 ) {
    switch ( rand() % 4 ) { //Ëæ»úÑ¡È¡ÅÅĞòËã·¨¡£¿É¸ù¾İ¾ßÌåÎÊÌâµÄÌØµãÁé»îÑ¡È¡»òÀ©³ä
       case 1  : insertionSort( p, n ); break; //²åÈëÅÅĞò
       case 2  : selectionSort( p, n ); break; //Ñ¡ÔñÅÅĞò
@@ -17,3 +25,4 @@ template <typename T> void List<T>::sort ( ListNodePosi<T> p, Rank n ) { //ÁĞ±íÇ
       default :     radixSort( p, n ); break; //»ùÊıÅÅĞò
    }
 }
+// 10, 11, 0

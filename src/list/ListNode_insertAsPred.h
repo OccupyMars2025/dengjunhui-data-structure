@@ -8,9 +8,10 @@
 
 #pragma once
 
-template <typename T> //重载下标操作符，以通过秩直接访问列表节点（O(r)效率，虽方便，勿多用）
-ListNodePosi<T> List<T>::operator[]( Rank r ) const { // 0 <= r < size
-   ListNodePosi<T> p = first(); //从首节点出发
-   while ( 0 < r-- ) p = p->succ; //顺数第r个节点即是
-   return p; //目标节点
+//将e紧靠当前节点之前插入于当前节点所属列表（设有哨兵头节点header）
+template <typename T> 
+ListNodePosi<T> ListNode<T>::insertAsPred( T const& e ) {
+   ListNodePosi<T> x = new ListNode( e, pred, this ); //创建新节点
+   pred->succ = x; pred = x; //设置正向链接
+   return x; //返回新节点的位置
 }

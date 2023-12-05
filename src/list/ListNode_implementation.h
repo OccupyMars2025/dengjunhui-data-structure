@@ -8,11 +8,10 @@
 
 #pragma once
 
-template <typename T> //对列表中起始于位置p、宽度为n的区间做插入排序
-void List<T>::insertionSort( ListNodePosi<T> p, Rank n ) { // valid(p) && Rank(p) + n <= size
-   /*DSA*///printf ( "InsertionSort ...\n" );
-   for ( Rank r = 0; r < n; r++ ) { //逐一为各节点
-      insert( search( p->data, r, p ), p->data ); //查找适当的位置并插入
-      p = p->succ; remove( p->pred ); //转向下一节点
-   }
-}
+/******************************************************************************************
+ * 将listNode各方法的实现部分，简洁地引入listNode.h
+ * 效果等同于将这些实现直接汇入listNode.h
+ * 在export尚未被编译器支持前，如此可将定义与实现分离，以便课程讲解
+ ******************************************************************************************/
+#include "ListNode_insertAsSucc.h"
+#include "ListNode_insertAsPred.h"

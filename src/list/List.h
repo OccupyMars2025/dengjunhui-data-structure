@@ -8,12 +8,14 @@
 
 #pragma once
 
-#include "listNode.h" //引入列表节点类
+#include "ListNode.h" //引入列表节点类
 
-template <typename T> class List { //列表模板类
+template <typename T> 
+class List { //列表模板类
 
 private:
-   Rank _size; ListNodePosi<T> header, trailer; //规模、头哨兵、尾哨兵
+   Rank _size; 
+   ListNodePosi<T> header, trailer; //规模、头哨兵、尾哨兵
 
 protected:
    void init(); //列表创建时的初始化

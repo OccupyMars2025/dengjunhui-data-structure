@@ -8,9 +8,12 @@
 
 #pragma once
 
-template <typename T> //将e紧靠当前节点之前插入于当前节点所属列表（设有哨兵头节点header）
-ListNodePosi<T> ListNode<T>::insertAsPred( T const& e ) {
-   ListNodePosi<T> x = new ListNode( e, pred, this ); //创建新节点
-   pred->succ = x; pred = x; //设置正向链接
-   return x; //返回新节点的位置
-}
+//删除合法节点p
+template <typename T> 
+T List<T>::remove( ListNodePosi<T> p ) { 
+   T e = p->data; //备份待删除节点的数值（假定T类型可直接赋值）
+   p->pred->succ = p->succ; 
+   p->succ->pred = p->pred; //短路联接
+   delete p; _size--; //释放节点，更新规模
+   return e; //返回备份的数值
+} //O(1)

@@ -8,9 +8,14 @@
 
 #pragma once
 
-template <typename T> T List<T>::remove( ListNodePosi<T> p ) { //删除合法节点p
-   T e = p->data; //备份待删除节点的数值（假定T类型可直接赋值）
-   p->pred->succ = p->succ; p->succ->pred = p->pred; //短路联接
-   delete p; _size--; //释放节点，更新规模
-   return e; //返回备份的数值
-} //O(1)
+//对列表中起始于位置p、宽度为n的区间做插入排序
+template <typename T> 
+void List<T>::insertionSort( ListNodePosi<T> p, Rank n ) { // valid(p) && Rank(p) + n <= size
+   /*DSA*/
+   printf ( "InsertionSort ...\n" );
+   for ( uint32_t count = 0; count < n; count++ ) { //逐一为各节点
+      insert( search( p->data, count, p ), p->data ); //查找适当的位置并插入
+      p = p->succ; 
+      remove( p->pred ); //转向下一节点
+   }
+}
