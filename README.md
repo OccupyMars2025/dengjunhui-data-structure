@@ -1,6 +1,5 @@
 # start: 2023/12/4 8:00
-- [x] (12/4 8:00 - 12/5 17:45)make src/list runnable and test the sorting method of list
-- [ ] (12/5 17:45 - ) stack
+
 - [ ] make it running on Linux with gcc
 # The accompanying source code of the book:
 ## https://dsa.cs.tsinghua.edu.cn/~deng/ds/dsacpp/
