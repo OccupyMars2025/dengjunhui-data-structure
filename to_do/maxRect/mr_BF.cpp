@@ -6,7 +6,9 @@
  * Copyright (c) 2003-2023. All rights reserved.
  ******************************************************************************************/
 
-using Rank = unsigned int;
+#include <iostream>
+
+using Rank = int32_t;
 
 // 按定义蛮力地计算直方图H[]中的最大矩形（多个并列时取最靠左侧者）
 __int64 mr_BRUTE( int H[], Rank n, Rank& mr_r, Rank& mr_s, Rank& mr_t ) { //蛮力：O(n^2)

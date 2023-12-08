@@ -9,7 +9,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <cstdio>
-using Rank = unsigned int;
+using Rank = int32_t;
 
 __int64 mr_STACK ( int H[], Rank n, Rank& r, Rank& s, Rank& t ); //借助一个栈：O(n)
 __int64 mr_STACKS( int H[], Rank n, Rank& r, Rank& s, Rank& t ); //借助两个栈：O(n)

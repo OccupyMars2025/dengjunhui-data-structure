@@ -10,11 +10,12 @@
 
 #include "Vector/Vector.h"
 
+//判断向量是否整体有序
 template <typename T> 
-void checkOrder ( Vector<T> & V ) { //判断向量是否整体有序
+void checkOrder ( Vector<T> & V ) { 
    int unsorted = 0; //逆序计数器
-   CheckOrder<T> *visitor = new CheckOrder<T> ( unsorted, V[0] );
-   V.traverse ( *visitor ); //进行遍历
+   CheckOrder<T> *visit = new CheckOrder<T> ( unsorted, V[0] );
+   V.traverse ( *visit ); //进行遍历
    if ( 0 < unsorted )
       printf ( "Unsorted with %d adjacent inversion(s)\n", unsorted );
    else

@@ -7,7 +7,7 @@
  ******************************************************************************************/
 
 #pragma once
-using Rank = unsigned int; //秩
+using Rank = int32_t; //秩
 
 template <typename T> struct ListNode;
 template <typename T> using ListNodePosi = ListNode<T>*; //列表节点位置

@@ -8,7 +8,7 @@
 
 #pragma once
 
-using Rank = unsigned int;
+using Rank = int32_t;
 
 #if defined( DSA_REDBLACK ) //在红黑树中
 #define stature( p ) ( ( p ) ? ( p )->height : 0 ) //外部节点（黑）高度为0，以上递推

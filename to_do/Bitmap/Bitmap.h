@@ -13,7 +13,7 @@
 #include <cstdio>
 #include <memory.h>
 #include "_share/release.h"
-using Rank = unsigned int;
+using Rank = int32_t;
 
 class Bitmap { //ŒªÕºBitmap¿‡
 private:

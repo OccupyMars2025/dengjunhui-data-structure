@@ -12,7 +12,7 @@
 #include "_share/util.h"
 #include "UniPrint/print.h"
 
-using Rank = unsigned int; //秩
+using Rank = int32_t; //秩
 #define DEFAULT_CAPACITY  3 //默认的初始容量（实际应用中可设置为更大）
 
 template <typename T> class CursorList { //游标式列表

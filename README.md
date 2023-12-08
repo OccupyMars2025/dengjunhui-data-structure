@@ -8,7 +8,7 @@
 
 ## How to run: I add one Makefile to each following directory, cd into each directory, then run "make all"
 ```
-$ cd src/list/
+$ cd src/List/
 $ make all
 $ ./build/apps/program 5
 note: "./build/apps/program" is the generated executable

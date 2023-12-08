@@ -28,8 +28,16 @@
 // #include "Graph/Graph.h" //图
 // #include "GraphMatrix/GraphMatrix.h" //基于邻接矩阵实现的图
 
-static void print ( char* x ) {  printf ( " %s", x ? x : "<NULL>" );  } //字符串特别处理
-static void print ( const char* x ) {  printf ( " %s", x ? x : "<NULL>" );  } //字符串特别处理
+
+/******************************************************************************************
+ * 数据元素、数据结构通用输出接口
+ ******************************************************************************************/
+template <typename T> void print ( T* x );
+template <typename T> void print ( T& x );
+template <typename T> void print ( const T& x );
+ void print ( char* x );
+void print ( const char* x );
+
 
 class UniPrint {
 public:
@@ -59,16 +67,9 @@ public:
    // template <typename Tv, typename Te> static void p( GraphMatrix<Tv, Te>& ); // Graph
    template <typename T> static void p( T& ); //向量、列表等支持traverse()遍历操作的线性结构
    template <typename T> static void p( const T& ); //向量、列表等支持traverse()遍历操作的线性结构
-   template <typename T> static void p( T* s ) //所有指针
-   { s ? p( *s ) : print( "<NULL>" ); } //统一转为引用
+   template <typename T> static void p( T* s );
 }; //UniPrint
 
-/******************************************************************************************
- * 数据元素、数据结构通用输出接口
- ******************************************************************************************/
-template <typename T> static void print ( T* x ) {  x ? print ( *x ) : printf ( " <NULL>" );  }
-template <typename T> static void print ( T& x ) {  UniPrint::p ( x );  }
-template <typename T> static void print ( const T& x ) {  UniPrint::p ( x );  } //for Stack
 
 
-#include "print_implementation.h"
+// #include "print_implementation.h"

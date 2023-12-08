@@ -7,7 +7,7 @@
  ******************************************************************************************/
 
 #pragma once
-using Rank = unsigned int;
+using Rank = int32_t;
 
 class Fib { //FibonacciÊıÁĞÀà
 private:

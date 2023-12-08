@@ -9,9 +9,21 @@
 #pragma once
 
 template <typename T> //向量的起泡排序（提前终止版）
-void Vector<T>::bubbleSort( Rank lo, Rank hi ) { //assert: 0 <= lo < hi <= size
-   for( bool sorted = false; sorted = !sorted; hi-- )
+void Vector<T>::bubbleSort_B( Rank lo, Rank hi ) { //assert: 0 <= lo < hi <= size
+   printf("Vector<T>::bubbleSort_B\n");
+   
+   bool sorted = true; 
+   do
+   {
+      sorted = true;
       for( Rank i = lo+1; i < hi; i++ )
+      {
          if ( _elem[i - 1] > _elem[i] ) //若逆序，则
-            swap( _elem[i - 1], _elem[i] ), sorted = false; //交换——因此不能判定已经整体有序
+         {
+            swap( _elem[i - 1], _elem[i] );
+            sorted = false; //交换——因此不能判定已经整体有序
+         }      
+      }
+      --hi;
+   } while (false == sorted);
 }

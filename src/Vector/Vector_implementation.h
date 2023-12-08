@@ -38,8 +38,8 @@
 
 #include "Vector_unsort.h"
 #include "Vector_sort.h"
-//#include "Vector_bubbleSort_A.h"
-//#include "Vector_bubbleSort_B.h"
+#include "Vector_bubbleSort_A.h"
+#include "Vector_bubbleSort_B.h"
 #include "Vector_bubbleSort_C.h"
 #include "Vector_selectionSort.h"
 #include "Vector_merge.h"
