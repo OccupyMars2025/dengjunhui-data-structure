@@ -8,12 +8,8 @@
 
 #pragma once
 
-#include "List/List.h" //以List为基类派生出的
-template <typename T> class Queue: public List<T> { //队列模板类
-public: //原有接口一概沿用
-   void enqueue( T const& e ) { insertAsLast( e ); } //入队：尾部插入
-   T dequeue() { return remove( first() ); } //出队：首部删除
-   T& front() { return first()->data; } //队首
-};
+template <typename T> Rank BinTree<T>::updateHeight( BinNodePosi<T> x ) //更新节点x高度
+   { return x->height = 1 + max( stature( x->lc ), stature( x->rc ) ); } //具体规则，因树而异
 
-#include "queue_implementation.h"
+template <typename T> void BinTree<T>::updateHeightAbove( BinNodePosi<T> x ) //更新高度
+   { while ( x ) { updateHeight( x ); x = x->parent; } } //从x出发，覆盖历代祖先。可优化
