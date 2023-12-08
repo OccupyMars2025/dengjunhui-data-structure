@@ -8,7 +8,7 @@
 
 #pragma warning(disable : 4996 4800)
 #include "_share/util.h"
-#include "Bitmap/Bitmap_O1_init.h"
+#include "Bitmap/Bitmap_01_init.h"
 
 /******************************************************************************************
  * ≤‚ ‘ŒªÕº

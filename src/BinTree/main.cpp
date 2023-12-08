@@ -36,8 +36,8 @@ BinNodePosi<T> randomPosiInBinTree ( BinNodePosi<T> root ) {
 
 template <typename T> 
 void  testBinTree ( int h ) { //²âÊÔ¶þ²æÊ÷
-   printf ( "\n  ==== Test %2d. Generate a binTree of height <= %d \n", testID++, h );
-   // BinTree<T> bt; print ( bt );
+   printf ( "\n  ==== Test %2d. Generate a BinTree of height <= %d \n", testID++, h );
+   BinTree<T> bt; print ( bt );
    // bt.insert ( dice ( ( T ) h * h * h ) ); print ( bt );
    // randomBinTree<T> ( bt, bt.root(), h ); print ( bt );
    // printf ( "\n  ==== Test %2d. Double and increase all nodes by traversal\n", testID++ );

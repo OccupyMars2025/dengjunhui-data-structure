@@ -11,7 +11,7 @@
 
 #include <cstdio> //采用C风格精细控制输出格式
 // #include "Huffman/HuffChar.h" //Huffman超字符
-// #include "BinTree/BinTree.h" //二叉树
+#include "BinTree/BinTree.h" //二叉树
 // #include "Huffman/HuffTree.h" //Huffman树
 // #include "BST/BST.h" //二叉搜索树
 // #include "AVL/AVL.h" //AVL树
@@ -51,8 +51,8 @@ public:
    // static void p ( EType ); //图边的类型
 
    // template <typename K, typename V> static void p( Entry<K, V>& ); // Entry
-   // template <typename T> static void p( BinNode<T>& ); // BinTree节点
-   // template <typename T> static void p( BinTree<T>& ); //二叉树
+   template <typename T> static void p( BinNode<T>& ); // BinTree节点
+   template <typename T> static void p( BinTree<T>& ); //二叉树
    // template <typename T> static void p( BTree<T>& ); // B-树
    // template <typename T> static void p( BST<T>& ); // BST
    // template <typename T> static void p( AVL<T>& ); // AVL
@@ -72,4 +72,4 @@ public:
 
 
 
-// #include "print_implementation.h"
+#include "print_implementation.h"
