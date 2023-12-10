@@ -9,7 +9,9 @@
 #pragma once
 
 #include "BinNode.h" //引入二叉树节点类
-template <typename T> class BinTree { //二叉树模板类
+
+template <typename T> 
+class BinTree { //二叉树模板类
 protected:
    Rank _size; BinNodePosi<T> _root; //规模、根节点
    virtual Rank updateHeight( BinNodePosi<T> x ); //更新节点x的高度
@@ -27,14 +29,33 @@ public:
    BinNodePosi<T> attach( BinNodePosi<T>, BinTree<T>*& ); //接入右子树
    Rank remove ( BinNodePosi<T> ); //子树删除
    BinTree<T>* secede ( BinNodePosi<T> ); //子树分离
+   
    template <typename VST> //操作器
-   void travLevel( VST& visit ) { if ( _root ) _root->travLevel( visit ); } //层次遍历
+   void travLevel( VST& visit ) 
+   { 
+      if ( _root ) 
+         _root->travLevel( visit ); 
+   } //层次遍历
+   
    template <typename VST> //操作器
-   void travPre( VST& visit ) { if ( _root ) _root->travPre( visit ); } //先序遍历
+   void travPre( VST& visit ) 
+   { 
+      if ( _root ) _root->travPre( visit ); 
+   } //先序遍历
+   
    template <typename VST> //操作器
-   void travIn( VST& visit ) { if ( _root ) _root->travIn( visit ); } //中序遍历
+   void travIn( VST& visit ) 
+   { 
+      if ( _root ) _root->travIn( visit ); 
+   } //中序遍历
+   
    template <typename VST> //操作器
-   void travPost( VST& visit ) { if ( _root ) _root->travPost( visit ); } //后序遍历
+   void travPost( VST& visit ) 
+   { 
+      if ( _root ) 
+         _root->travPost( visit ); 
+   } //后序遍历
+
    /*DSA*/template <typename VST> //操作器
    /*DSA*/void traverse ( VST& ); //自定义遍历
    bool operator<( BinTree<T> const& t ) //比较器（其余自行补充）

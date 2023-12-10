@@ -12,6 +12,12 @@ template <typename T> //¶ş²æÊ÷×ÓÊ÷·ÖÀëËã·¨£º½«×ÓÊ÷x´Óµ±Ç°Ê÷ÖĞÕª³ı£¬½«Æä·â×°ÎªÒ»¿
 BinTree<T>* BinTree<T>::secede( BinNodePosi<T> x ) { // assert: xÎª¶ş²æÊ÷ÖĞµÄºÏ·¨Î»ÖÃ
    FromParentTo( *x ) = NULL; //ÇĞ¶ÏÀ´×Ô¸¸½ÚµãµÄÖ¸Õë
    updateHeightAbove( x->parent ); //¸üĞÂÔ­Ê÷ÖĞËùÓĞ×æÏÈµÄ¸ß¶È
-   BinTree<T>* S = new BinTree<T>; S->_root = x; x->parent = NULL; //ĞÂÊ÷ÒÔxÎª¸ù
-   S->_size = x->size(); _size -= S->_size; return S; //¸üĞÂ¹æÄ££¬·µ»Ø·ÖÀë³öÀ´µÄ×ÓÊ÷
+
+   BinTree<T>* S = new BinTree<T>; 
+   S->_root = x; 
+   x->parent = NULL; //ĞÂÊ÷ÒÔxÎª¸ù
+   S->_size = x->size();
+   _size -= S->_size; 
+   
+   return S; //¸üĞÂ¹æÄ££¬·µ»Ø·ÖÀë³öÀ´µÄ×ÓÊ÷
 }

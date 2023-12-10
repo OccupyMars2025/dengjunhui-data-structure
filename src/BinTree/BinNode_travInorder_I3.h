@@ -10,8 +10,10 @@
 
 template <typename T, typename VST> //ÔªËØÀàĞÍ¡¢²Ù×÷Æ÷
 void travIn_I3( BinNodePosi<T> x, VST& visit ) { //¶ş²æÊ÷ÖĞĞò±éÀúËã·¨£¨µü´ú°æ#3£¬ÎŞĞè¸¨ÖúÕ»£©
+   printf("travIn_I3\n");
+   
    bool backtrack = false; //Ç°Ò»²½ÊÇ·ñ¸Õ´Ó×ó×ÓÊ÷»ØËİ¡ª¡ªÊ¡È¥Õ»£¬½öO(1)¸¨Öú¿Õ¼ä
-   while ( true )
+   while ( true ) {
       if ( !backtrack && HasLChild( *x ) ) //ÈôÓĞ×ó×ÓÊ÷ÇÒ²»ÊÇ¸Õ¸Õ»ØËİ£¬Ôò
          x = x->lc; //ÉîÈë±éÀú×ó×ÓÊ÷
       else { //·ñÔò¡ª¡ªÎŞ×ó×ÓÊ÷»ò¸Õ¸Õ»ØËİ£¨Ïàµ±ÓÚÎŞ×ó×ÓÊ÷£©
@@ -19,9 +21,10 @@ void travIn_I3( BinNodePosi<T> x, VST& visit ) { //¶ş²æÊ÷ÖĞĞò±éÀúËã·¨£¨µü´ú°æ#3£
          if ( HasRChild( *x ) ) { //ÈôÆäÓÒ×ÓÊ÷·Ç¿Õ£¬Ôò
             x = x->rc; //ÉîÈëÓÒ×ÓÊ÷¼ÌĞø±éÀú
             backtrack = false; //²¢¹Ø±Õ»ØËİ±êÖ¾
-         } else { //ÈôÓÒ×ÓÊ÷¿Õ£¬Ôò
+         } else { //ÈôÓÒ×ÓÊ÷¿Õ£¬Ôò now, x can be left child, right child, or the root
             if ( !( x = x->succ() ) ) break; //»ØËİ£¨º¬µÖ´ïÄ©½ÚµãÊ±µÄÍË³ö·µ»Ø£©
             backtrack = true; //²¢ÉèÖÃ»ØËİ±êÖ¾
          }
       }
+   }
 }

@@ -10,8 +10,10 @@
 
 template <typename T, typename VST> //ÔªËØÀàĞÍ¡¢²Ù×÷Æ÷
 void travIn_I2( BinNodePosi<T> x, VST& visit ) { //¶ş²æÊ÷ÖĞĞò±éÀúËã·¨£¨µü´ú°æ#2£©
+   printf("travIn_I2\n");
+   
    Stack<BinNodePosi<T>> S; //¸¨ÖúÕ»
-   while ( true )
+   while ( true ) {
       if ( x ) {
          S.push( x ); //¸ù½Úµã½øÕ»
          x = x->lc; //ÉîÈë±éÀú×ó×ÓÊ÷
@@ -21,4 +23,5 @@ void travIn_I2( BinNodePosi<T> x, VST& visit ) { //¶ş²æÊ÷ÖĞĞò±éÀúËã·¨£¨µü´ú°æ#2£
          x = x->rc; //±éÀú×æÏÈµÄÓÒ×ÓÊ÷
       } else
          break; //±éÀúÍê³É
+   }
 }

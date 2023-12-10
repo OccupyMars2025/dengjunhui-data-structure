@@ -10,6 +10,8 @@
 
 template <typename T, typename VST> //元素类型、操作器
 void travIn_I4( BinNodePosi<T> x, VST& visit ) { //二叉树中序遍历（迭代版#4，无需栈或标志位）
+   printf("travIn_I4\n");
+   
    while ( true )
       if ( HasLChild( *x ) ) //若有左子树，则
          x = x->lc; //深入遍历左子树

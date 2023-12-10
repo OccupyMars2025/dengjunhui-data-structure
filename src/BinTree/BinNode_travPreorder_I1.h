@@ -10,6 +10,8 @@
 
 template <typename T, typename VST> //元素类型、操作器
 void travPre_I1( BinNodePosi<T> x, VST& visit ) { //二叉树先序遍历算法（迭代版#1）
+   printf("travPre_I1\n");
+   
    Stack<BinNodePosi<T>> S; //辅助栈
    if ( x ) S.push( x ); //根节点入栈
    while ( !S.empty() ) { //在栈变空之前反复循环
