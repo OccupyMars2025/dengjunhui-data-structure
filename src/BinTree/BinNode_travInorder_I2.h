@@ -8,8 +8,11 @@
 
 #pragma once
 
+/**
+ * Just an equivalent version of "travIn_I1"
+*/
 template <typename T, typename VST> //元素类型、操作器
-void travIn_I2( BinNodePosi<T> x, VST& visit ) { //二叉树中序遍历算法（迭代版#2）
+void travIn_I2( BinNodePosi<T> x, VST& visit) { //二叉树中序遍历算法（迭代版#2）
    printf("travIn_I2\n");
    
    Stack<BinNodePosi<T>> S; //辅助栈

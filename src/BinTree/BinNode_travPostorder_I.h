@@ -8,9 +8,63 @@
 
 #pragma once
 
-template <typename T> //ÔÚÒÔSÕ»¶¥½ÚµãÎª¸ùµÄ×ÓÊ÷ÖĞ£¬ÕÒµ½×î¸ß×ó²à¿É¼ûÒ¶½Úµã
-static void gotoLeftmostLeaf( Stack<BinNodePosi<T>>& stack ) { //ÑØÍ¾ËùÓö½ÚµãÒÀ´ÎÈëÕ»
-   if(stack.empty()) return;
+// template <typename T> //ÔÚÒÔSÕ»¶¥½ÚµãÎª¸ùµÄ×ÓÊ÷ÖĞ£¬ÕÒµ½×î¸ß×ó²à¿É¼ûÒ¶½Úµã
+// static void gotoLeftmostLeaf( Stack<BinNodePosi<T>>& stack ) { //ÑØÍ¾ËùÓö½ÚµãÒÀ´ÎÈëÕ»
+//    if(stack.empty()) return;
+
+//    BinNodePosi<T> node;
+//    while (node = stack.top())
+//    {
+//       if(HasLChild(*node)) {
+//          if(HasRChild(*node)) {
+//             stack.push(node->rc);
+//          }
+//          stack.push(node->lc);
+//       }else{
+//          stack.push(node->rc);
+//       }
+//    }
+//    stack.pop();
+// }
+
+// template <typename T, typename VST>
+// void travPost_I( BinNodePosi<T> x, VST& visit ) { //¶ş²æÊ÷µÄºóĞò±éÀú£¨µü´ú°æ£©
+//    printf("travPost_I\n");
+
+//    if(nullptr == x) return;
+
+//    Stack<BinNodePosi<T>> stack;
+//    stack.push(x);
+//    while (!stack.empty())
+//    {
+//       if(stack.top() != x->parent) { 
+//          gotoLeftmostLeaf(stack);
+//       }
+//       x = stack.pop();
+//       visit(x->data);
+//    }
+// }
+
+// Wrong !!!!
+// template <typename T>
+// static void goToDeepestVisibleFromLeftLeafNode(Stack<BinNodePosi<T>> &stack){
+//    if (stack.empty()) return;
+
+//    BinNodePosi<T> node;
+//    while (node = stack.top())
+//    {
+//       if(HasRChild(*node)) {
+//          stack.push(node->rc);
+//       }
+//       stack.push(node->lc);
+//    }
+//    stack.pop();
+// }
+
+
+template <typename T>
+static void goToDeepestLeafVisibleFromLeft(Stack<BinNodePosi<T>> &stack){
+   if (stack.empty()) return;
 
    BinNodePosi<T> node;
    while (node = stack.top())
@@ -20,7 +74,7 @@ static void gotoLeftmostLeaf( Stack<BinNodePosi<T>>& stack ) { //ÑØÍ¾ËùÓö½ÚµãÒÀ´
             stack.push(node->rc);
          }
          stack.push(node->lc);
-      }else{
+      } else {
          stack.push(node->rc);
       }
    }
@@ -28,19 +82,19 @@ static void gotoLeftmostLeaf( Stack<BinNodePosi<T>>& stack ) { //ÑØÍ¾ËùÓö½ÚµãÒÀ´
 }
 
 template <typename T, typename VST>
-void travPost_I( BinNodePosi<T> x, VST& visit ) { //¶ş²æÊ÷µÄºóĞò±éÀú£¨µü´ú°æ£©
+void travPost_I(BinNodePosi<T> node, VST& visit) {
    printf("travPost_I\n");
 
-   if(nullptr == x) return;
+   if(nullptr == node) return;
 
    Stack<BinNodePosi<T>> stack;
-   stack.push(x);
+   stack.push(node);
    while (!stack.empty())
    {
-      if(stack.top() != x->parent) { 
-         gotoLeftmostLeaf(stack);
+      if(node->parent != stack.top()) {
+         goToDeepestLeafVisibleFromLeft(stack);
       }
-      x = stack.pop();
-      visit(x->data);
+      node = stack.pop();
+      visit(node->data);
    }
 }

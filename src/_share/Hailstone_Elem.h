@@ -8,7 +8,8 @@
 
 #pragma once
 
-template <typename T> struct Hailstone { //函数对象：按照Hailstone规则转化一个T类对象
+template <typename T> 
+struct Hailstone { //函数对象：按照Hailstone规则转化一个T类对象
    virtual void operator()( T& e ) { //假设T可直接做算术运算
       int step = 0; //转换所需步数
       while ( 1 != e ) { //按奇、偶逐步转换，直至为1

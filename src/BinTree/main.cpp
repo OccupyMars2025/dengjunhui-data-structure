@@ -7,6 +7,30 @@
  ******************************************************************************************/
 
 #include "BinTree_test.h"
+#include <cassert>
+
+template <typename T>
+struct Constant
+{
+   T value;
+   Constant(T value): value(value) {}
+
+   void operator()(T& e) {
+      e = value;
+   }
+};
+
+template <typename T>
+struct CheckIfEqual
+{
+   T value;
+   CheckIfEqual(T value): value(value) {}
+
+   void operator()(const T& e) {
+      assert(e == value);
+   }
+};
+
 
 int testID = 0; //测试编号
 
@@ -49,50 +73,58 @@ void  testBinTree ( int h ) { //测试二叉树
    printf ( "\n  ==== Test %2d. Double and increase all nodes by traversal\n", testID++ );
    Double<T> *double_visit = new Double<T>();
    Increase<T> *increase_visit = new Increase<T>();
+   Constant<T>* assign_constant_visit = new Constant<T>(3);
+   CheckIfEqual<T> *check_if_equal_visit = new CheckIfEqual<T>(3);
 
-   bt.travPre ( *double_visit ); 
-   bt.travPre ( *increase_visit ); 
-   print ( bt );
+   // bt.travPre ( *double_visit ); 
+   // bt.travPre ( *increase_visit ); 
+   // print ( bt );
 
-   bt.travIn ( *double_visit ); 
-   bt.travIn ( *increase_visit ); 
-   print ( bt );
+   // bt.travIn ( *double_visit ); 
+   // bt.travIn ( *increase_visit ); 
+   // print ( bt );
    
    bt.travPost ( *double_visit ); 
    bt.travPost ( *increase_visit ); 
    print ( bt );
+   bt.travPost(*assign_constant_visit);
+   print(bt);
+   bt.travIn(*check_if_equal_visit);
 
-   bt.travLevel ( *double_visit ); 
-   bt.travLevel ( *increase_visit ); 
-   print ( bt );
 
-   printf("check Hailstone\n");
-   Hailstone<T> hs; 
-   bt.travIn ( hs ); 
-   print ( bt );
+   
 
-   printf ( "\n  ==== Test %2d. Remove/release subtrees in the Tree\n", testID++ );
-   while ( !bt.empty() ) {
-      BinNodePosi<T> p = randomPosiInBinTree ( bt.root() ); //随机选择一个节点
-      if ( dice ( 2 ) ) {
-         printf ( "removing " ); 
-         print ( p->data ); 
-         printf ( " ...\n" );
+   // bt.travLevel ( *double_visit ); 
+   // bt.travLevel ( *increase_visit ); 
+   // print ( bt );
 
-         printf ( "%d node(s) removed\n", bt.remove ( p ) ); 
-         print ( bt );
-      } else {
-         printf ( "releasing " ); 
-         print ( p->data ); 
-         printf ( " ...\n" );
+   // printf("check Hailstone\n");
+   // Hailstone<T> hs; 
+   // bt.travIn ( hs ); 
+   // print ( bt );
 
-         BinTree<T>* S = bt.secede ( p ); 
-         print ( S );
-         printf ( "%d node(s) released\n", S->size() ); 
-         release ( S ); 
-         print ( bt );
-      }
-   }
+//    printf ( "\n  ==== Test %2d. Remove/release subtrees in the Tree\n", testID++ );
+//    while ( !bt.empty() ) {
+//       BinNodePosi<T> p = randomPosiInBinTree ( bt.root() ); //随机选择一个节点
+//       if ( dice ( 2 ) ) {
+//          printf ( "removing " ); 
+//          print ( p->data ); 
+//          printf ( " ...\n" );
+
+//          printf ( "%d node(s) removed\n", bt.remove ( p ) ); 
+//          print ( bt );
+//       } else {
+//          printf ( "releasing " ); 
+//          print ( p->data ); 
+//          printf ( " ...\n" );
+
+//          BinTree<T>* S = bt.secede ( p ); 
+//          print ( S );
+//          printf ( "%d node(s) released\n", S->size() ); 
+//          release ( S ); 
+//          print ( bt );
+//       }
+//    }
 }
 
 int main ( int argc, char* argv[] ) { //测试二叉树

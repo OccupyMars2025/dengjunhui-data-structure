@@ -1,4 +1,4 @@
-build/objects/./main_01_init.o: main_01_init.cpp ../_share/util.h \
+build/objects/./main.o: main.cpp BinTree_test.h ../_share/util.h \
  ../_share/comparator.h ../_share/checkOrder_Elem.h \
  ../_share/checkOrder_list.h ../List/List.h ../List/ListNode.h \
  ../List/ListNode_implementation.h ../List/ListNode_insertAsSucc.h \

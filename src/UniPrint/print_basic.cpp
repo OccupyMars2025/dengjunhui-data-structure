@@ -12,7 +12,14 @@
 
 void print ( char* x ) {  printf ( " %s", x ? x : "<NULL>" );  } //字符串特别处理
 void print ( const char* x ) {  printf ( " %s", x ? x : "<NULL>" );  } //字符串特别处理
-template <typename T> void print ( T* x ) {  x ? print ( *x ) : printf ( " <NULL>" );  }
+template <typename T> 
+void print ( T* x ) {  
+    if(x) {
+        print(*x);
+    } else {
+        printf(" <NULL>" );
+    }
+}
 template <typename T> void print ( T& x ) {  UniPrint::p ( x );  }
 template <typename T> void print ( const T& x ) {  UniPrint::p ( x );  } //for Stack
 

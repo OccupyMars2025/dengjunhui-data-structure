@@ -10,7 +10,7 @@
 
 //从当前节点出发，沿"左分支"不断深入，直至没有左分支的节点；沿途节点遇到后立即访问
 template <typename T, typename VST> //元素类型、操作器
-static void visitAlongVine( BinNodePosi<T> x, VST& visit, Stack<BinNodePosi<T>>& S ) {
+static void visitAlongLeftBranch( BinNodePosi<T> x, VST& visit, Stack<BinNodePosi<T>>& S ) {
    while ( x ) {
       visit( x->data ); //访问当前节点
       if(x->rc)
@@ -19,13 +19,18 @@ static void visitAlongVine( BinNodePosi<T> x, VST& visit, Stack<BinNodePosi<T>>&
    }
 }
 
+/*
+think in the visit(node) + preorder(subtree) method, 
+check the path of preorder
+page 127, picture 5.18
+*/
 template <typename T, typename VST> //元素类型、操作器
 void travPre_I2( BinNodePosi<T> x, VST& visit ) { //二叉树先序遍历算法（迭代版#2）
    printf("travPre_I2\n");
    
    Stack<BinNodePosi<T>> S; //辅助栈
    while ( true ) {
-      visitAlongVine( x, visit, S ); //从当前节点出发，逐批访问
+      visitAlongLeftBranch( x, visit, S ); //从当前节点出发，逐批访问
       if ( S.empty() ) break; //直到栈空
       x = S.pop(); //弹出下一批的起点
    }
