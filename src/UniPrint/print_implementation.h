@@ -14,8 +14,8 @@
  * 在export尚未被编译器支持前，如此可将定义与实现分离，以便课程讲解
  ******************************************************************************************/
 
-#include "print_BinNode.h"
-#include "print_BinTree.h"
+#include "print_BinNode.cpp"
+#include "print_BinTree.cpp"
 // #include "print_BTree.h"
 // #include "print_PQ_List.h"
 // #include "print_PQ_ComplHeap.h"

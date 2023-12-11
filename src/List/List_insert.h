@@ -8,8 +8,12 @@
 
 #pragma once
 
-template <typename T> ListNodePosi<T> List<T>::insertAsFirst( T const& e )
-   { _size++; return header->insertAsSucc( e ); } // e当作首节点插入
+template <typename T> 
+ListNodePosi<T> List<T>::insertAsFirst( T const& e )
+{ 
+   _size++; 
+   return header->insertAsSucc( e ); 
+} // e当作首节点插入
 
 // e当作末节点插入
 template <typename T> 

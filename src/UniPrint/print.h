@@ -35,7 +35,7 @@
 template <typename T> void print ( T* x );
 template <typename T> void print ( T& x );
 template <typename T> void print ( const T& x );
- void print ( char* x );
+void print ( char* x );
 void print ( const char* x );
 
 
@@ -71,5 +71,4 @@ public:
 }; //UniPrint
 
 
-
-#include "print_implementation.h"
+// #include "UniPrint/print_implementation.h"

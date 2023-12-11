@@ -8,6 +8,8 @@
 
 /*DSA*/#include "PFC.h"
 
+
+//二进制编码串记录于codeString中，返回编码串总长
 int encode ( PFCTable* table, Bitmap& codeString, char* s ) { //PFC编码算法
    int n = 0;
    for ( size_t m = strlen ( s ), i = 0; i < m; i++ ) { //对于明文s[]中的每个字符
@@ -19,5 +21,5 @@ int encode ( PFCTable* table, Bitmap& codeString, char* s ) { //PFC编码算法
          '1' == * ( *pCharCode + j ) ? codeString.set ( n++ ) : codeString.clear ( n++ );
    }
    /*DSA*/printf ( "\n" );
-   return n; //二进制编码串记录于codeString中，返回编码串总长
+   return n; 
 }

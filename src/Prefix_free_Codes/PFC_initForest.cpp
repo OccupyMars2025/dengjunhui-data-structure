@@ -6,11 +6,11 @@
  * Copyright (c) 2003-2023. All rights reserved.
  ******************************************************************************************/
 
-/*DSA*/#include "PFC.h"
+#include "PFC.h"
 
 PFCForest* initForest() { //PFC编码森林初始化
    PFCForest* forest = new PFCForest; //首先创建空森林，然后
-   for ( int i = 0; i < N_CHAR; i++ ) { //对每一个可打印字符[0x20, 0x80)
+   for ( int i = 0; i < N_CHAR; i++ ) { //对每一个可打印字符 [0x20, 0x80)
       forest->insert ( i, new PFCTree() ); //创建一棵对应的PFC编码树，初始时其中
       ( *forest ) [i]->insert ( 0x20 + i ); //只包含对应的一个（叶、根）节点
    }
