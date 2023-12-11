@@ -7,6 +7,7 @@
  ******************************************************************************************/
 
 #pragma once
+#include <cstdint>
 using Rank = int32_t;
 
 class Fib { //Fibonacci ˝¡–¿‡

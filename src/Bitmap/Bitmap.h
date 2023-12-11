@@ -12,6 +12,7 @@
 #include <cstdlib>
 #include <cstdio>
 #include <memory.h>
+#include <cstdint>
 // #include "_share/release.h"
 using Rank = int32_t;
 
@@ -28,7 +29,7 @@ protected:
    }
 public:
    Bitmap( Rank n = 8 ) { init( n ); } //按指定容量创建位图（为测试暂时选用较小的默认值）
-   Bitmap( char* file, Rank n = 8 ) { //按指定或默认规模，从指定文件中读取位图
+   Bitmap( const char* file, Rank n = 8 ) { //按指定或默认规模，从指定文件中读取位图
       init( n );
       FILE* fp = fopen( file, "r" ); 
       fread( M, sizeof( char ), N, fp ); 

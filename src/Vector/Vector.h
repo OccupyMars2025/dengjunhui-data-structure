@@ -7,6 +7,8 @@
  ******************************************************************************************/
 
 #pragma once
+#include <cstdint>
+#include <iostream>
 
 using Rank = int32_t; //秩
 #define DEFAULT_CAPACITY  3 //默认的初始容量（实际应用中可设置为更大）
@@ -67,4 +69,6 @@ public:
    template <typename VST> void traverse ( VST& ); //遍历（使用函数对象，可全局性修改）
 }; //Vector
 
-#include "Vector_implementation.h"
+
+template <typename T> 
+void permute ( Vector<T>& V );

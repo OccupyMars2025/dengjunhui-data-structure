@@ -6,7 +6,7 @@
  * Copyright (c) 2003-2023. All rights reserved.
  ******************************************************************************************/
 
-/*DSA*/#include "Huffman_PQ.h"
+#include "Huffman_PQ.h"
 
 int encode ( HuffTable* table, Bitmap* codeString, char* s ) { //按照编码表对Bitmap串编码
    int n = 0; //待返回的编码串总长n
@@ -18,5 +18,6 @@ int encode ( HuffTable* table, Bitmap* codeString, char* s ) { //按照编码表对Bit
       for ( size_t m = strlen ( *pCharCode ), j = 0; j < m; j++ ) //将当前字符的编码接入编码串
          '1' == * ( *pCharCode + j ) ? codeString->set ( n++ ) : codeString->clear ( n++ );
    }
-   printf ( "\n" ); return n;
+   printf ( "\n" ); 
+   return n;
 } //二进制编码串记录于位图codeString中

@@ -6,8 +6,9 @@
  * Copyright (c) 2003-2023. All rights reserved.
  ******************************************************************************************/
 
-__int64 fibI ( int n ) { //计算Fibonacci数列的第n项（迭代版）：O(n)
-   __int64 f = 1, g = 0; //初始化：fib(-1)、fib(0)
+#include <cstdint>
+int64_t fibI ( int n ) { //计算Fibonacci数列的第n项（迭代版）：O(n)
+   int64_t f = 1, g = 0; //初始化：fib(-1)、fib(0)
    while ( 0 < n-- ) { g += f; f = g - f; } //依据原始定义，通过n次加法和减法计算fib(n)
    return g; //返回
 }

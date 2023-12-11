@@ -7,7 +7,7 @@
  ******************************************************************************************/
 
 #pragma once
-
+#include <cstdint>
 using Rank = int32_t;
 
 #if defined( DSA_REDBLACK ) //ÔÚºìºÚÊ÷ÖÐ

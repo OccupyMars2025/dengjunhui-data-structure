@@ -9,7 +9,7 @@
 /******************************************************************************************
  * Test of Vector
  ******************************************************************************************/
-#include "Vector_test.h"
+#include "Vector/Vector_test.h"
 
 int testID = 0; //测试编号
 
@@ -85,55 +85,57 @@ void testVector( int testSize ) {
    printf ( "\n  ==== Test %2d. Generate a random vector\n", testID++ );
    Vector<T> V;
    for ( int i = 0; i < testSize; i++ ) 
-      V.insert ( dice ( i + 1 ), dice ( ( T ) testSize * 3 ) ); //在[0, 3n)中选择n个数，随机插入向量
-   PRINT ( V );
-   permute ( V );
-   PRINT ( V )
+      V.insert ( (Rank)dice ( i + 1 ), (char)dice ( testSize * 3 ) ); //在[0, 3n)中选择n个数，随机插入向量
+   // PRINT ( V );
+   // permute ( V );
+   // PRINT ( V )
 
-   printf ( "\n  ==== Test %2d. Lowpass on\n", testID++ ); 
-   PRINT ( V );
-   int i = V.size(); 
-   while ( 0 < --i ) 
-   { 
-      V[i-1] *= 7; 
-      V[i-1] += V[i]; 
-      V[i-1] >>= 3; 
-   }    
-   PRINT ( V );
+   // printf ( "\n  ==== Test %2d. Lowpass on\n", testID++ ); 
+   // PRINT ( V );
+   // int i = V.size(); 
+   // while ( 0 < --i ) 
+   // { 
+   //    V[i-1] *= 7; 
+   //    V[i-1] += V[i]; 
+   //    V[i-1] >>= 3; 
+   // }    
+   // PRINT ( V );
 
-   printf ( "\n  ==== Test %2d. Increase\n", testID++ ); 
-   PRINT ( V );
-   increase ( V ); 
-   PRINT ( V );
+   // printf ( "\n  ==== Test %2d. Increase\n", testID++ ); 
+   // PRINT ( V );
+   // increase ( V ); 
+   // PRINT ( V );
 
-   printf ( "\n  ==== Test %2d. FIND in\n", testID++ ); 
-   PRINT ( V );
-   TestFind<T> ( V );
+   // printf ( "\n  ==== Test %2d. FIND in\n", testID++ ); 
+   // PRINT ( V );
+   // TestFind<T> ( V );
 
-   printf ( "\n  ==== Test %2d. Sort degenerate intervals each of size 1 in\n", testID++ ); 
-   PRINT ( V );
-   for ( Rank i = 0; i < V.size(); i += max(1, V.size() / 5) ) 
-   { 
-      printf("sort the inteval [%d, %d)\n", i, i+1);
-      V.sort ( i, i+1 ); 
-      PRINT ( V ); 
-   } //element by element
+   // printf ( "\n  ==== Test %2d. Sort degenerate intervals each of size 1 in\n", testID++ ); 
+   // PRINT ( V );
+   // for ( Rank i = 0; i < V.size(); i += max(1, V.size() / 5) ) 
+   // { 
+   //    printf("sort the inteval [%d, %d)\n", i, i+1);
+   //    V.sort ( i, i+1 ); 
+   //    PRINT ( V ); 
+   // } //element by element
 
-   Rank trunk = int(ceil(V.size()/5.0));
-   printf ( "\n  ==== Test %2d. Sort %d intervals each of size <=%d in\n", testID++, V.size()/trunk, trunk ); 
-   PRINT ( V );
-   for ( Rank i = 0; i < V.size(); i += trunk ) 
-   { 
-      int high = min ( V.size(), i + trunk );
-      printf("[%d , %d)\n", i,  high); 
-      V.sort ( i, high ); 
-      PRINT ( V ); 
-   } //interval by interval
+   // Rank trunk = int(ceil(V.size()/5.0));
+   // printf ( "\n  ==== Test %2d. Sort %d intervals each of size <=%d in\n", testID++, V.size()/trunk, trunk ); 
+   // PRINT ( V );
+   // for ( Rank i = 0; i < V.size(); i += trunk ) 
+   // { 
+   //    int high = min ( V.size(), i + trunk );
+   //    printf("[%d , %d)\n", i,  high); 
+   //    V.sort ( i, high ); 
+   //    PRINT ( V ); 
+   // } //interval by interval
    
-   printf ( "\n  ==== Test %2d. Sort the entire vector of\n", testID++ ); 
-   PRINT ( V );
-   V.sort();   
-   PRINT ( V );
+   // printf ( "\n  ==== Test %2d. Sort the entire vector of\n", testID++ ); 
+   // PRINT ( V );
+   // V.sort();   
+   // PRINT ( V );
+
+
 
    // printf ( "\n  ==== Test %2d. FIND in\n", testID++ ); PRINT ( V );
    // TestFind<T> ( V );

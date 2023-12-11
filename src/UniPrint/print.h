@@ -10,9 +10,10 @@
 #define PRINT(x)  { print(x); crc(x); checkOrder(x); printf("\n"); }
 
 #include <cstdio> //采用C风格精细控制输出格式
-// #include "Huffman/HuffChar.h" //Huffman超字符
+#include "Huffman/HuffChar.h" //Huffman超字符
+#include "BinTree/BinNode.h"
 #include "BinTree/BinTree.h" //二叉树
-// #include "Huffman/HuffTree.h" //Huffman树
+#include "Huffman/HuffTree.h" //Huffman树
 // #include "BST/BST.h" //二叉搜索树
 // #include "AVL/AVL.h" //AVL树
 // #include "Splay/Splay.h" //伸展树
@@ -37,6 +38,9 @@ template <typename T> void print ( T& x );
 template <typename T> void print ( const T& x );
 void print ( char* x );
 void print ( const char* x );
+void print ( int A[], int n ); //输出整数数组A[0, n)
+void print ( int A[], int n, int lo, int hi ); //输出整数数组区间A[lo, hi)
+
 
 
 class UniPrint {
@@ -46,7 +50,7 @@ public:
    static void p ( float );
    static void p ( double );
    static void p ( char );
-   // static void p ( HuffChar& ); //Huffman（超）字符
+   static void p ( HuffChar& ); //Huffman（超）字符
    // static void p ( VStatus ); //图顶点的状态
    // static void p ( EType ); //图边的类型
 

@@ -6,9 +6,24 @@
  * Copyright (c) 2003-2023. All rights reserved.
  ******************************************************************************************/
 
-// #pragma once
-
 #include "UniPrint/print.h"
+
+//输出整数数组A[0, n)
+void print ( int A[], int n ) {
+    for(int i = 0; i < n; ++i) {
+        printf(" %d,", A[i]);
+    }
+    printf("\n");
+}
+
+//输出整数数组区间A[lo, hi)
+void print ( int A[], int lo, int hi ) {
+    for(int i = lo; i < hi; ++i) {
+        printf(" %d,", A[i]);
+    }
+    printf("\n");
+}
+
 
 void print ( char* x ) {  printf ( " %s", x ? x : "<NULL>" );  } //字符串特别处理
 void print ( const char* x ) {  printf ( " %s", x ? x : "<NULL>" );  } //字符串特别处理

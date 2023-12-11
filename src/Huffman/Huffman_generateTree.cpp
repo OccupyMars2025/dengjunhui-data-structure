@@ -6,7 +6,7 @@
  * Copyright (c) 2003-2023. All rights reserved.
  ******************************************************************************************/
 
-/*DSA*/#include "Huffman_PQ.h"
+#include "Huffman/Huffman_PQ.h"
 
 HuffTree* minHChar ( HuffForest* forest ) { //ÔÚHuffmanÉ­ÁÖÖĞÕÒ³öÈ¨ÖØ×îĞ¡µÄ³¬×Ö·û
    ListNodePosi<HuffTree*> m = forest->first(); //´ÓÊ×½Úµã³ö·¢£¬±éÀúËùÓĞ½Úµã
@@ -18,11 +18,22 @@ HuffTree* minHChar ( HuffForest* forest ) { //ÔÚHuffmanÉ­ÁÖÖĞÕÒ³öÈ¨ÖØ×îĞ¡µÄ³¬×Ö·
 
 HuffTree* generateTree ( HuffForest* forest ) { //Huffman±àÂëËã·¨
    while ( 1 < forest->size() ) {
-      HuffTree* T1 = minHChar ( forest ); HuffTree* T2 = minHChar ( forest );
-      HuffTree* S = new HuffTree(); /*DSA*/printf ( "\n################\nMerging " ); print ( T1->root()->data ); printf ( " with " ); print ( T2->root()->data ); printf ( " ...\n" );
+      HuffTree* T1 = minHChar ( forest ); 
+      HuffTree* T2 = minHChar ( forest );
+
+      HuffTree* S = new HuffTree(); 
+      printf ( "\n################\nMerging " ); 
+      print ( T1->root()->data ); 
+      printf ( " with " ); 
+      print ( T2->root()->data ); 
+      printf ( " ...\n" );
+
       S->insert ( HuffChar ( '^', T1->root()->data.weight + T2->root()->data.weight ) );
-      S->attach ( T1, S->root() ); S->attach ( S->root(), T2 );
-      forest->insertAsLast ( S ); /*DSA*/ //print(forest);
+      S->attach ( T1, S->root() ); 
+      S->attach ( S->root(), T2 );
+
+      forest->insertAsLast ( S );  //print(forest);
    } //assert: Ñ­»·½áÊøÊ±£¬É­ÁÖÖĞÎ¨Ò»£¨ÁĞ±íÊ×½ÚµãÖĞ£©µÄÄÇ¿ÃÊ÷¼´Huffman±àÂëÊ÷
+   
    return forest->first()->data;
 }
