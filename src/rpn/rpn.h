@@ -14,6 +14,7 @@
 #include <cstring>
 #include <cmath>
 
+#include "UniPrint/print.h"
 #include "Stack/Stack.h" //สนำรีป
 #include "priority.h"
 #include "factorial/fac.h"

@@ -11,7 +11,8 @@ APP_DIR  := $(BUILD)/apps
 TARGET   := program
 INCLUDE  := -I../
 SRC      :=                    \
-    $(wildcard ./*.cpp)         \
+    $(wildcard ./*.cpp)        \
+	$(wildcard ../UniPrint/*.cpp) \
 
 OBJECTS  := $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 DEPENDENCIES \

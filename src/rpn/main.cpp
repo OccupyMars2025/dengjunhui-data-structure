@@ -7,7 +7,6 @@
  ******************************************************************************************/
 
 #include "rpn.h"
-#include "UniPrint/print.h"
 
 char* removeSpace ( char* s ) { //ÌÞ³ýs[]ÖÐµÄ°×¿Õ¸ñ
    for ( char *p = s-1, *q = s; (p < s) || *p; ++q) {

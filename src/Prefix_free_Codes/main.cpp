@@ -7,7 +7,6 @@
  ******************************************************************************************/
 
 #include "PFC_test.h"
-#include "UniPrint/print_implementation.h"
 
 int main ( int argc, char* argv[] ) { //PFC编码、解码算法统一测试入口
    if ( 2 > argc ) 

@@ -13,7 +13,7 @@ INCLUDE  := -I../
 SRC      :=                    \
     $(wildcard ./*.cpp)         \
 	$(wildcard ../prime/primeNLT.cpp) \
-	$(wildcard ../UniPrint/print_HuffChar.cpp) \
+	$(wildcard ../UniPrint/*.cpp) \
 
 OBJECTS  := $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 DEPENDENCIES \

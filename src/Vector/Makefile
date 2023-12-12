@@ -12,9 +12,8 @@ TARGET   := program
 INCLUDE  := -I../
 SRC      :=                      \
    $(wildcard ./main.cpp)    \
-   $(wildcard ../UniPrint/*.cpp) \
-   $(wildcard ./permute.cpp)  \
-   $(wildcard ./Vector*.cpp)  \
+   $(wildcard ../UniPrint/*.cpp)
+
 
 OBJECTS  := $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 DEPENDENCIES \

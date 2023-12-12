@@ -14,7 +14,7 @@ SRC      :=                    \
     $(wildcard ./*.cpp)         \
 	$(wildcard ../factorial/fac_iterative.cpp) \
 	$(wildcard ../factorial/fac_recursive.cpp) \
-	# $(wildcard ../UniPrint/*.cpp) \
+	$(wildcard ../UniPrint/*.cpp) \
 
 OBJECTS  := $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 # OBJECTS  += $(SRC2:../UniPrint/%.cpp=$(OBJ_DIR)/%.o)

@@ -12,10 +12,26 @@ build/objects/./main.o: main.cpp ../Vector/Vector_test.h ../_share/util.h \
  ../List/List_merge.h ../List/List_mergeSort.h ../List/List_radixSort.h \
  ../List/List_deduplicate.h ../List/List_uniquify.h \
  ../List/List_reverse1.h ../_share/checkOrder_vector.h ../Vector/Vector.h \
- ../_share/double_Elem.h ../_share/increase_Elem.h \
- ../_share/Hailstone_Elem.h ../_share/increase_list.h \
- ../_share/increase_vector.h ../_share/crc_Elem.h ../_share/crc_list.h \
- ../UniPrint/print.h ../Huffman/HuffChar.h ../BinTree/BinNode.h \
+ ../Vector/Vector_implementation.h ../Vector/permute.h \
+ ../Vector/Vector_bracket.h ../Vector/Vector_assignment.h \
+ ../Vector/Vector_constructor_by_copying.h ../Vector/Vector_expand.h \
+ ../Vector/Vector_shrink.h ../Vector/Vector_insert.h \
+ ../Vector/Vector_remove.h ../Vector/Vector_removeInterval.h \
+ ../Vector/Vector_find.h ../Vector/Vector_search.h \
+ ../Vector/Vector_search_binary_C.h \
+ ../Vector/Vector_search_fibonaccian_B.h ../fibonacci/Fib.h \
+ ../Vector/Vector_traverse.h ../Vector/Vector_unsort.h \
+ ../Vector/Vector_sort.h ../Vector/Vector_bubbleSort_A.h \
+ ../Vector/Vector_bubbleSort_B.h ../Vector/Vector_bubbleSort_C.h \
+ ../Vector/Vector_selectionSort.h ../Vector/Vector_merge.h \
+ ../Vector/Vector_mergeSort.h ../Vector/Vector_partition_LUG.h \
+ ../Vector/Vector_heapSort.h ../Vector/Vector_quickSort_iterative.h \
+ ../Vector/Vector_shellSort.h ../Vector/Vector_uniquify.h \
+ ../Vector/Vector_deduplicate.h ../_share/double_Elem.h \
+ ../_share/increase_Elem.h ../_share/Hailstone_Elem.h \
+ ../_share/increase_list.h ../_share/increase_vector.h \
+ ../_share/crc_Elem.h ../_share/crc_list.h ../UniPrint/print.h \
+ ../Huffman/HuffChar.h ../BinTree/BinTree.h ../BinTree/BinNode.h \
  ../BinTree/BinNode_implementation.h ../BinTree/BinNode_macro.h \
  ../BinTree/BinNode_macro_Basic.h ../BinTree/BinNode_macro_AVL.h \
  ../BinTree/BinNode_macro_RedBlack.h ../BinTree/BinNode_size.h \
@@ -32,8 +48,10 @@ build/objects/./main.o: main.cpp ../Vector/Vector_test.h ../_share/util.h \
  ../Queue/Queue.h ../Queue/Queue_implementation.h \
  ../BinTree/BinNode_zig.h ../BinTree/BinNode_zag.h \
  ../BinTree/BinNode_stretchByZig.h ../BinTree/BinNode_stretchByZag.h \
- ../BinTree/BinTree.h ../BinTree/BinTree_implementation.h \
- ../BinTree/BinTree_updateHeight.h ../BinTree/BinTree_insert.h \
- ../BinTree/BinTree_attach.h ../BinTree/BinTree_remove.h \
- ../BinTree/BinTree_secede.h ../Huffman/HuffTree.h ../_share/crc_vector.h \
- ../_share/rand.h
+ ../BinTree/BinTree_implementation.h ../BinTree/BinTree_updateHeight.h \
+ ../BinTree/BinTree_insert.h ../BinTree/BinTree_attach.h \
+ ../BinTree/BinTree_remove.h ../BinTree/BinTree_secede.h \
+ ../Huffman/HuffTree.h ../UniPrint/print_implementation.h \
+ ../UniPrint/print_BinNode.h ../UniPrint/print_BinTree.h \
+ ../Bitmap/Bitmap.h ../UniPrint/print_traversable.h \
+ ../_share/crc_vector.h ../_share/rand.h

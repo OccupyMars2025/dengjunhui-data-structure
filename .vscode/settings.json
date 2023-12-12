@@ -21,6 +21,7 @@
         "type_traits": "cpp",
         "typeinfo": "cpp",
         "array": "cpp",
-        "string_view": "cpp"
+        "string_view": "cpp",
+        "iostream": "cpp"
     }
 }

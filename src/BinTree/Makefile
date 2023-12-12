@@ -11,10 +11,8 @@ APP_DIR  := $(BUILD)/apps
 TARGET   := program
 INCLUDE  := -I../
 SRC      :=                    \
-    $(wildcard ./*.cpp)         \
-	# $(wildcard ../factorial/fac_iterative.cpp) \
-	# $(wildcard ../factorial/fac_recursive.cpp) \
-	# $(wildcard ../UniPrint/*.cpp) \
+    $(wildcard ./main.cpp)     \
+	$(wildcard ../UniPrint/*.cpp) \
 
 OBJECTS  := $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 DEPENDENCIES \

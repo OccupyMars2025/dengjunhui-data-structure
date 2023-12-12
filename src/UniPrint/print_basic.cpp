@@ -6,38 +6,7 @@
  * Copyright (c) 2003-2023. All rights reserved.
  ******************************************************************************************/
 
-#include "UniPrint/print.h"
-
-//输出整数数组A[0, n)
-void print ( int A[], int n ) {
-    for(int i = 0; i < n; ++i) {
-        printf(" %d,", A[i]);
-    }
-    printf("\n");
-}
-
-//输出整数数组区间A[lo, hi)
-void print ( int A[], int lo, int hi ) {
-    for(int i = lo; i < hi; ++i) {
-        printf(" %d,", A[i]);
-    }
-    printf("\n");
-}
-
-
-void print ( char* x ) {  printf ( " %s", x ? x : "<NULL>" );  } //字符串特别处理
-void print ( const char* x ) {  printf ( " %s", x ? x : "<NULL>" );  } //字符串特别处理
-template <typename T> 
-void print ( T* x ) {  
-    if(x) {
-        print(*x);
-    } else {
-        printf(" <NULL>" );
-    }
-}
-template <typename T> void print ( T& x ) {  UniPrint::p ( x );  }
-template <typename T> void print ( const T& x ) {  UniPrint::p ( x );  } //for Stack
-
+#include "print.h"
 
 /******************************************************************************************
  * 基本类型
@@ -46,16 +15,9 @@ void UniPrint::p( int e ) { printf( " %04d", e ); }
 void UniPrint::p( size_t e ) { p( (int)e ); } // Rank型0xFFFFFFFF在打印前先转换为-1，以便观察
 void UniPrint::p( float e ) { printf( " %4.3f", e ); }
 void UniPrint::p( double e ) { printf( " %4.3f", e ); }
-// void UniPrint::p( char e ) { printf( " %c", ( 31 < e ) && ( e < 128 ) ? e : '$' ); }
+// No need to add: ( e < 128 )
+// omparison is always true due to limited range of data type
 void UniPrint::p( char e ) { printf( " %c", ( 31 < e ) ? e : '$' ); }
-   
-template <typename T> 
-void UniPrint::p( T* s ) //所有指针
-{ 
-    s ? p( *s ) : print( "<NULL>" ); 
-} //统一转为引用
-
-
 // void UniPrint::p( VStatus e ) {
 //    switch ( e ) {
 //       case UNDISCOVERED:   printf ( "U" ); break;
@@ -64,6 +26,7 @@ void UniPrint::p( T* s ) //所有指针
 //       default:             printf ( "X" ); break;
 //    }
 // }
+
 // void UniPrint::p( EType e ) {
 //    switch ( e ) {
 //       case UNDETERMINED:   printf ( "U" ); break;

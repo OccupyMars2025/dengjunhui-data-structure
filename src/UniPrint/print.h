@@ -11,7 +11,6 @@
 
 #include <cstdio> //采用C风格精细控制输出格式
 #include "Huffman/HuffChar.h" //Huffman超字符
-#include "BinTree/BinNode.h"
 #include "BinTree/BinTree.h" //二叉树
 #include "Huffman/HuffTree.h" //Huffman树
 // #include "BST/BST.h" //二叉搜索树
@@ -28,20 +27,6 @@
 // #include "PQ_LeftHeap/PQ_LeftHeap.h" //基于左式堆实现的优先级队列
 // #include "Graph/Graph.h" //图
 // #include "GraphMatrix/GraphMatrix.h" //基于邻接矩阵实现的图
-
-
-/******************************************************************************************
- * 数据元素、数据结构通用输出接口
- ******************************************************************************************/
-template <typename T> void print ( T* x );
-template <typename T> void print ( T& x );
-template <typename T> void print ( const T& x );
-void print ( char* x );
-void print ( const char* x );
-void print ( int A[], int n ); //输出整数数组A[0, n)
-void print ( int A[], int n, int lo, int hi ); //输出整数数组区间A[lo, hi)
-
-
 
 class UniPrint {
 public:
@@ -70,9 +55,25 @@ public:
    // template <typename T> static void p( PQ_LeftHeap<T>& ); // PQ_LeftHeap
    // template <typename Tv, typename Te> static void p( GraphMatrix<Tv, Te>& ); // Graph
    template <typename T> static void p( T& ); //向量、列表等支持traverse()遍历操作的线性结构
-   template <typename T> static void p( const T& ); //向量、列表等支持traverse()遍历操作的线性结构
-   template <typename T> static void p( T* s );
+   template <typename T> static void p( T* s ) //所有指针
+   { s ? p( *s ) : printf( "<NULL>" ); } //统一转为引用
 }; //UniPrint
 
 
-// #include "UniPrint/print_implementation.h"
+/******************************************************************************************
+ * 数据元素、数据结构通用输出接口
+ ******************************************************************************************/
+template <typename T> static void print ( T* x ) 
+{  if(x) {
+      print ( *x );
+   } else {
+      printf ( " <NULL>" );  
+   }
+}
+template <typename T> static void print ( T& x ) {  UniPrint::p ( x );  }
+template <typename T> static void print ( const T& x ) {  UniPrint::p ( x );  } //for Stack
+static void print ( char* x ) {  printf ( " %s", x ? x : "<NULL>" );  } //字符串特别处理
+static void print ( const char* x ) {  printf ( " %s", x ? x : "<NULL>" );  } //字符串特别处理
+
+
+#include "print_implementation.h"

@@ -11,7 +11,7 @@
 //在有序列表内节点p（可能是trailer）的n个真前驱中，找到不大于e的最后者
 template <typename T> 
 ListNodePosi<T> List<T>::search( T const& e, Rank n, ListNodePosi<T> p ) const {
-   for(uint32_t count=1; count <= n; ++count) {
+   for(int count=1; count <= n; ++count) {
       p = p->pred;
       if(p == header) {
          return header;

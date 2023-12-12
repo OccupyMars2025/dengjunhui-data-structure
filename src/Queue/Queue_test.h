@@ -13,8 +13,6 @@ using namespace std;
 
 #include "_share/util.h"
 #include "UniPrint/print.h"
-#include "UniPrint/print_basic.cpp"
-#include "UniPrint/print_traversable.cpp"
 
 
 #include "Queue.h"

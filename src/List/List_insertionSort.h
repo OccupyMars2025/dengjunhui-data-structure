@@ -13,7 +13,7 @@ template <typename T>
 void List<T>::insertionSort( ListNodePosi<T> p, Rank n ) { // valid(p) && Rank(p) + n <= size
    /*DSA*/
    printf ( "InsertionSort ...\n" );
-   for ( uint32_t count = 0; count < n; count++ ) { //逐一为各节点
+   for ( int count = 0; count < n; count++ ) { //逐一为各节点
       insert( search( p->data, count, p ), p->data ); //查找适当的位置并插入
       p = p->succ; 
       remove( p->pred ); //转向下一节点

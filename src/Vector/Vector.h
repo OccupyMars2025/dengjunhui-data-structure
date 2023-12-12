@@ -70,5 +70,4 @@ public:
 }; //Vector
 
 
-template <typename T> 
-void permute ( Vector<T>& V );
+#include "Vector/Vector_implementation.h"

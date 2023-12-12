@@ -6,7 +6,8 @@
  * Copyright (c) 2003-2023. All rights reserved.
  ******************************************************************************************/
 
-/*DSA*/#include "Huffman_PQ.h"
+/*DSA*/
+#include "Huffman_PQ.h"
 
 int* statistics ( char* sample_text_file ) { //统计字符出现频率
    int* freq = new int[N_CHAR];  //以下统计需随机访问，故以数组记录各字符出现次数
