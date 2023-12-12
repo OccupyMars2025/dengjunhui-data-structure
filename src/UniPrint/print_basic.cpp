@@ -18,22 +18,22 @@ void UniPrint::p( double e ) { printf( " %4.3f", e ); }
 // No need to add: ( e < 128 )
 // omparison is always true due to limited range of data type
 void UniPrint::p( char e ) { printf( " %c", ( 31 < e ) ? e : '$' ); }
-// void UniPrint::p( VStatus e ) {
-//    switch ( e ) {
-//       case UNDISCOVERED:   printf ( "U" ); break;
-//       case DISCOVERED:     printf ( "D" ); break;
-//       case VISITED:        printf ( "V" ); break;
-//       default:             printf ( "X" ); break;
-//    }
-// }
+void UniPrint::p( VStatus e ) {
+   switch ( e ) {
+      case UNDISCOVERED:   printf ( "U" ); break;
+      case DISCOVERED:     printf ( "D" ); break;
+      case VISITED:        printf ( "V" ); break;
+      default:             printf ( "X" ); break;
+   }
+}
 
-// void UniPrint::p( EType e ) {
-//    switch ( e ) {
-//       case UNDETERMINED:   printf ( "U" ); break;
-//       case TREE:           printf ( "T" ); break;
-//       case CROSS:          printf ( "C" ); break;
-//       case BACKWARD:       printf ( "B" ); break;
-//       case FORWARD:        printf ( "F" ); break;
-//       default:             printf ( "X" ); break;
-//    }
-// }
+void UniPrint::p( EType e ) {
+   switch ( e ) {
+      case UNDETERMINED:   printf ( "U" ); break;
+      case TREE:           printf ( "T" ); break;
+      case CROSS:          printf ( "C" ); break;
+      case BACKWARD:       printf ( "B" ); break;
+      case FORWARD:        printf ( "F" ); break;
+      default:             printf ( "X" ); break;
+   }
+}

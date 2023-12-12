@@ -8,7 +8,9 @@
 
 #pragma once
 
-template <typename Tv, typename Te> void Graph<Tv, Te>::bcc( Rank s ) { //基于DFS的BCC分解算法
+
+template <typename Tv, typename Te> 
+void Graph<Tv, Te>::bcc( Rank s ) { //基于DFS的BCC分解算法
    reset(); Rank clock = 0; Rank v = s; Stack<Rank> S; //栈S用以记录已访问的顶点
    do
       if ( UNDISCOVERED == status( v ) ) { //一旦发现未发现的顶点（新连通分量）
@@ -17,7 +19,9 @@ template <typename Tv, typename Te> void Graph<Tv, Te>::bcc( Rank s ) { //基于DF
       }
    while ( s != ( v = ( ++v % n ) ) );
 }
+
 #define hca(x) (fTime(x)) //利用此处闲置的fTime[]充当hca[]
+
 template <typename Tv, typename Te> //顶点类型、边类型
 void Graph<Tv, Te>::BCC( Rank v, Rank& clock, Stack<Rank>& S ) { // assert: 0 <= v < n
    hca( v ) = dTime( v ) = ++clock; status( v ) = DISCOVERED; S.push( v ); // v被发现并入栈
@@ -30,7 +34,14 @@ void Graph<Tv, Te>::BCC( Rank v, Rank& clock, Stack<Rank>& S ) { // assert: 0 <=
             else //否则，以v为关节点（u以下即是一个BCC，且其中顶点此时正集中于栈S的顶部）
                /*DSA*/{
                /*DSA*/printf ( "BCC rooted at %c:", vertex ( v ) );
-               /*DSA*/Stack<int> temp; do { temp.push ( S.pop() ); print ( vertex ( temp.top() ) ); } while ( u != temp.top() ); print( vertex ( parent(u) ) ); while ( !temp.empty() ) S.push ( temp.pop() );
+               /*DSA*/Stack<int> temp; 
+               do { 
+                  temp.push ( S.pop() ); 
+                  print ( vertex ( temp.top() ) ); 
+               } while ( u != temp.top() ); 
+               print( vertex ( parent(u) ) ); 
+               while ( !temp.empty() ) 
+                  S.push ( temp.pop() );
                while ( u != S.pop() ); //弹出当前BCC中（除v外）的所有节点，可视需要做进一步处理
                /*DSA*/printf ( "\n" );
                /*DSA*/}

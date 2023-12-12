@@ -7,6 +7,10 @@
  ******************************************************************************************/
 
 #pragma once
+
+template <typename T> static void print ( const T& x );
+template <typename T> static void print ( T& x );
+
 #define PRINT(x)  { print(x); crc(x); checkOrder(x); printf("\n"); }
 
 #include <cstdio> //采用C风格精细控制输出格式
@@ -25,8 +29,9 @@
 // #include "PQ_List/PQ_List.h" //基于列表实现的优先级队列
 // #include "PQ_ComplHeap/PQ_ComplHeap.h" //基于完全堆实现的优先级队列
 // #include "PQ_LeftHeap/PQ_LeftHeap.h" //基于左式堆实现的优先级队列
-// #include "Graph/Graph.h" //图
-// #include "GraphMatrix/GraphMatrix.h" //基于邻接矩阵实现的图
+#include "Graph/Graph.h" //图
+#include "GraphMatrix/GraphMatrix.h" //基于邻接矩阵实现的图
+
 
 class UniPrint {
 public:
@@ -36,8 +41,8 @@ public:
    static void p ( double );
    static void p ( char );
    static void p ( HuffChar& ); //Huffman（超）字符
-   // static void p ( VStatus ); //图顶点的状态
-   // static void p ( EType ); //图边的类型
+   static void p ( VStatus ); //图顶点的状态
+   static void p ( EType ); //图边的类型
 
    // template <typename K, typename V> static void p( Entry<K, V>& ); // Entry
    template <typename T> static void p( BinNode<T>& ); // BinTree节点
@@ -53,7 +58,7 @@ public:
    // template <typename T> static void p( PQ_List<T>& ); // PQ_List
    // template <typename T> static void p( PQ_ComplHeap<T>& ); // PQ_ComplHeap
    // template <typename T> static void p( PQ_LeftHeap<T>& ); // PQ_LeftHeap
-   // template <typename Tv, typename Te> static void p( GraphMatrix<Tv, Te>& ); // Graph
+   template <typename Tv, typename Te> static void p( GraphMatrix<Tv, Te>& ); // Graph
    template <typename T> static void p( T& ); //向量、列表等支持traverse()遍历操作的线性结构
    template <typename T> static void p( T* s ) //所有指针
    { s ? p( *s ) : printf( "<NULL>" ); } //统一转为引用
@@ -63,17 +68,19 @@ public:
 /******************************************************************************************
  * 数据元素、数据结构通用输出接口
  ******************************************************************************************/
+static void print ( char* x ) {  printf ( " %s", x ? x : "<NULL>" );  } //字符串特别处理
+static void print ( const char* x ) {  printf ( " %s", x ? x : "<NULL>" );  } //字符串特别处理
 template <typename T> static void print ( T* x ) 
-{  if(x) {
+{  
+   if(x) {
       print ( *x );
    } else {
       printf ( " <NULL>" );  
    }
 }
+
 template <typename T> static void print ( T& x ) {  UniPrint::p ( x );  }
 template <typename T> static void print ( const T& x ) {  UniPrint::p ( x );  } //for Stack
-static void print ( char* x ) {  printf ( " %s", x ? x : "<NULL>" );  } //字符串特别处理
-static void print ( const char* x ) {  printf ( " %s", x ? x : "<NULL>" );  } //字符串特别处理
 
 
 #include "print_implementation.h"

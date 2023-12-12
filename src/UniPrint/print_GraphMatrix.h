@@ -15,7 +15,7 @@ template <typename Tv, typename Te> //顶点类型、边类型
 void UniPrint::p ( GraphMatrix<Tv, Te>& s ) { //引用
    Rank inD = 0; for ( Rank i = 0; i < s.n; i++ ) inD += s.inDegree ( i );
    Rank outD = 0; for ( Rank i = 0; i < s.n; i++ ) outD += s.outDegree ( i );
-   printf ( "%s[%d]*(%d, %d):\n", typeid ( s ).name(), (int) &s, s.n, s.e ); //基本信息
+   printf ( "[name]%s  [address]%p  (%d, %d):\n", typeid ( s ).name(), (void*) &s, s.n, s.e ); //基本信息
 // 标题行
    print ( s.n ); printf ( " " ); print ( inD ); printf ( "|" );
    for ( Rank i = 0; i < s.n; i++ ) { print ( s.vertex ( i ) ); printf ( "[" ); print ( s.status ( i ) ); printf ( "] " ); }
