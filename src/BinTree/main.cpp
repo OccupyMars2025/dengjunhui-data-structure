@@ -31,6 +31,15 @@ struct CheckIfEqual
    }
 };
 
+template <typename T>
+struct PrintData
+{
+   void operator()(const T& e) {
+      print(e);
+   }
+};
+
+
 
 int testID = 0; //≤‚ ‘±‡∫≈
 
@@ -58,6 +67,37 @@ BinNodePosi<T> randomPosiInBinTree ( BinNodePosi<T> root ) {
           randomPosiInBinTree ( root->rc ) ;
 }
 
+template <typename T>
+void checkPredecessorAndSuccessor(BinTree<T> &binary_tree) {
+   if(binary_tree.size() == 0) {
+      printf("Error: empty tree\n");
+      exit(1);
+   }
+   BinNodePosi<T> node = binary_tree.root();
+   BinNodePosi<T> predecessor, successor;
+
+   int count = 1;
+   while (0 < count--)
+   {
+      while (predecessor = node->pred())
+      {
+         assert(predecessor->succ() == node);
+         node = predecessor;
+      }
+      
+      print(node->data);
+      while (successor = node->succ())
+      {
+         print(successor->data);
+         assert(successor->pred() == node);
+         node = successor;
+      }
+      printf("\n");
+   }
+   
+   
+}
+
 template <typename T> 
 void  testBinTree ( int h ) { //≤‚ ‘∂˛≤Ê ˜
    printf ( "\n  ==== Test %2d. Generate a BinTree of height <= %d \n", testID++, h );
@@ -74,22 +114,35 @@ void  testBinTree ( int h ) { //≤‚ ‘∂˛≤Ê ˜
    Double<T> *double_visit = new Double<T>();
    Increase<T> *increase_visit = new Increase<T>();
    Constant<T>* assign_constant_visit = new Constant<T>(3);
-   CheckIfEqual<T> *check_if_equal_visit = new CheckIfEqual<T>(3);
+   CheckIfEqual<T> *check_if_equal_visit = new CheckIfEqual<T>(4);
+   PrintData<T> *print_data_visit = new PrintData<T>();
 
    // bt.travPre ( *double_visit ); 
    // bt.travPre ( *increase_visit ); 
    // print ( bt );
+   // bt.travPre(*assign_constant_visit);
+   // print(bt);
+   // bt.travIn(*check_if_equal_visit);
 
    // bt.travIn ( *double_visit ); 
    // bt.travIn ( *increase_visit ); 
    // print ( bt );
+   // checkPredecessorAndSuccessor(bt);
+   // travIn_R(bt.root(), *print_data_visit);
+   // printf("\n");
    
-   bt.travPost ( *double_visit ); 
-   bt.travPost ( *increase_visit ); 
-   print ( bt );
-   bt.travPost(*assign_constant_visit);
+   travIn_I4(bt.root(), *assign_constant_visit);
    print(bt);
-   bt.travIn(*check_if_equal_visit);
+   travIn_I4(bt.root(), *increase_visit);
+   print(bt);
+   travIn_R(bt.root(), *check_if_equal_visit);
+
+   // bt.travPost ( *double_visit ); 
+   // bt.travPost ( *increase_visit ); 
+   // print ( bt );
+   // bt.travPost(*assign_constant_visit);
+   // print(bt);
+   // bt.travIn(*check_if_equal_visit);
 
 
    

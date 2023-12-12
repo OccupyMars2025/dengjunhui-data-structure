@@ -17,6 +17,7 @@
 #include "BinNode_size.h" //后代数目
 #include "BinNode_insert.h" //插入
 #include "BinNode_succ.h" //取节点后继
+#include "BinNode_pred.h" // get the predecessor
 #include "BinNode_travPreorder.h" //先序遍历
 #include "BinNode_travInorder.h" //中序遍历
 #include "BinNode_travPostorder.h" //后序遍历
