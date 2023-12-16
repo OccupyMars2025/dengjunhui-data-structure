@@ -8,6 +8,7 @@
 
 #pragma once
 
+// To use "INT_MAX", include this 
 #include <climits>
 
 using VStatus = enum VStatus { UNDISCOVERED, DISCOVERED, VISITED }; //顶点状态
@@ -21,7 +22,8 @@ private:
          status( v ) = UNDISCOVERED; dTime( v ) = fTime( v ) = -1; //状态，时间标签
          parent( v ) = -1; priority( v ) = INT_MAX; //（在遍历树中的）父节点，优先级数
          for ( Rank u = 0; u < n; u++ ) //所有边的
-            if ( exists( v, u ) ) type( v, u ) = UNDETERMINED; //类型
+            if ( exists( v, u ) ) 
+               type( v, u ) = UNDETERMINED; //类型
       }
    }
    void BFS( Rank, Rank& ); //（连通域）广度优先搜索算法

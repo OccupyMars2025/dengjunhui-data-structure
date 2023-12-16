@@ -35,7 +35,12 @@ protected:
 public:
 // 构造函数
    Vector ( Rank c = DEFAULT_CAPACITY, Rank s = 0, T v = 0 ) //容量为c、规模为s、所有元素初始为v
-   { _elem = new T[_capacity = c]; for ( _size = 0; _size < s; _elem[_size++] = v ); } //s<=c
+   { 
+      _elem = new T[_capacity = c]; 
+      for ( _size = 0; _size < s; _size++) {
+         _elem[_size] = v;
+      }
+   } //s<=c
    Vector ( T const* A, Rank n ) { copyFrom ( A, 0, n ); } //数组整体复制
    Vector ( T const* A, Rank lo, Rank hi ) { copyFrom ( A, lo, hi ); } //区间
    Vector ( Vector<T> const& V ) { copyFrom ( V._elem, 0, V._size ); } //向量整体复制

@@ -8,6 +8,7 @@
 
 #pragma once
 
+// priority-first search
 template <typename Tv, typename Te> template <typename PU> //优先级搜索（全图）
 void Graph<Tv, Te>::pfs( Rank s, PU prioUpdater ) { // s < n
    reset(); //全图复位

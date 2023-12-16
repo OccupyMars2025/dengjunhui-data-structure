@@ -14,7 +14,7 @@ Stack<Tv>* Graph<Tv, Te>::tSort( Rank s ) { // assert: 0 <= s < n
    Stack<Tv>* S = new Stack<Tv>; //用栈记录排序顶点
    for ( Rank v = s; v < s + n; v++ ) //从s起顺次检查所有顶点
       if ( UNDISCOVERED == status( v % n ) ) //一旦遇到尚未发现者
-         if ( !TSort( v, clock, S ) ) { //即从它出发启动一次TSort
+         if ( !TSort( v % n, clock, S ) ) { //即从它出发启动一次TSort
             /*DSA*/ print( S );
             while ( !S->empty() ) //任一连通域（亦即整图）非DAG
                S->pop();
