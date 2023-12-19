@@ -8,12 +8,14 @@
 
 #pragma once
 
-template <typename T> BinNodePosi<T> BinNode<T>::zag() { //ÄæÊ±ÕëÐý×ª
+template <typename T> 
+BinNodePosi<T> BinNode<T>::zag() { //ÄæÊ±ÕëÐý×ª
    BinNodePosi<T> rChild = rc;
    rChild->parent = this->parent;
    if ( rChild->parent )
       ( ( this == rChild->parent->lc ) ? rChild->parent->lc : rChild->parent->rc ) = rChild;
-   rc = rChild->lc; if ( rc ) rc->parent = this;
+   rc = rChild->lc; 
+   if ( rc ) rc->parent = this;
    rChild->lc = this; this->parent = rChild;
 // update heights
    height = 1 + max ( stature ( lc ), stature ( rc ) );

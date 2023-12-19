@@ -29,5 +29,8 @@ static BinNodePosi<T> removeAt( BinNodePosi<T>& x, BinNodePosi<T>& hot ) {
    }
    hot = w->parent; //记录实际被删除节点的父亲
    if ( succ ) succ->parent = hot; //并将被删除节点的接替者与hot相联
-   release( w->data ); release( w ); return succ; //释放被摘除节点，返回接替者
+   
+   release( w->data ); 
+   release( w ); 
+   return succ; //释放被摘除节点，返回接替者
 } //release()负责释放复杂结构，与算法无直接关系，具体实现详见代码包

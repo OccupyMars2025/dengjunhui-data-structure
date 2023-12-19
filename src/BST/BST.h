@@ -10,7 +10,8 @@
 
 #include "BinTree/BinTree.h" //引入BinTree
 
-template <typename T> class BST : public BinTree<T> { //由BinTree派生BST模板类
+template <typename T> 
+class BST : public BinTree<T> { //由BinTree派生BST模板类
 protected:
    BinNodePosi<T> _hot; //“命中”节点的父亲
    BinNodePosi<T> connect34 ( //按照“3 + 4”结构，联接3个节点及四棵子树
@@ -22,11 +23,11 @@ public: //基本接口：以virtual修饰，强制要求所有派生类（BST变种）根据各自的规则对
    virtual BinNodePosi<T> insert ( const T& e ); //插入
    virtual bool remove ( const T& e ); //删除
    /*DSA*/
-   /*DSA*/void stretchToLPath() { stretchByZag ( _root ); } //借助zag旋转，转化为左向单链
-   /*DSA*/void stretchToRPath() { stretchByZig ( _root ); } //借助zig旋转，转化为右向单链
+   /*DSA*/void stretchToLPath() { stretchByZag ( this->_root ); } //借助zag旋转，转化为左向单链
+   /*DSA*/void stretchToRPath() { stretchByZig ( this->_root ); } //借助zig旋转，转化为右向单链
    /*DSA*/void stretch();
-   /*DSA*/void balance() { _root = _root->balance(); } 
-   /*DSA*/void imitate( BST<T> Y ) { _root = _root->imitate( Y._root ); }
+   /*DSA*/void balance() { this->_root = this->_root->balance(); } 
+   /*DSA*/void imitate( BST<T> Y ) { this->_root = this->_root->imitate( Y._root ); }
 };
 
 #include "BST_implementation.h"

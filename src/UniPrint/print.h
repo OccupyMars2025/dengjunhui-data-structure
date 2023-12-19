@@ -17,7 +17,7 @@ template <typename T> static void print ( T& x );
 #include "Huffman/HuffChar.h" //Huffman³¬×Ö·û
 #include "BinTree/BinTree.h" //¶þ²æÊ÷
 #include "Huffman/HuffTree.h" //HuffmanÊ÷
-// #include "BST/BST.h" //¶þ²æËÑË÷Ê÷
+#include "BST/BST.h" //¶þ²æËÑË÷Ê÷
 // #include "AVL/AVL.h" //AVLÊ÷
 // #include "Splay/Splay.h" //ÉìÕ¹Ê÷
 // #include "RedBlack/RedBlack.h" //ºìºÚÊ÷
@@ -48,7 +48,7 @@ public:
    template <typename T> static void p( BinNode<T>& ); // BinTree½Úµã
    template <typename T> static void p( BinTree<T>& ); //¶þ²æÊ÷
    // template <typename T> static void p( BTree<T>& ); // B-Ê÷
-   // template <typename T> static void p( BST<T>& ); // BST
+   template <typename T> static void p( BST<T>& ); // BST
    // template <typename T> static void p( AVL<T>& ); // AVL
    // template <typename T> static void p( RedBlack<T>& ); // RedBlack
    // template <typename T> static void p( Splay<T>& ); // Splay
