@@ -23,6 +23,9 @@
         "array": "cpp",
         "string_view": "cpp",
         "iostream": "cpp",
-        "limits": "cpp"
+        "limits": "cpp",
+        "atomic": "cpp",
+        "bit": "cpp",
+        "stdexcept": "cpp"
     }
 }

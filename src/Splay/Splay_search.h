@@ -8,14 +8,9 @@
 
 #pragma once
 
-#include "BST/BST.h" //基于BST实现Splay
-template <typename T> class Splay : public BST<T> { //由BST派生的Splay树模板类
-protected:
-   BinNodePosi<T> splay( BinNodePosi<T> v ); //将节点v伸展至根
-public:
-   BinNodePosi<T>& search( const T& e ); //查找（重写）
-   BinNodePosi<T> insert( const T& e ); //插入（重写）
-   bool remove( const T& e ); //删除（重写）
-};
-
-#include "Splay_implementation.h"
+template <typename T> 
+BinNodePosi<T>& Splay<T>::search( const T& e ) { //在伸展树中查找e
+   BinNodePosi<T> p = BST<T>::search( e );
+   this->_root = splay( p ? p : this->_hot ); //将最后一个被访问的节点伸展至根
+   return this->_root;
+} //与其它BST不同，无论查找成功与否，_root都指向最后被访问的节点

@@ -63,17 +63,17 @@ void UniPrint::p ( BST<T> & bt ) { //引用
 //    release ( branchType ); printf ( "\n" );
 // }
 
-// /******************************************************************************************
-//  * 基于BST实现的Splay
-//  * 鉴于Splay不必设置bf之类的附加标识，其打印例程与BST完全一致
-//  ******************************************************************************************/
-// template <typename T> //元素类型
-// void UniPrint::p ( Splay<T> & bt ) { //引用
-//    printf ( "%s[%d]*%d:\n", typeid ( bt ).name(), (int) &bt, bt.size() ); //基本信息
-//    Bitmap* branchType = new Bitmap; //记录当前节点祖先的方向
-//    printBinTree ( bt.root(), -1, ROOT, branchType ); //树状结构
-//    release ( branchType ); printf ( "\n" );
-// }
+/******************************************************************************************
+ * 基于BST实现的Splay
+ * 鉴于Splay不必设置bf之类的附加标识，其打印例程与BST完全一致
+ ******************************************************************************************/
+template <typename T> //元素类型
+void UniPrint::p ( Splay<T> & bt ) { //引用
+   printf ( "[name]%s  [address]%p   [size]%d:\n", typeid ( bt ).name(), (void*) &bt, bt.size() ); //基本信息
+   Bitmap* branchType = new Bitmap; //记录当前节点祖先的方向
+   printBinTree ( bt.root(), -1, ROOT, branchType ); //树状结构
+   release ( branchType ); printf ( "\n" );
+}
 
 /******************************************************************************************
  * 二叉树各种派生类的统一打印
