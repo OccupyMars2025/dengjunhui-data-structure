@@ -10,7 +10,8 @@
 
 #include "QuadlistNode.h" //引入Quadlist节点类
 
-template <typename T> struct Quadlist { //四联列表
+template <typename T> 
+struct Quadlist { //四联列表
    Rank _size; //规模
    QNodePosi<T> header, trailer; //头哨兵、尾哨兵
    void init(); //初始化

@@ -14,7 +14,7 @@
 
 template <typename T> //元素类型
 void UniPrint::p ( Quadlist<T>& q ) { //引用
-   printf ( "%s[%d]*%03d: ", typeid ( q ).name(), (int) &q, q._size ); //基本信息
+   printf ( "[name]%s  [address]%p  [size]%d: ", typeid ( q ).name(), (void*) &q, q._size ); //基本信息
    if ( q._size <= 0 ) {  printf ( "\n" ); return;  }
    QNode<T>* curr = q.header;
    QNode<T>* base = q.header->succ; //当前节点所在

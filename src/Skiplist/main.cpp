@@ -24,7 +24,12 @@ void testSkiplist ( Rank n ) {
             K key = dice ( ( K ) n * 3 ); //[0, 3n)范围内的key
             printf ( "Searching for " ); print ( key ); printf ( " ... " );
             V* pValue = L.get ( key );
-            pValue ? printf ( "found with " ), print ( *pValue ) : printf ( "Not found" ); printf ( "\n\n" );
+            if(pValue) {
+               printf ( "found with " ), print ( *pValue );
+            } else {
+               printf ( "Not found" ); 
+            }
+            printf ( "\n\n" );
             break;
          }
          case 1: { //删除，成功率 <= 33.3%

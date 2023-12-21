@@ -20,9 +20,9 @@
 // #include "print_PQ_List.h"
 // #include "print_PQ_ComplHeap.h"
 // #include "print_PQ_LeftHeap.h"
-// #include "print_Entry.h"
-// #include "print_Quadlist.h"
-// #include "print_Skiplist.h"
+#include "print_Entry.h"
+#include "print_Quadlist.h"
+#include "print_Skiplist.h"
 // #include "print_Hashtable.h"
 #include "print_GraphMatrix.h"
 

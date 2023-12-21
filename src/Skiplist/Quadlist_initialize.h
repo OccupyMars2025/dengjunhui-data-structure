@@ -8,7 +8,8 @@
 
 #pragma once
 
-template <typename T> void Quadlist<T>::init() { //Quadlist初始化，创建Quadlist对象时统一调用
+template <typename T> 
+void Quadlist<T>::init() { //Quadlist初始化，创建Quadlist对象时统一调用
    header = new QNode<T>; //创建头哨兵节点
    trailer = new QNode<T>; //创建尾哨兵节点
    header->succ = trailer; header->pred = NULL; //沿横向联接哨兵
