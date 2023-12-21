@@ -6,6 +6,7 @@
  * Copyright (c) 2003-2023. All rights reserved.
  ******************************************************************************************/
 
+
 /******************************************************************************************
  * Test of RedBlack Tree
  ******************************************************************************************/
@@ -38,7 +39,11 @@ template <typename T> void testRedBlack( Rank n ) {
          case 1:
          case 2: { //删除（概率 = 2/6)
             printf ( "Removing " ); print ( e ); printf ( " ...\n" );
-            rb.remove ( e ) ? printf ( "Done\n" ), print ( rb ) : printf ( "Not exists\n" );
+            if(rb.remove ( e )) {
+               printf ( "Done\n" ), print ( rb ); 
+            } else {
+                printf ( "Not exists\n" );
+            }
             break;
          }
          default: { //插入（概率 = 3/6)
@@ -53,7 +58,11 @@ template <typename T> void testRedBlack( Rank n ) {
    while ( rb.size() > 0 ) {
       T e = dice ( ( T ) n * 3 ); //[0, 3n)范围内的e
       printf ( "Removing " ); print ( e ); printf ( " ...\n" );
-      rb.remove ( e ) ? printf ( "Done\n" ), print ( rb ) : printf ( "Not exists\n" );
+      if(rb.remove ( e )) {
+         printf ( "Done\n" ), print ( rb ); 
+      } else {
+         printf ( "Not exists\n" );
+      }
    }
 }
 

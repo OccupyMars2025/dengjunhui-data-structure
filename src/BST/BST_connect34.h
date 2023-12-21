@@ -20,12 +20,12 @@ BinNodePosi<T> BST<T>::connect34 (
 ) {
    /*DSA*///print(a); print(b); print(c); printf("\n");
    a->lc = T0; if ( T0 ) T0->parent = a;
-   a->rc = T1; if ( T1 ) T1->parent = a; updateHeight ( a );
+   a->rc = T1; if ( T1 ) T1->parent = a; this->updateHeight ( a );
 
    c->lc = T2; if ( T2 ) T2->parent = c;
-   c->rc = T3; if ( T3 ) T3->parent = c; updateHeight ( c );
+   c->rc = T3; if ( T3 ) T3->parent = c; this->updateHeight ( c );
    
    b->lc = a; a->parent = b;
-   b->rc = c; c->parent = b; updateHeight ( b );
+   b->rc = c; c->parent = b; this->updateHeight ( b );
    return b; //该子树新的根节点
 }

@@ -51,17 +51,17 @@ void UniPrint::p ( BST<T> & bt ) { //引用
 //    release ( branchType ); printf ( "\n" );
 // }
 
-// /******************************************************************************************
-//  * 基于BST实现的RedBlack
-//  * 其中调用的BinNode的打印例程，可以显示BF状态
-//  ******************************************************************************************/
-// template <typename T> //元素类型
-// void UniPrint::p ( RedBlack<T> & rb ) { //引用
-//    printf ( "%s[%d]*%d:\n", typeid ( rb ).name(), (int) &rb, rb.size() ); //基本信息
-//    Bitmap* branchType = new Bitmap; //记录当前节点祖先的方向
-//    printBinTree ( rb.root(), -1, ROOT, branchType ); //树状结构
-//    release ( branchType ); printf ( "\n" );
-// }
+/******************************************************************************************
+ * 基于BST实现的RedBlack
+ * 其中调用的BinNode的打印例程，可以显示BF状态
+ ******************************************************************************************/
+template <typename T> //元素类型
+void UniPrint::p ( RedBlack<T> & rb ) { //引用
+   printf ( "[name]%s  [address]%p   [size]%d:\n", typeid ( rb ).name(), (void*) &rb, rb.size() ); //基本信息
+   Bitmap* branchType = new Bitmap; //记录当前节点祖先的方向
+   printBinTree ( rb.root(), -1, ROOT, branchType ); //树状结构
+   release ( branchType ); printf ( "\n" );
+}
 
 /******************************************************************************************
  * 基于BST实现的Splay

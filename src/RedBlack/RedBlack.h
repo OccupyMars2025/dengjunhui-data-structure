@@ -9,7 +9,9 @@
 #pragma once
 
 #include "BST/BST.h" //基于BST实现RedBlack
-template <typename T> class RedBlack : public BST<T> { //RedBlack树模板类
+
+template <typename T> 
+class RedBlack : public BST<T> { //RedBlack树模板类
 protected:
    void solveDoubleRed( BinNodePosi<T> x ); //双红修正
    void solveDoubleBlack( BinNodePosi<T> x ); //双黑修正

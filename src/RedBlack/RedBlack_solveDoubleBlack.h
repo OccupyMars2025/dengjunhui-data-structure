@@ -17,7 +17,7 @@
  *    BB-3 ：2次颜色翻转，2次黑高度更新，1次旋转，转为BB-1或BB2R
  ******************************************************************************************/
 template <typename T> void RedBlack<T>::solveDoubleBlack( BinNodePosi<T> r ) {
-   BinNodePosi<T> p = r ? r->parent : _hot; if ( !p ) return; //r的父亲
+   BinNodePosi<T> p = r ? r->parent : this->_hot; if ( !p ) return; //r的父亲
    BinNodePosi<T> s = ( r == p->lc ) ? p->rc : p->lc; //r的兄弟
    if ( IsBlack( s ) ) { //兄弟s为黑
       BinNodePosi<T> t = NULL; //s的红孩子（若左、右孩子皆红，左者优先；皆黑时为NULL）
@@ -27,10 +27,10 @@ template <typename T> void RedBlack<T>::solveDoubleBlack( BinNodePosi<T> r ) {
          /*DSA*///printf("  case BB-1: Child ("); print(s->lc); printf(") of BLACK sibling ("); print(s); printf(") is RED\n");
          RBColor oldColor = p->color; //备份原子树根节点p颜色，并对t及其父亲、祖父
       // 以下，通过旋转重平衡，并将新子树的左、右孩子染黑
-         BinNodePosi<T> b = FromParentTo( *p ) = rotateAt( t ); //旋转
-         if ( HasLChild( *b ) ) { b->lc->color = RB_BLACK; updateHeight( b->lc ); } //左子
-         if ( HasRChild( *b ) ) { b->rc->color = RB_BLACK; updateHeight( b->rc ); } //右子
-         b->color = oldColor; updateHeight( b ); //新子树根节点继承原根节点的颜色
+         BinNodePosi<T> b = FromParentTo( *p ) = this->rotateAt( t ); //旋转
+         if ( HasLChild( *b ) ) { b->lc->color = RB_BLACK; this->updateHeight( b->lc ); } //左子
+         if ( HasRChild( *b ) ) { b->rc->color = RB_BLACK; this->updateHeight( b->rc ); } //右子
+         b->color = oldColor; this->updateHeight( b ); //新子树根节点继承原根节点的颜色
          /*DSA*///printBinTree(b, 0, 0);
       } else { //黑s无红孩子
          s->color = RB_RED; s->height--; //s转红
@@ -49,7 +49,7 @@ template <typename T> void RedBlack<T>::solveDoubleBlack( BinNodePosi<T> r ) {
       /*DSA*///printf("  case BB-3: sibling ("); print(s); printf(" is RED\n"); //s红（双子俱黑）
       s->color = RB_BLACK; p->color = RB_RED; //s转黑，p转红
       BinNodePosi<T> t = IsLChild( *s ) ? s->lc : s->rc; //取t与其父s同侧
-      _hot = p; FromParentTo( *p ) = rotateAt( t ); //对t及其父亲、祖父做平衡调整
+      this->_hot = p; FromParentTo( *p ) = this->rotateAt( t ); //对t及其父亲、祖父做平衡调整
       /*DSA*///printBinTree<T>(s, 0, 0);
       solveDoubleBlack( r ); //继续修正r处双黑——此时的p已转红，故后续只能是BB-1或BB-2R
    }

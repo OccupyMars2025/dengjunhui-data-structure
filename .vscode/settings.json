@@ -26,6 +26,7 @@
         "limits": "cpp",
         "atomic": "cpp",
         "bit": "cpp",
-        "stdexcept": "cpp"
+        "stdexcept": "cpp",
+        "cstdlib": "cpp"
     }
 }

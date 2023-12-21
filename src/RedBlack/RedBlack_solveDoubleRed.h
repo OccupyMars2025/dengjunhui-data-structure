@@ -15,7 +15,7 @@
  ******************************************************************************************/
 template <typename T> void RedBlack<T>::solveDoubleRed( BinNodePosi<T> x ) { // x当前必为红
    if ( IsRoot( *x ) ) //若已（递归）转至树根，则将其转黑，整树黑高度也随之递增
-      {  _root->color = RB_BLACK; _root->height++; return;  } //否则，x的父亲p必存在
+      {  this->_root->color = RB_BLACK; this->_root->height++; return;  } //否则，x的父亲p必存在
    BinNodePosi<T> p = x->parent; if ( IsBlack( p ) ) return; //若p为黑，则可终止调整。否则
    BinNodePosi<T> g = p->parent; //既然p为红，则x的祖父必存在，且必为黑色
    BinNodePosi<T> u = uncle( x ); //以下，视x叔父u的颜色分别处理
@@ -28,7 +28,7 @@ template <typename T> void RedBlack<T>::solveDoubleRed( BinNodePosi<T> x ) { // 
 ///// 以上虽保证总共两次染色，但因增加了判断而得不偿失
 ///// 在旋转后将根置黑、孩子置红，虽需三次染色但效率更高
       BinNodePosi<T> gg = g->parent; //曾祖父（great-grand parent）
-      BinNodePosi<T> r = FromParentTo( *g ) = rotateAt( x ); //调整后的子树根节点
+      BinNodePosi<T> r = FromParentTo( *g ) = this->rotateAt( x ); //调整后的子树根节点
       r->parent = gg; //与原曾祖父联接
    } else { //若u为红色 /*DSA*///printf("  case RR-2:\n");
       p->color = RB_BLACK; p->height++; //p由红转黑

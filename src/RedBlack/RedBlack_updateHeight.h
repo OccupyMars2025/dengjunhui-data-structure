@@ -8,7 +8,8 @@
 
 #pragma once
 
-template <typename T> Rank RedBlack<T>::updateHeight( BinNodePosi<T> x ) { //更新节点高度
+template <typename T> 
+Rank RedBlack<T>::updateHeight( BinNodePosi<T> x ) { //更新节点高度
    return x->height = IsBlack( x ) + max( stature( x->lc ), stature( x->rc ) ); //孩子黑高度通常相等，除非出现双黑
    /*DSA*/// 红黑树中各节点左、右孩子的黑高度通常相等
    /*DSA*/// 这里之所以取更大值，是便于在删除节点后的平衡调整过程中，正确更新被删除节点父亲的黑高度
