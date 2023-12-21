@@ -31,10 +31,10 @@
 #include "Vector_removeInterval.h"
 
 #include "Vector_find.h"
-#include "Vector_search.h"
 #include "Vector_search_binary_C.h" //有A、B、C三种版本，C最完善
 //#include "Vector_search_fibonaccian_A.h" //实用版（但返回值有待与接口统一）
 #include "Vector_search_fibonaccian_B.h" //华丽版
+#include "Vector_search.h"
 
 #include "Vector_traverse.h"
 

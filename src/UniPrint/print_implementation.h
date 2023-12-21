@@ -16,7 +16,7 @@
 
 #include "print_BinNode.h"
 #include "print_BinTree.h"
-// #include "print_BTree.h"
+#include "print_BTree.h"
 // #include "print_PQ_List.h"
 // #include "print_PQ_ComplHeap.h"
 // #include "print_PQ_LeftHeap.h"

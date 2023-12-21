@@ -22,10 +22,15 @@ void BTree<T>::solveOverflow( BTNodePosi<T> v ) {
          for ( Rank j = 0; j < _m - s; j++ ) //令它们的父节点统一
             u->child[j]->parent = u; //指向u
       BTNodePosi<T> p = v->parent; // v当前的父节点p
-      if ( !p ) { _root = p = new BTNode<T>(); p->child[0] = v; v->parent = p; } //若p空则创建之
+      if ( !p ) { 
+         _root = p = new BTNode<T>(); 
+         p->child[0] = v; 
+         v->parent = p; 
+      } //若p空则创建之
       Rank r = 1 + p->key.search( v->key[0] ); // p中指向v的指针的秩
       p->key.insert( r, v->key.remove( s ) ); //轴点关键码上升
-      p->child.insert( r + 1, u ); u->parent = p; //新节点u与父节点p互联
+      p->child.insert( r + 1, u ); 
+      u->parent = p; //新节点u与父节点p互联
       v = p; //上升一层，如有必要则继续分裂——至多O(logn)层
    } //while
 }

@@ -10,7 +10,8 @@
 #include "fibonacci/Fib.h" //引入Fib数列类
 
 //Fibonacci查找算法（版本A）：在有序向量的区间[lo, hi)内查找元素e，0 <= lo <= hi <= _size
-template <typename T> static Rank fibSearch( T* S, T const& e, Rank lo, Rank hi ) {
+template <typename T> 
+static Rank fibSearch( T* S, T const& e, Rank lo, Rank hi ) {
    /*DSA*/printf ( "FIB search (A)\n" );
    //用O(log_phi(n = hi - lo)时间创建Fib数列
    for ( Fib fib( hi - lo ); lo < hi; ) { //Fib制表备查；此后每步迭代仅一次比较、两个分支

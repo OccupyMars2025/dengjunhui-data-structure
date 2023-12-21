@@ -21,7 +21,7 @@ template <typename T> static void print ( T& x );
 // #include "AVL/AVL.h" //AVL树
 #include "Splay/Splay.h" //伸展树
 // #include "RedBlack/RedBlack.h" //红黑树
-// #include "BTree/BTree.h" //二叉搜索树
+#include "BTree/BTree.h" //二叉搜索树
 // #include "Entry/Entry.h" //词条
 // #include "Skiplist/Quadlist.h" //四叉表
 // #include "Skiplist/Skiplist.h" //跳转表
@@ -47,7 +47,7 @@ public:
    // template <typename K, typename V> static void p( Entry<K, V>& ); // Entry
    template <typename T> static void p( BinNode<T>& ); // BinTree节点
    template <typename T> static void p( BinTree<T>& ); //二叉树
-   // template <typename T> static void p( BTree<T>& ); // B-树
+   template <typename T> static void p( BTree<T>& ); // B-树
    template <typename T> static void p( BST<T>& ); // BST
    // template <typename T> static void p( AVL<T>& ); // AVL
    // template <typename T> static void p( RedBlack<T>& ); // RedBlack
