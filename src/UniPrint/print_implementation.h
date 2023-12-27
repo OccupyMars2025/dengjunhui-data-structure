@@ -23,7 +23,7 @@
 #include "print_Entry.h"
 #include "print_Quadlist.h"
 #include "print_Skiplist.h"
-// #include "print_Hashtable.h"
+#include "print_Hashtable.h"
 #include "print_GraphMatrix.h"
 
 #include "print_traversable.h"

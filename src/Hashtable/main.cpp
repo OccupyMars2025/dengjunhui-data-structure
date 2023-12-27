@@ -24,19 +24,32 @@ void testHashtable ( Rank n ) {
             K key = dice ( ( K ) n * 12 ); //[0, 3n)范围内的key
             printf( "Searching " ); print ( key ); printf( "(%04d) :\n", hashCode( key ) );
             V* pValue = ht.get ( key );
-            pValue ? printf( "Found with " ), print( *pValue ) : printf( "Not found" ); printf( "\n" );
+            if(pValue) {
+                printf( "Found with " ), print( *pValue );
+             } else {
+                printf( "Not found" ); 
+             }
+            printf( "\n" );
             break;
          }
          case 1: { //删除，成功率 <= 33.3%
             K key = dice ( ( K ) n * 12 ); //[0, 3n)范围内的key
             printf( "Removing " ); print ( key ); printf( "(%04d) :\n", hashCode( key ) );
-            ht.remove( key ) ? printf( "Done\n" ), print( ht ) : printf( "Entry not exists\n" );
+            if(ht.remove( key )){
+                printf( "Done\n" ), print( ht );
+             } else {
+               printf( "Entry not exists\n" );
+             }
             break;
          }
          default: {//插入，成功率 == 100%
             K key = dice ( ( K ) n * 12 ); V v = ( V ) 'A' + dice ( 26 ); //在[0, 2n)*['A'~'Z']范围内的词条
             printf( "Inserting <" ); print( key ); printf( "(%04d)", hashCode( key ) ); printf( " :" ); print ( v ); printf( " >\n" );
-            ht.put( key, v ) ? printf( "Done\n" ), print( ht ) : printf( "Dup key\n" );
+            if(ht.put( key, v )){
+               printf( "Done\n" ), print( ht );
+             } else {
+                printf( "Dup key\n" );
+             }
             break;
          }
       } //switch
@@ -45,7 +58,11 @@ void testHashtable ( Rank n ) {
       printf( "\n" );
       K key = dice( ( K ) n * 12 ); //[0, 3n)范围内的key
       printf( "Removing " ); print( key ); printf( " :\n" );
-      ht.remove( key ) ? printf( "Done\n" ), print( ht ) : printf( "Entry not exists\n" );
+      if(ht.remove( key )){
+          printf( "Done\n" ), print( ht );
+       } else {
+          printf( "Entry not exists\n" );
+       }
    }
 }
 

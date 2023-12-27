@@ -25,7 +25,7 @@ template <typename T> static void print ( T& x );
 #include "Entry/Entry.h" //词条
 #include "Skiplist/Quadlist.h" //四叉表
 #include "Skiplist/Skiplist.h" //跳转表
-// #include "Hashtable/Hashtable.h" //散列表
+#include "Hashtable/Hashtable.h" //散列表
 // #include "PQ_List/PQ_List.h" //基于列表实现的优先级队列
 // #include "PQ_ComplHeap/PQ_ComplHeap.h" //基于完全堆实现的优先级队列
 // #include "PQ_LeftHeap/PQ_LeftHeap.h" //基于左式堆实现的优先级队列
@@ -54,7 +54,7 @@ public:
    template <typename T> static void p( Splay<T>& ); // Splay
    template <typename T> static void p( Quadlist<T>& ); // Quadlist
    template <typename K, typename V> static void p( Skiplist<K, V>& ); // Skiplist
-   // template <typename K, typename V> static void p( Hashtable<K, V>& ); // Hashtable
+   template <typename K, typename V> static void p( Hashtable<K, V>& ); // Hashtable
    // template <typename T> static void p( PQ_List<T>& ); // PQ_List
    // template <typename T> static void p( PQ_ComplHeap<T>& ); // PQ_ComplHeap
    // template <typename T> static void p( PQ_LeftHeap<T>& ); // PQ_LeftHeap

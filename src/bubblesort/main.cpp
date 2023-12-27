@@ -6,21 +6,22 @@
  * Copyright (c) 2003-2023. All rights reserved.
  ******************************************************************************************/
 
-/*DSA*/#include "_share/util.h"
-/*DSA*/#include "random/shuffle.h"
-/*DSA*/#include "UniPrint/print_int_array.h"
+#include "_share/util.h"
+#include "random/shuffle.h"
+#include "UniPrint/print_int_array.h"
 
-/*DSA*/void bubblesort ( int A[], int n ); //algorithm#0
-/*DSA*/void bubblesort1A ( int A[], int n ); //algorithm#1A
-/*DSA*/void bubblesort1B ( int A[], int n ); //algorithm#1B
-/*DSA*/void bubblesort2 ( int A[], int n ); //algorithm#2
+void bubblesort ( int A[], int n ); //algorithm#0
+void bubblesort1A ( int A[], int n ); //algorithm#1A
+void bubblesort1B ( int A[], int n ); //algorithm#1B
+void bubblesort2 ( int A[], int n ); //algorithm#2
 
 /******************************************************************************************
  * 构造随机数组（可根据测试需要相应地改写）
  ******************************************************************************************/
 void randomArray ( int A[], int n, int seed ) {
    srand(seed);
-   for (int i = 0; i < n; i++) A[i] = i;
+   for (int i = 0; i < n; i++) 
+      A[i] = i;
    shuffle(A, n);
 }
 

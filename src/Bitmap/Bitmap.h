@@ -62,7 +62,7 @@ public:
    }
    bool test  ( Rank k ) { 
       expand( k ); 
-      return M[k >> 3] &    ( 0x80 >> ( k & 0x07 ) );
+      return M[k >> 3] & ( 0x80 >> ( k & 0x07 ) );
    }
 
    void dump( char* file ) //将位图整体导出至指定的文件，以便对此后的新位图批量初始化

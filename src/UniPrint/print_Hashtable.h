@@ -14,7 +14,7 @@
 
 template <typename K, typename V> //e、value
 void UniPrint::p ( Hashtable<K, V>& HT ) { //引用
-   printf( "%s[%d]*(%d + %d)/%d:\n", typeid( HT ).name(), (int)&HT, HT.N, HT.removed->size(), HT.M ); //基本信息
+   printf( "[name]%s  [address]%p  (%d + %d)/%d:\n", typeid( HT ).name(), (void*)&HT, HT.N, HT.removed->size(), HT.M ); //基本信息
    for ( Rank i = 0; i < HT.M; i++ ) //输出桶编号
       printf ( "  %4d  ", i );
    printf ( "\n" );

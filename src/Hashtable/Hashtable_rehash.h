@@ -20,8 +20,11 @@ void Hashtable<K, V>::rehash() {
    Entry<K, V>** oldHt = ht;
 
    M = primeNLT( 4 * N, 1048576, std::string(PRIME_TABLE).c_str() ); //容量至少加倍（若懒惰删除很多，可能反而缩容）
-   ht = new Entry<K, V>*[M]; N = 0; memset( ht, 0, sizeof( Entry<K, V>* ) * M ); //桶数组
-   release( removed ); removed = new Bitmap( M ); //懒惰删除标记
+   ht = new Entry<K, V>*[M]; 
+   N = 0; 
+   memset( ht, 0, sizeof( Entry<K, V>* ) * M ); //桶数组
+   release( removed ); 
+   removed = new Bitmap( M ); //懒惰删除标记
    /*DSA*///printf("A bucket array has been created with capacity = %d\n\n", M);
    for ( Rank i = 0; i < oldM; i++ ) //扫描原表
       if ( oldHt[i] ) //将每个非空桶中的词条

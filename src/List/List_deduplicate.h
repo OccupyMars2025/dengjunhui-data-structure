@@ -8,7 +8,8 @@
 
 #pragma once
 
-template <typename T> Rank List<T>::dedup() {
+template <typename T> 
+Rank List<T>::dedup() {
    Rank oldSize = _size; ListNodePosi<T> p = first();
    for ( Rank r = 0; p != trailer; p = p->succ ) //O(n)
       if ( ListNodePosi<T> q = find(p->data, r, p) )
