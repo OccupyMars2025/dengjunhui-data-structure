@@ -1,3 +1,7 @@
+/**
+ * https://en.wikipedia.org/wiki/Collatz_conjecture
+*/
+
 #include <iostream>
 #include "Hailstone/hailstone.h"
 

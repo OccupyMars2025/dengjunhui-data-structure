@@ -7,11 +7,21 @@
  ******************************************************************************************/
 
 #include "_share/util.h"
+#include <cassert>
+
 int countOnes ( unsigned int n );
 int countOnes1 ( unsigned int n );
 int countOnes2 ( unsigned int n );
 
-void  main ( int argc, char* argv[] ) { //二进制数位1计数算法测试入口
-   for ( unsigned int i = 0; i < INT_MAX; i++ )
-      printf ( "%6d = %4X: %6d %6d %6d\n", i, i, countOnes ( i ), countOnes1 ( i ), countOnes2 ( i ) );
+int main ( int argc, char* argv[] ) { //二进制数位1计数算法测试入口
+   for ( unsigned int i = 0; i <= UINT32_MAX; i++ ) {
+      int num_ones = countOnes(i);
+      int num_ones_v1 = countOnes1(i);
+      int num_ones_v2 = countOnes2(i);
+      assert(num_ones == num_ones_v1 && num_ones == num_ones_v2);
+
+      printf ( "%7u = %7X, number of ones = %6d\n", i, i, num_ones);
+   }
+
+   return 0;
 }
