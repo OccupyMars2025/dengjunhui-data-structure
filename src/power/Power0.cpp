@@ -5,7 +5,15 @@
  * Computer Science & Technology, Tsinghua University
  * Copyright (c) 2003-2023. All rights reserved.
  ******************************************************************************************/
+#include "power/Power.h"
 
-__int64 power2BF ( int n ) { //幂函数2^n算法（蛮力递归版），n >= 0
-   return ( 1 > n ) ? 1 : power2BF ( n - 1 ) << 1; //递归
-} //O(n) = O(2^r)，r为输入指数n的比特位数
+int64_t powerBF ( int64_t a, int n ) { //a^n算法（蛮力版）：n >= 0
+   assert(a >= 2 && n >= 0);
+
+   int64_t pow = 1; //O(1)
+   while ( 0 < n ) { //O(n)
+      pow *= a; //O(1)
+      n--; //O(1)
+   }
+   return pow; //O(1)
+} //powerBF()

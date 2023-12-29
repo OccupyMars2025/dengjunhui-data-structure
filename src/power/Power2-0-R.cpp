@@ -6,14 +6,9 @@
  * Copyright (c) 2003-2023. All rights reserved.
  ******************************************************************************************/
 
-__int64 power ( __int64 a, int n ) { //a^n算法：n >= 0
-   __int64 pow = 1; //O(1)
-   __int64 p = a; //O(1)
-   while ( 0 < n ) { //O(logn)
-      if ( n & 1 ) //O(1)
-         pow *= p; //O(1)
-      n >>= 1; //O(1)
-      p *= p; //O(1)
-   }
-   return pow; //O(1)
-} //power()
+#include "power/Power.h"
+
+int64_t power2BF ( int n ) { //幂函数2^n算法（蛮力递归版），n >= 0
+   assert(n >= 0);
+   return ( 1 > n ) ? 1 : (power2BF ( n - 1 ) << 1); //递归
+} //O(n) = O(2^r)，r为输入指数n的比特位数

@@ -5,10 +5,18 @@
  * Computer Science & Technology, Tsinghua University
  * Copyright (c) 2003-2023. All rights reserved.
  ******************************************************************************************/
+#include "power/Power.h"
 
-__int64 power2BF_I ( int n ) { //幂函数2^n算法（蛮力迭代版），n >= 0
-   __int64 pow = 1; //O(1)：累积器初始化为2^0
-   while ( 0 < n -- ) //O(n)：迭代n轮，每轮都
-      pow <<= 1; //O(1)：将累积器翻倍
-   return pow; //O(1)：返回累积器
-} //O(n) = O(2^r)，r为输入指数n的比特位数
+int64_t power ( int64_t a, int n ) { //a^n算法：n >= 0
+   assert(a >= 2 && n >= 0);
+
+   int64_t pow = 1; //O(1)
+   int64_t item = a; //O(1)
+   while ( 0 < n ) { //O(logn)
+      if ( n & 1 ) //O(1)
+         pow *= item; //O(1)
+      n >>= 1; //O(1)
+      item *= item; //O(1)
+   }
+   return pow; //O(1)
+} //power()
