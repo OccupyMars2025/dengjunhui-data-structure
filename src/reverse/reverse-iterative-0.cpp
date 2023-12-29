@@ -6,10 +6,14 @@
  * Copyright (c) 2003-2023. All rights reserved.
  ******************************************************************************************/
 
-/*DSA*/#include "_share/util.h"
-/*DSA*/#include "UniPrint/print_int_array.h"
+#include "_share/util.h"
+#include "UniPrint/print_int_array.h"
 
-void reverse ( int* A, int lo, int hi ) { //数组倒置（规范整理之后的迭代版）
-   while ( lo < hi ) //用while替换跳转标志和if，完全等效
-      swap ( A[lo++], A[hi--] ); //交换A[lo]和A[hi]，收缩待倒置区间
+void reverse_I0( int* A, int lo, int hi ) { //数组倒置（直接改造而得的迭代版）
+next: //算法起始位置添加跳转标志
+   if ( lo < hi ) {
+      swap( A[lo], A[hi] ); //交换A[lo]和A[hi]
+      lo++; hi--; //收缩待倒置区间
+      goto next; //跳转至算法体的起始位置，迭代地倒置A(lo, hi)
+   } //else隐含了迭代的终止
 } //O(hi - lo + 1)

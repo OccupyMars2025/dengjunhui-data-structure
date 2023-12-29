@@ -6,7 +6,8 @@
  * Copyright (c) 2003-2023. All rights reserved.
  ******************************************************************************************/
 
-#pragma once
-
-void reverse ( int* A, int lo, int hi );
-void reverse ( int* A, int n );
+void reverse_I0 ( int*, int, int ); //重载的倒置算法原型
+void reverse ( int* A, int n ) //数组倒置（算法的初始入口，调用的可能是reverse()的递归版或迭代版）
+{ 
+    reverse_I0 ( A, 0, n - 1 ); 
+} //由重载的入口启动递归或迭代算法

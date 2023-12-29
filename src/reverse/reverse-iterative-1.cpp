@@ -6,6 +6,10 @@
  * Copyright (c) 2003-2023. All rights reserved.
  ******************************************************************************************/
 
-void reverse ( int*, int, int ); //重载的倒置算法原型
-void reverse ( int* A, int n ) //数组倒置（算法的初始入口，调用的可能是reverse()的递归版或迭代版）
-{ reverse ( A, 0, n - 1 ); } //由重载的入口启动递归或迭代算法
+#include "_share/util.h"
+#include "UniPrint/print_int_array.h"
+
+void reverse_I1 ( int* A, int lo, int hi ) { //数组倒置（规范整理之后的迭代版）
+   while ( lo < hi ) //用while替换跳转标志和if，完全等效
+      swap ( A[lo++], A[hi--] ); //交换A[lo]和A[hi]，收缩待倒置区间
+} //O(hi - lo + 1)

@@ -6,12 +6,12 @@
  * Copyright (c) 2003-2023. All rights reserved.
  ******************************************************************************************/
 
-/*DSA*/#include "_share/util.h"
-/*DSA*/#include "UniPrint/print_int_array.h"
+#include "_share/util.h"
+#include "UniPrint/print_int_array.h"
 
-void reverse ( int* A, int lo, int hi ) { //Êý×éµ¹ÖÃ£¨¶àµÝ¹é»ùµÝ¹é°æ£©
+void reverse_R ( int* A, int lo, int hi ) { //Êý×éµ¹ÖÃ£¨¶àµÝ¹é»ùµÝ¹é°æ£©
    if ( lo < hi ) {
       swap ( A[lo], A[hi] ); //½»»»A[lo]ºÍA[hi]
-      reverse ( A, lo + 1, hi - 1 ); //µÝ¹éµ¹ÖÃA(lo, hi)
+      reverse_R ( A, lo + 1, hi - 1 ); //µÝ¹éµ¹ÖÃA(lo, hi)
    } //elseÒþº¬ÁËÁ½ÖÖµÝ¹é»ù
 } //O(hi - lo + 1)
