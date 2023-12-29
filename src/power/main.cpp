@@ -6,7 +6,7 @@
  * Copyright (c) 2003-2023. All rights reserved.
  ******************************************************************************************/
 
-#include<iostream>
+#include <iostream>
 #include "power/Power.h"
 
 using namespace std;

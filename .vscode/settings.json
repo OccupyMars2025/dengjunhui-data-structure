@@ -28,5 +28,6 @@
         "bit": "cpp",
         "stdexcept": "cpp",
         "cstdlib": "cpp"
-    }
+    },
+    "files.encoding": "gb2312"
 }
