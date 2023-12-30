@@ -27,7 +27,8 @@
         "atomic": "cpp",
         "bit": "cpp",
         "stdexcept": "cpp",
-        "cstdlib": "cpp"
+        "cstdlib": "cpp",
+        "cassert": "cpp"
     },
     "files.encoding": "gb2312"
 }
