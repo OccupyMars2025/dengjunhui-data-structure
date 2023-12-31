@@ -49,7 +49,7 @@ int main ( int argc, char* argv[] ) {
    } while ( 2 < argc );
 
 // 随机计算GCD
-   for ( int i = 0; i < 100; i++ ) {
+   for ( int i = 0; i < 1000; i++ ) {
       int64_t a = 1, b = 1;
       for ( int k = 0; k < 3; k++ ) { //随机生成正整数a和b
          ( rand() & 1 ) ? a *= ( 1 + rand()%100 ) : a += rand()%100;
