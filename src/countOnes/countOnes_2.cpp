@@ -49,14 +49,46 @@
 // }
 
 
+// /*
+// Caution: add enough () to the macro definition
+// 1. add the outest () to the definition of MASK(c)
+// 2. add an outer () to "(n) & MASK(c)"
+// */
+// #define POW(c) (1 << (c))
+// #define MASK(c) (((unsigned int) -1) / (POW(POW(c)) + 1))
+// #define ROUND(n, c) (((n) & MASK(c)) + (((n) >> POW(c)) & MASK(c)))
+
+// int countOnes2(unsigned int n) {
+//    n = ROUND(n, 0);
+//    n = ROUND(n, 1);
+//    n = ROUND(n, 2);
+//    n = ROUND(n, 3);
+//    n = ROUND(n, 4);
+
+//    return n;
+// }
+
+
 /*
-Caution: add enough () to the macro definition
-1. add the outest () to the definition of MASK(c)
-2. add an outer () to "(n) & MASK(c)"
+MASK(0) = 01010101010101010101010101010101
+MASK(1) = 00110011001100110011001100110011
+MASK(2) = 00001111000011110000111100001111
+MASK(3) = 00000000111111110000000011111111
+MASK(4) = 00000000000000001111111111111111
 */
-#define POW(c) (1 << (c))
-#define MASK(c) (((unsigned int) -1) / (POW(POW(c)) + 1))
-#define ROUND(n, c) (((n) & MASK(c)) + (((n) >> POW(c)) & MASK(c)))
+
+// int countOnes2(unsigned int n) {
+//    n = (n & MASK(0)) + ((n >> 1) & MASK(0));
+//    n = (n & MASK(1)) + ((n >> 2) & MASK(1));
+//    n = (n & MASK(2)) + ((n >> 4) & MASK(2));
+//    n = (n & MASK(3)) + ((n >> 8) & MASK(3));
+//    n = (n & MASK(4)) + ((n >> 16) & MASK(4));
+//    return n;
+// }
+
+#define POW2(x) (1 << (x))
+#define MASK(x) (((unsigned int)-1)/(POW2(POW2(x)) + 1))
+#define ROUND(n, i) (((n) & MASK(i)) + (((n) >> POW2(i)) & MASK(i)))
 
 int countOnes2(unsigned int n) {
    n = ROUND(n, 0);

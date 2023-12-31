@@ -7,13 +7,23 @@
  ******************************************************************************************/
 #include "power/Power.h"
 
-int64_t powerBF ( int64_t a, int n ) { //a^n算法（蛮力版）：n >= 0
-   assert(a >= 2 && n >= 0);
+// int64_t powerBF ( int64_t a, int n ) { //a^n算法（蛮力版）：n >= 0
+//    assert(a >= 2 && n >= 0);
 
-   int64_t pow = 1; //O(1)
-   while ( 0 < n ) { //O(n)
-      pow *= a; //O(1)
-      n--; //O(1)
+//    int64_t pow = 1; //O(1)
+//    while ( 0 < n ) { //O(n)
+//       pow *= a; //O(1)
+//       n--; //O(1)
+//    }
+//    return pow; //O(1)
+// } //powerBF()
+
+int64_t powerBF ( int64_t a, int n ) {
+   int64_t pow = 1;
+   while (n > 0)
+   {
+      pow *= a;
+      --n;
    }
-   return pow; //O(1)
-} //powerBF()
+   return pow;
+}

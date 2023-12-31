@@ -17,12 +17,23 @@
 
 
 
+// int countOnes1 ( unsigned int n ) {
+//    int num_ones = 0;
+//    while (n > 0) {
+//       ++num_ones;
+//       n &= n - 1;
+//    }
+   
+//    return num_ones;
+// }
+
 int countOnes1 ( unsigned int n ) {
    int num_ones = 0;
-   while (n > 0) {
+   while (n > 0)
+   {
       ++num_ones;
-      n &= n - 1;
+      n &= (n-1);
    }
-   
+
    return num_ones;
 }

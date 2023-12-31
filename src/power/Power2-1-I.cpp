@@ -20,20 +20,35 @@
 // } //O(logn) = O(r)，r为输入指数n的比特位数
 
 
-// ===========just write it again===========
-int64_t power2_I ( int n ) {
-   assert(n >= 0);
-   int64_t pow = 1;
-   int64_t item = 2;
+// // ===========just write it again===========
+// int64_t power2_I ( int n ) {
+//    assert(n >= 0);
+//    int64_t pow = 1;
+//    int64_t item = 2;
 
+//    while (n > 0)
+//    {
+//       if(1 & n) {
+//          pow *= item;
+//       }
+//       n >>= 1;
+//       item *= item;
+//    }
+
+//    return pow; 
+// }
+
+
+int64_t power2_I ( int n ) {
+   int64_t result = 1;
+   int64_t item = 2;
    while (n > 0)
    {
-      if(1 & n) {
-         pow *= item;
+      if (1 & n) {
+         result *= item;
       }
-      n >>= 1;
       item *= item;
+      n >>= 1;
    }
-
-   return pow; 
+   return result;
 }
