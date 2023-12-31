@@ -5,12 +5,13 @@
  * Computer Science & Technology, Tsinghua University
  * Copyright (c) 2003-2023. All rights reserved.
  ******************************************************************************************/
+#include <cstdint>
 
-__int64 gcdEU_R ( __int64 a, __int64 b ) { //assert: 0 <= min(a, b)
+int64_t gcdEU_R ( int64_t a, int64_t b ) { //assert: 0 <= min(a, b)
    return ( 0 == b ) ? a : gcdEU_R ( b, a % b );
 }
 
-__int64 gcdEU ( __int64 a, __int64 b ) { //assert: 0 <= min(a, b)
+int64_t gcdEU ( int64_t a, int64_t b ) { //assert: 0 <= min(a, b)
    while ( true ) {
       if ( 0 == a ) return b;
       if ( 0 == b ) return a;
@@ -18,3 +19,30 @@ __int64 gcdEU ( __int64 a, __int64 b ) { //assert: 0 <= min(a, b)
       else       b %= a;
    }
 }
+
+
+// int64_t gcdEU_R ( int64_t a, int64_t b ) { 
+//    if(0 == b) {
+//       return a;
+//    } else {
+//       gcdEU_R(b, a % b);
+//    }
+// }
+
+
+// int64_t gcdEU (int64_t a, int64_t b) {
+//    while (true)
+//    {
+//       if(0 == a) {
+//          return b;
+//       }
+//       if(0 == b) {
+//          return a;
+//       }
+//       if(a > b) {
+//          a %= b;
+//       } else {
+//          b %= a;
+//       }
+//    }
+// }

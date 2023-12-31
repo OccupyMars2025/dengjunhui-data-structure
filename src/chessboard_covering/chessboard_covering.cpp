@@ -63,10 +63,10 @@ void cover_chessboard(int n, int x, int y, int dx, int dy) {
     int s = 1 << (n-1);
     place_basic_block(x + dx*(s - 1), y + dy*(s - 1), dx, dy);
 
-    cover_chessboard(n-1, x       , y       ,  dx,  dy);
-    cover_chessboard(n-1, x+dx*s  , y+dy*s  ,  dx,  dy);
-    cover_chessboard(n-1, x+dx*(s*2-1), y       , -dx,  dy);
-    cover_chessboard(n-1, x       , y+dy*(s*2-1),  dx, -dy);
+    cover_chessboard(n-1, x           , y           ,  dx,  dy);
+    cover_chessboard(n-1, x+dx*s      , y+dy*s      ,  dx,  dy);
+    cover_chessboard(n-1, x+dx*(s*2-1), y           , -dx,  dy);
+    cover_chessboard(n-1, x           , y+dy*(s*2-1),  dx, -dy);
 }
 
 
