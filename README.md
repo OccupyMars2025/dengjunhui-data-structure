@@ -5,6 +5,9 @@
 - [ ] 3024/1/2 16:00 - : chapter 2, Vector
 
 - [ ] make it running on Linux with gcc
+
+## "举一反三" is a Chinese idiom that translates to "draw inferences about other cases from one instance" or "apply a method to other cases." It suggests the ability to generalize knowledge or principles learned from one situation and apply them to similar situations. It implies a skill of drawing broader conclusions or making analogies based on a specific example or case.
+
 # The accompanying source code of the book:
 ## https://dsa.cs.tsinghua.edu.cn/~deng/ds/dsacpp/
 # These source code is copied from:
