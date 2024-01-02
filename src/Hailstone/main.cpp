@@ -10,7 +10,8 @@ int main(int argc, char const *argv[])
     {
         uint64_t result_01 = hailstone_v1(i);
         uint64_t result_02 = hailstone_v2(i);
-        assert(result_01 == result_02);
+        uint64_t result_03 = Hailstone<int>()(i);
+        assert((result_01 == result_02) && (result_01 == result_03));
         std::cout << "n = " << i << ": " << result_01 << std::endl; 
         if(result_01 < min_length) {
             min_length = result_01;
