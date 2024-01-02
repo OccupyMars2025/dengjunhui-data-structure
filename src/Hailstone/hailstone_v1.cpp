@@ -16,9 +16,13 @@ uint64_t hailstone_v1(int n) {
     }
     if( 1 == n) {
         return 1;
-    } else if (n % 2 == 0) {
-        return 1 + hailstone_v1(n / 2);
-    } else {
+    /* Use gdb to debug step by step, then you can find this bug
+    Caution: the calculation order of "1 & n == 0" seems to be "1 & (n == 0)"
+    } else if (1 & n == 0) { 
+    */
+    } else if (1 & n) { 
         return 1 + hailstone_v1(3 * n + 1);
+    } else {
+        return 1 + hailstone_v1(n / 2);
     }
 }

@@ -1,5 +1,6 @@
 #include "Hailstone/hailstone.h"
 #include <cassert>
+#include <cstdint>
 
 int main(int argc, char const *argv[])
 {

@@ -7,13 +7,11 @@
  ******************************************************************************************/
 
 #include <iostream>
-
-#include "UniPrint/print_int_array.h"
 #include <cassert>
 
-int shift0 ( int* A, int n, int k ); //ÂùÁ¦°æ
-int shift1 ( int* A, int n, int k ); //µü´ú°æ
-int shift2 ( int* A, int n, int k ); //µ¹ÖÃ°æ
+#include "UniPrint/print_int_array.h"
+#include "shiftK/shift.h"
+
 
 int main ( int argc, char* argv[] ) {
    if ( argc < 3 ) { 
