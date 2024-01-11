@@ -9,9 +9,8 @@
 
 template <typename T> 
 void Vector<T>::sort( Rank lo, Rank hi ) { //向量区间[lo, hi)排序
-   /*DSA*/
-   // switch ( 5 ) {
-   switch ( rand() % 5 ) {
+   switch ( 5 ) {
+   // switch ( rand() % 5 ) {
       case 1 : bubbleSort_A( lo, hi ); break; //起泡排序
       case 2 : bubbleSort_B( lo, hi ); break; //起泡排序
       case 3 : bubbleSort_C( lo, hi ); break; //起泡排序

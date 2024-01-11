@@ -8,7 +8,7 @@
 
 #pragma once
 
-/*DSA*/#include "Vector/Vector.h"
+#include "Vector/Vector.h"
 
 template <typename T> 
 void increase ( Vector<T> & V ) //统一递增向量中的各元素

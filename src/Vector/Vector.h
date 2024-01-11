@@ -8,6 +8,7 @@
 
 #pragma once
 #include <cstdint>
+#include <cassert>
 #include <iostream>
 
 using Rank = int32_t; //秩
@@ -36,6 +37,7 @@ public:
 // 构造函数
    Vector ( Rank c = DEFAULT_CAPACITY, Rank s = 0, T v = 0 ) //容量为c、规模为s、所有元素初始为v
    { 
+      assert((s <= c) && (s >= 0));
       _elem = new T[_capacity = c]; 
       for ( _size = 0; _size < s; _size++) {
          _elem[_size] = v;
@@ -67,6 +69,7 @@ public:
    void sort() { sort ( 0, _size ); } //整体排序
    void unsort ( Rank lo, Rank hi ); //对[lo, hi)置乱
    void unsort() { unsort ( 0, _size ); } //整体置乱
+   int disordered() const; // return the number of adjacent inversion pairs
    Rank dedup(); //无序去重
    Rank uniquify(); //有序去重
 // 遍历

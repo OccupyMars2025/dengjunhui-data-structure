@@ -16,3 +16,21 @@ void Vector<T>::bubbleSort_A( Rank lo, Rank hi ) { //assert: 0 <= lo < hi <= siz
          if( _elem[i] > _elem[i + 1] ) //若逆序，则
             swap( _elem[i], _elem[i + 1] ); //经交换使局部有序
 }
+
+
+// template <typename T> 
+// void Vector<T>::bubbleSort_A( Rank lo, Rank hi ) {
+//    printf("src/Vector/Vector_bubbleSort_A.h v001\n");
+//    bool sorted;
+//    while (lo < --hi)
+//    {
+//       sorted = true;
+//       for(int i = lo; i < hi; ++i) {
+//          if(_elem[i] > _elem[i+1]) {
+//             swap(_elem[i], _elem[i+1]);
+//             sorted = false;
+//          }
+//       }
+//       if(sorted) break;
+//    }
+// }

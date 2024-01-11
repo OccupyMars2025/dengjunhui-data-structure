@@ -8,17 +8,37 @@
 
 #pragma once
 
+// //向量的起泡排序（跳跃版）reduce "hi" by more than 1
+// template <typename T> 
+// void Vector<T>::bubbleSort_C( Rank lo, Rank hi ) { //assert: 0 <= lo < hi <= size
+//    printf("Vector<T>::bubbleSort_C\n");
+
+//    Rank last_swap_index;
+   
+//    while (hi - lo >= 2)
+//    {
+//       last_swap_index = lo;
+//       for(Rank i = lo + 1; i < hi; ++i) {
+//          if(_elem[i-1] > _elem[i]) {
+//             swap(_elem[i-1], _elem[i]);
+//             last_swap_index = i;
+//          }
+//       }
+//       hi = last_swap_index;
+//    }
+// }
+
+
 //向量的起泡排序（跳跃版）reduce "hi" by more than 1
 template <typename T> 
-void Vector<T>::bubbleSort_C( Rank lo, Rank hi ) { //assert: 0 <= lo < hi <= size
-   printf("Vector<T>::bubbleSort_C\n");
+void Vector<T>::bubbleSort_C( Rank lo, Rank hi ) {
+   printf("src/Vector/Vector_bubbleSort_C.h  v001\n");
 
    Rank last_swap_index;
-   
    while (hi - lo >= 2)
    {
       last_swap_index = lo;
-      for(Rank i = lo + 1; i < hi; ++i) {
+      for(Rank i = lo+1; i < hi; ++i) {
          if(_elem[i-1] > _elem[i]) {
             swap(_elem[i-1], _elem[i]);
             last_swap_index = i;

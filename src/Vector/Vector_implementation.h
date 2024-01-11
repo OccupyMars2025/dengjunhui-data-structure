@@ -31,13 +31,16 @@
 #include "Vector_removeInterval.h"
 
 #include "Vector_find.h"
+// #include "Vector_search_binary_A.h"
+// #include "Vector_search_binary_B.h"
 #include "Vector_search_binary_C.h" //有A、B、C三种版本，C最完善
-//#include "Vector_search_fibonaccian_A.h" //实用版（但返回值有待与接口统一）
+// #include "Vector_search_fibonaccian_A.h" //实用版（但返回值有待与接口统一）
 #include "Vector_search_fibonaccian_B.h" //华丽版
 #include "Vector_search.h"
 
 #include "Vector_traverse.h"
 
+#include "Vector_disordered.h"
 #include "Vector_unsort.h"
 #include "Vector_sort.h"
 #include "Vector_bubbleSort_A.h"
@@ -55,4 +58,6 @@
 #include "Vector_shellSort.h"
 
 #include "Vector_uniquify.h" //或者Vector_uniquify_slow.h
-#include "Vector_deduplicate.h"
+// #include "Vector_deduplicate.h"
+// #include "Vector_deduplicate_1.h"
+#include "Vector_deduplicate_2.h"

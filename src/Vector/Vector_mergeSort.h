@@ -10,11 +10,27 @@
 
 //向量归并排序 [lo, hi)
 template <typename T> 
-void Vector<T>::mergeSort( Rank lo, Rank hi ) { // 0 <= lo < hi <= size
-   /*DSA*/ 
+void Vector<T>::mergeSort( Rank lo, Rank hi ) { // 0 <= lo < hi <= size 
    printf ( "\tVector<T>::mergeSort [%3d, %3d)\n", lo , hi );
    if ( hi - lo < 2 ) return; //单元素区间自然有序，否则...
+   
    Rank mi = ( lo + hi ) / 2; //以中点为界
-   mergeSort( lo, mi ); mergeSort( mi, hi ); //前缀、后缀分别排序
+   mergeSort( lo, mi ); 
+   mergeSort( mi, hi ); //前缀、后缀分别排序
    merge( lo, mi, hi ); //归并
 }
+
+
+// template <typename T> 
+// void Vector<T>::mergeSort( Rank lo, Rank hi ) {
+//    printf("src/Vector/Vector_mergeSort.h  [%3d, %3d) \n", lo, hi);
+
+//    if(hi - lo < 2) return;
+
+//    Rank middle = (lo + hi) >> 1;
+//    mergeSort(lo, middle);
+//    mergeSort(middle, hi);
+
+//    merge(lo, middle, hi);
+
+// }
