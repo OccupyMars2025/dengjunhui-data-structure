@@ -54,9 +54,9 @@ public:
    bool empty() const { return !_size; } //判空
    Rank find ( T const& e ) const { return find ( e, 0, _size ); } //无序向量整体查找
    Rank find ( T const& e, Rank lo, Rank hi ) const; //无序向量区间查找
-   Rank search ( T const& e ) const //有序向量整体查找
-   { return ( 0 >= _size ) ? -1 : search ( e, 0, _size ); }
-   Rank search ( T const& e, Rank lo, Rank hi ) const; //有序向量区间查找
+   Rank search ( T const& e, int method_id ) const //有序向量整体查找
+   { return ( 0 >= _size ) ? -1 : search ( e, 0, _size , method_id); }
+   Rank search ( T const& e, Rank lo, Rank hi, int method_id) const; //有序向量区间查找
 // 可写访问接口
    T& operator[] ( Rank r ); //重载下标操作符，可以类似于数组形式引用各元素
    const T& operator[] ( Rank r ) const; //仅限于做右值的重载版本
@@ -65,8 +65,8 @@ public:
    Rank remove ( Rank lo, Rank hi ); //删除秩在区间[lo, hi)之内的元素
    Rank insert ( Rank r, T const& e ); //插入元素
    Rank insert ( T const& e ) { return insert ( _size, e ); } //默认作为末元素插入
-   void sort ( Rank lo, Rank hi ); //对[lo, hi)排序
-   void sort() { sort ( 0, _size ); } //整体排序
+   void sort ( Rank lo, Rank hi, int method_id); //对[lo, hi)排序
+   void sort(int method_id) { sort ( 0, _size, method_id ); } //整体排序
    void unsort ( Rank lo, Rank hi ); //对[lo, hi)置乱
    void unsort() { unsort ( 0, _size ); } //整体置乱
    int disordered() const; // return the number of adjacent inversion pairs

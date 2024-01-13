@@ -1,3 +1,7 @@
+/*
+ exercise 2-22, in chapter 2: Vector
+*/
+
 #include "saddleback_search/saddleback_search.h"
 
 int** create_2d_array(int n) {

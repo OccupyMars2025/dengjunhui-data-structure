@@ -13,7 +13,22 @@
  * 
 */
 template <typename T> //在有序向量的区间[lo, hi)内，确定不大于e的最后一个节点的秩
-Rank Vector<T>::search( T const& e, Rank lo, Rank hi ) const { // 0 <= lo < hi <= _size
-   return ( rand() % 2 ) ? binSearch( _elem, e, lo, hi ) : fibSearch( _elem, e, lo, hi );
-   // return ( 0 ) ? binSearch( _elem, e, lo, hi ) : fibSearch( _elem, e, lo, hi );
+Rank Vector<T>::search( T const& e, Rank lo, Rank hi, int method_id ) const { // 0 <= lo < hi <= _size
+   // switch(rand() % 3) {
+   switch(method_id) {
+   case 0:
+      return binSearch( _elem, e, lo, hi );
+      
+   case 1:
+      return fibSearch( _elem, e, lo, hi );
+
+   case 2:
+      return interpolation_search_v002(_elem, e, lo, hi);
+
+   case 3:
+      return interpolation_search_v001(_elem, e, lo, hi);   
+
+   default:
+      assert(0);
+   }
 } //等概率地随机使用二分查找、Fibonacci查找

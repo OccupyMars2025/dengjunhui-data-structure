@@ -11,7 +11,7 @@
 //向量归并排序 [lo, hi)
 template <typename T> 
 void Vector<T>::mergeSort( Rank lo, Rank hi ) { // 0 <= lo < hi <= size 
-   printf ( "\tVector<T>::mergeSort [%3d, %3d)\n", lo , hi );
+   // printf ( "\tVector<T>::mergeSort [%3d, %3d)\n", lo , hi );
    if ( hi - lo < 2 ) return; //单元素区间自然有序，否则...
    
    Rank mi = ( lo + hi ) / 2; //以中点为界

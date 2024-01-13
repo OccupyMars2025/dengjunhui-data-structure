@@ -19,26 +19,27 @@ build/objects/./main.o: main.cpp ../Vector/Vector_test.h ../_share/util.h \
  ../Vector/Vector_remove.h ../Vector/Vector_removeInterval.h \
  ../Vector/Vector_find.h ../Vector/Vector_search_binary_C.h \
  ../Vector/Vector_search_fibonaccian_B.h ../fibonacci/Fib.h \
- ../Vector/Vector_search.h ../Vector/Vector_traverse.h \
- ../Vector/Vector_disordered.h ../Vector/Vector_unsort.h \
- ../Vector/Vector_sort.h ../Vector/Vector_bubbleSort_A.h \
- ../Vector/Vector_bubbleSort_B.h ../Vector/Vector_bubbleSort_C.h \
- ../Vector/Vector_selectionSort.h ../Vector/Vector_merge.h \
- ../Vector/Vector_mergeSort.h ../Vector/Vector_partition_LUG.h \
- ../Vector/Vector_heapSort.h ../Vector/Vector_quickSort_iterative.h \
- ../Vector/Vector_shellSort.h ../Vector/Vector_uniquify.h \
- ../Vector/Vector_deduplicate_2.h ../_share/double_Elem.h \
- ../_share/increase_Elem.h ../_share/Hailstone_Elem.h \
- ../_share/increase_list.h ../_share/increase_vector.h \
- ../_share/crc_Elem.h ../_share/crc_list.h ../UniPrint/print.h \
- ../Huffman/HuffChar.h ../BinTree/BinTree.h ../BinTree/BinNode.h \
- ../BinTree/BinNode_implementation.h ../BinTree/BinNode_macro.h \
- ../BinTree/BinNode_macro_Basic.h ../BinTree/BinNode_macro_AVL.h \
- ../BinTree/BinNode_macro_RedBlack.h ../BinTree/BinNode_size.h \
- ../BinTree/BinNode_insert.h ../BinTree/BinNode_succ.h \
- ../BinTree/BinNode_pred.h ../BinTree/BinNode_travPreorder.h \
- ../Stack/Stack.h ../stack_vector/stack_vector.h \
- ../BinTree/BinNode_travPreorder_R.h ../BinTree/BinNode_travPreorder_I1.h \
+ ../Vector/Vector_search_interpolation.h ../Vector/Vector_search.h \
+ ../Vector/Vector_traverse.h ../Vector/Vector_disordered.h \
+ ../Vector/Vector_unsort.h ../Vector/Vector_sort.h \
+ ../Vector/Vector_bubbleSort_A.h ../Vector/Vector_bubbleSort_B.h \
+ ../Vector/Vector_bubbleSort_C.h ../Vector/Vector_selectionSort.h \
+ ../Vector/Vector_merge.h ../Vector/Vector_mergeSort.h \
+ ../Vector/Vector_partition_LUG.h ../Vector/Vector_heapSort.h \
+ ../Vector/Vector_quickSort_iterative.h ../Vector/Vector_shellSort.h \
+ ../Vector/Vector_uniquify.h ../Vector/Vector_deduplicate_2.h \
+ ../_share/double_Elem.h ../_share/increase_Elem.h \
+ ../_share/Hailstone_Elem.h ../_share/increase_list.h \
+ ../_share/increase_vector.h ../_share/crc_Elem.h ../_share/crc_list.h \
+ ../UniPrint/print.h ../Huffman/HuffChar.h ../BinTree/BinTree.h \
+ ../BinTree/BinNode.h ../BinTree/BinNode_implementation.h \
+ ../BinTree/BinNode_macro.h ../BinTree/BinNode_macro_Basic.h \
+ ../BinTree/BinNode_macro_AVL.h ../BinTree/BinNode_macro_RedBlack.h \
+ ../BinTree/BinNode_size.h ../BinTree/BinNode_insert.h \
+ ../BinTree/BinNode_succ.h ../BinTree/BinNode_pred.h \
+ ../BinTree/BinNode_travPreorder.h ../Stack/Stack.h \
+ ../stack_vector/stack_vector.h ../BinTree/BinNode_travPreorder_R.h \
+ ../BinTree/BinNode_travPreorder_I1.h \
  ../BinTree/BinNode_travPreorder_I2.h ../BinTree/BinNode_travInorder.h \
  ../BinTree/BinNode_travInorder_R.h ../BinTree/BinNode_travInorder_I1.h \
  ../BinTree/BinNode_travInorder_I2.h ../BinTree/BinNode_travInorder_I3.h \
