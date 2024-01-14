@@ -25,10 +25,13 @@ protected:
    void bubbleSort_A ( Rank lo, Rank hi ); //起泡排序算法
    void bubbleSort_B ( Rank lo, Rank hi ); //起泡排序算法
    void bubbleSort_C ( Rank lo, Rank hi ); //起泡排序算法
+   void bubbleSort_D ( Rank low, Rank high ); //起泡排序算法
+   void bubbleSort_E ( Rank low, Rank high ); //起泡排序算法
    Rank maxItem ( Rank lo, Rank hi ); //选取最大元素
-   void selectionSort ( Rank lo, Rank hi ); //选择排序算法
-   void merge ( Rank lo, Rank mi, Rank hi ); //归并算法
-   void mergeSort ( Rank lo, Rank hi ); //归并排序算法
+   void selectionSort ( Rank low, Rank high ); //选择排序算法
+   void merge ( Rank low, Rank middle, Rank high ); //归并算法
+   void mergeSort_v001 ( Rank low, Rank high ); //归并排序算法
+   void mergeSort_v002 ( Rank low, Rank high ); //归并排序算法
    void heapSort ( Rank lo, Rank hi ); //堆排序（稍后结合完全堆讲解）
    Rank partition ( Rank lo, Rank hi ); //轴点构造算法
    void quickSort ( Rank lo, Rank hi ); //快速排序算法

@@ -38,8 +38,8 @@ using namespace std;
 
 #include "rand.h" //随机数
 
-#define max(a,b) (((a) > (b)) ? (a) : (b))
-#define min(a,b) (((a) < (b)) ? (a) : (b))
+// #define max(a,b) (((a) > (b)) ? (a) : (b))
+// #define min(a,b) (((a) < (b)) ? (a) : (b))
 
 #if defined(DSA_DEBUG) //编译开关，控制调试输出
 #define DSA(x)  { x } //输出

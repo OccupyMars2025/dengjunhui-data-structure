@@ -8,16 +8,23 @@
 #pragma once
 
 template <typename T> 
-void Vector<T>::sort( Rank lo, Rank hi, int method_id ) { //向量区间[lo, hi)排序
+void Vector<T>::sort( Rank low, Rank high, int method_id ) { //向量区间[low, high)排序
    switch ( method_id ) {
-      case 0 : mergeSort( lo, hi ); break; //归并排序
-      case 1 : bubbleSort_A( lo, hi ); break; //起泡排序
-      case 2 : bubbleSort_B( lo, hi ); break; //起泡排序
-      case 3 : bubbleSort_C( lo, hi ); break; //起泡排序
-      case 4 : selectionSort( lo, hi ); break; //选择排序（习题）
-      // case 6 : heapSort( lo, hi ); break; //堆排序（第12章）
-      // case 7 : quickSort( lo, hi ); break; //快速排序（第14章）
-      // default : shellSort( lo, hi ); break; //希尔排序（第14章）
+      /*
+      mergeSort_v001: test 5000 times, Elapsed seconds: 74.4
+      mergeSort_v002: test 5000 times, Elapsed seconds: 73.5577
+      */
+      case 0 : mergeSort_v001( low, high ); break; //归并排序
+      case 1 : mergeSort_v002( low, high ); break; //归并排序
+      case 2 : bubbleSort_A( low, high ); break; //bubble sort
+      case 3 : bubbleSort_B( low, high ); break; //bubble sort
+      case 4 : bubbleSort_C( low, high ); break; //bubble sort
+      case 5 : bubbleSort_D( low, high ); break; //bubble sort
+      case 6 : bubbleSort_E( low, high ); break; //bubble sort
+      case 7 : selectionSort( low, high ); break; //选择排序（习题）
+      // case 6 : heapSort( low, high ); break; //堆排序（第12章）
+      // case 7 : quickSort( low, high ); break; //快速排序（第14章）
+      // default : shellSort( low, high ); break; //希尔排序（第14章）
       default:
          assert(0);
    } //随机选择算法以充分测试。实用时可视具体问题的特点灵活确定或扩充

@@ -10,20 +10,20 @@
 
 template <typename T> //向量的起泡排序（提前终止版）
 void Vector<T>::bubbleSort_B( Rank lo, Rank hi ) { //assert: 0 <= lo < hi <= size
-   printf("Vector<T>::bubbleSort_B\n");
+   // printf("Vector<T>::bubbleSort_B\n");
    
-   bool sorted = true; 
+   bool sorted; 
    do
    {
       sorted = true;
-      for( Rank i = lo+1; i < hi; i++ )
+      hi -= 1;
+      for( Rank i = lo; i < hi; i++ )
       {
-         if ( _elem[i - 1] > _elem[i] ) //若逆序，则
+         if ( _elem[i] > _elem[i + 1] ) //若逆序，则
          {
-            swap( _elem[i - 1], _elem[i] );
+            swap( _elem[i], _elem[i + 1] );
             sorted = false; //交换——因此不能判定已经整体有序
          }      
       }
-      --hi;
    } while (false == sorted);
 }

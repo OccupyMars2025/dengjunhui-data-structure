@@ -35,8 +35,9 @@ build/objects/../UniPrint/print_basic.o: ../UniPrint/print_basic.cpp \
  ../Vector/Vector_traverse.h ../Vector/Vector_disordered.h \
  ../Vector/Vector_unsort.h ../Vector/Vector_sort.h \
  ../Vector/Vector_bubbleSort_A.h ../Vector/Vector_bubbleSort_B.h \
- ../Vector/Vector_bubbleSort_C.h ../Vector/Vector_selectionSort.h \
- ../Vector/Vector_merge.h ../Vector/Vector_mergeSort.h \
+ ../Vector/Vector_bubbleSort_C.h ../Vector/Vector_bubbleSort_D.h \
+ ../Vector/Vector_bubbleSort_E.h ../Vector/Vector_selectionSort.h \
+ ../Vector/Vector_mergeSort_v001.h ../Vector/Vector_mergeSort_v002.h \
  ../Vector/Vector_partition_LUG.h ../Vector/Vector_heapSort.h \
  ../Vector/Vector_quickSort_iterative.h ../Vector/Vector_shellSort.h \
  ../Vector/Vector_uniquify.h ../Vector/Vector_deduplicate_2.h \

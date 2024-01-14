@@ -10,8 +10,18 @@
  * Test of Vector
  ******************************************************************************************/
 #include "Vector/Vector_test.h"
+#include <chrono>
+#include <iostream>
 
 int testID = 0; //测试编号
+
+
+template <typename T> 
+void test_if_sorted( Vector<T>& V ) {
+   for(int i = 1; i < V.size(); ++i) {
+      assert(V[i-1] <= V[i]);
+   }
+}
 
 /******************************************************************************************
  * 测试：无序向量的（顺序）查找
@@ -134,12 +144,14 @@ void testVector( int testSize ) {
 
    // printf ( "\n  ==== Test %2d. Sort the entire vector of\n", testID++ ); 
    // PRINT ( V );
-   V.sort(0);   
+   V.sort(1);
+   // test_if_sorted(V);  
+
    // PRINT ( V );
 
    // printf ( "\n  ==== Test %2d. SEARCH in\n", testID++ ); 
    // PRINT ( V );
-   testSearch<T> ( V );
+   // testSearch<T> ( V );
 
    // printf ( "\n  ==== Test %2d. FIND in\n", testID++ ); 
    // PRINT ( V );
@@ -234,10 +246,16 @@ int main( int argc, char* argv[] ) {
    // printf("num of deleted elements: %d\n", V.uniquify());
    // print(V);
 
-   for(int num_of_elements = 1; num_of_elements < 1000; ++num_of_elements) {
+   const auto start_time{std::chrono::steady_clock::now()};
+
+   for(int num_of_elements = 1; num_of_elements < 5000; ++num_of_elements) {
       printf("num_of_elements = %d\n", num_of_elements);
       testVector<int>(num_of_elements);
    }
+
+   const auto end_time{std::chrono::steady_clock::now()};
+   const std::chrono::duration<double> elapsed_seconds{end_time - start_time};
+   std::cout << "Elapsed seconds: " << elapsed_seconds.count() << std::endl;
    // testVector<int> ( atoi ( argv[1] ) ); //元素类型可以在这里任意选择
    return 0;
 }

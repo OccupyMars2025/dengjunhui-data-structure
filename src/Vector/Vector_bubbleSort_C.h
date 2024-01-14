@@ -32,7 +32,7 @@
 //向量的起泡排序（跳跃版）reduce "hi" by more than 1
 template <typename T> 
 void Vector<T>::bubbleSort_C( Rank lo, Rank hi ) {
-   printf("src/Vector/Vector_bubbleSort_C.h  v001\n");
+   // printf("src/Vector/Vector_bubbleSort_C.h  v001\n");
 
    Rank last_swap_index;
    while (hi - lo >= 2)
