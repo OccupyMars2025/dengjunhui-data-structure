@@ -2,6 +2,9 @@
 copied from https://github.com/python/cpython/blob/main/Lib/bisect.py
 
 I add some comments to analyse the correctness of bisect_left() and bisect_right()
+
+The analysis is a little different from interpolation search.
+You can refer to src/Vector/Vector_search_interpolation.h
 """
 
 """Bisection algorithms."""
