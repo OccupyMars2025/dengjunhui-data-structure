@@ -178,6 +178,24 @@ def bisect_right(a, x, lo=0, hi=None, *, key=None):
         after one loop, the width of [lo, hi) decreases strictly
     
     step 2: 
+        Let's reason about the relation of lo and hi when we exit the loop:
+            case a1: hi = lo + 1
+                mid = (lo + lo + 1) // 2 = lo
+                when we exit the loop, we have lo = hi
+            case a2: hi = lo + 2
+                mid = (lo + lo + 2) // 2 = lo + 1
+                when we exit the loop, we have lo = hi
+            case a3: hi = lo + m , m >= 3
+                mid = (lo + lo + m) // 2 = lo + m//2
+                if we have lo <--- mid + 1 = lo + m//2 + 1:
+                    we know 
+                    lo + m//2 + 1 < lo + m
+                    1 < m//2 + m%2
+                so we can enter the loop again
+            
+        so, from case a1-a3, we know that when we exit the loop, we have lo = hi
+        
+        
         two key observation:
         observation 1: if "x < a[mid]" branch has been executed at least once, we have
             x < a[hi] (hi is changed, the index "hi" is not out of bounds)                              
@@ -185,42 +203,29 @@ def bisect_right(a, x, lo=0, hi=None, *, key=None):
             a[lo - 1] <= x (lo is changed, the index "lo" is not out of bounds)
         (Caution: the trick is to replace "mid" with expression of "lo" or "hi")
         
-        case 1: hi = lo + 3
-            mid = (lo + lo + 3) // 2 = lo + 1
-            we can enter the loop again
-        case 2: hi = lo + 2
-            mid = (lo + lo + 2) // 2 = lo + 1
-            when we exit the loop, we have lo = hi
-        case 3: hi = lo + 1
-            mid = (lo + lo + 1) // 2 = lo
-            when we exit the loop, we have lo = hi
-        
-        so, from case 1-3, we know that when we exit the loop, we have lo = hi
-        
         when we exit the loop:
-            case 1b: if "x < a[mid]" branch and "a[mid] <= x" branch have both been executed at least once
+            case b1: if "x < a[mid]" branch and "a[mid] <= x" branch have both been executed at least once
                 a[lo - 1] <= x < a[hi]
                 lo = hi
                 so we have 
                 a[lo - 1] <= x < a[lo]
                 so we should return "lo" or "hi"
             
-            case 2b: if "x < a[mid]" branch has never been executed
+            case b2: if "x < a[mid]" branch has never been executed
                 hi is never changed
                 a[lo - 1] <= x
-                hi = lo
+                lo = initial hi
                 so we should return "lo" or "hi"
                 
-            case 3b: if "a[mid] <= x" branch has never been executed
+            case b3: if "a[mid] <= x" branch has never been executed
                 lo is never changed
                 x < a[hi]
-                hi = lo
+                hi = initial lo
                 so we should return "lo" or "hi"
     
     conclusion: we should return "lo" or "hi"     
     
-    ==================  end: method 2 ================
-    
+    ==================  end: method 2 ================    
     """
 
     if lo < 0:
