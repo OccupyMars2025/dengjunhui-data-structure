@@ -75,7 +75,7 @@ public:
       return M[k >> 3] & (1 << (k & 0x7));
    }
 
-   void dump( char* file ) //将位图整体导出至指定的文件，以便对此后的新位图批量初始化
+   void dump( const char* file ) //将位图整体导出至指定的文件，以便对此后的新位图批量初始化
    { 
       FILE* fp = fopen( file, "w" ); 
       fwrite( M, sizeof ( char ), N, fp ); 

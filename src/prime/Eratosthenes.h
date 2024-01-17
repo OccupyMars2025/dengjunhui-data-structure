@@ -8,4 +8,4 @@
 
 #pragma once
 
-void Eratosthenes ( Rank n, char* file ); //É¸·¨ÇóËØÊı
+void Eratosthenes( Rank n, const char* file );
