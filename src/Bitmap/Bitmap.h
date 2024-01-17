@@ -8,12 +8,10 @@
 
 #pragma once
 
-// #pragma warning(disable : 4996 4800)
 #include <cstdlib>
 #include <cstdio>
 #include <memory.h>
 #include <cstdint>
-// #include "_share/release.h"
 using Rank = int32_t;
 
 class Bitmap { //位图Bitmap类
@@ -32,7 +30,7 @@ public:
    Bitmap( const char* file, Rank n = 8 ) { //按指定或默认规模，从指定文件中读取位图
       init( n );
       FILE* fp = fopen( file, "r" ); 
-      fread( M, sizeof( char ), N, fp ); 
+      fread( M, sizeof( unsigned char ), N, fp ); 
       fclose( fp );
       for ( Rank k = 0, _sz = 0; k < n; k++ ) 
          _sz += test(k);
@@ -46,23 +44,35 @@ public:
       _sz = 0; 
    }
    
-   void set   ( Rank k ) { 
+   void set( Rank k ) { 
       expand( k ); 
       if(!test(k)) {
          _sz++; 
-         M[k >> 3] |=   ( 0x80 >> ( k & 0x07 ) ); 
+         // M[k >> 3] |=   ( 0x80 >> ( k & 0x07 ) ); 
+
+         // my version
+         M[k >> 3] |= (1 << (k & 0x7));
       }
    }
+
    void clear ( Rank k ) { 
       expand( k ); 
       if(test(k)) {
          _sz--; 
-         M[k >> 3] &= ~ ( 0x80 >> ( k & 0x07 ) ); 
+         // M[k >> 3] &= ~ ( 0x80 >> ( k & 0x07 ) );
+
+         // my version
+         M[k >> 3] &= ~(1 << (k & 0x7));
+
       }
    }
+
    bool test  ( Rank k ) { 
       expand( k ); 
-      return M[k >> 3] & ( 0x80 >> ( k & 0x07 ) );
+      // return M[k >> 3] & ( 0x80 >> ( k & 0x07 ) );
+      
+      // my version:
+      return M[k >> 3] & (1 << (k & 0x7));
    }
 
    void dump( char* file ) //将位图整体导出至指定的文件，以便对此后的新位图批量初始化
@@ -94,7 +104,7 @@ public:
 
    void print( Rank n ) //逐位打印以检验位图内容，非必需接口
    {  
-      expand( n ); 
+      expand( n-1 ); 
       for ( Rank i = 0; i < n; i++ ) 
          printf( test ( i ) ? "1" : "0" );  
       printf("\n");
