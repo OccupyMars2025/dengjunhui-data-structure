@@ -1,8 +1,9 @@
 # start: 2023/12/4 8:00
 # 2023/12/4 8:00 - 12/22: round 1
 # 2023/12/27 - now: round 2
-- [x] (7 days)2023/12/27 7:00 - 2024/1/2 16:00: chapter 1, introduction
-- [ ] 2024/1/2 16:00 - : chapter 2, Vector
+- [x] (7 days)2023/12/27 7:00 - 2024/1/2 16:00 : chapter 1, introduction
+- [x] (16 days)2024/1/2 16:00 - 1/17 19:00 : chapter 2, Vector
+- [ ] 2024/1/17 19:00 - : chapter 3, List
 
 - [ ] make it running on Linux with gcc
 
