@@ -6,7 +6,6 @@
 - [x] (3 days) 2024/1/17 19:00 - 1/19 22:10 : chapter 3, List
 - [ ] 2024/1/19 22:10 - : chapter 4, stack and queue
 
-- [ ] make it running on Linux with gcc
 
 
 # The accompanying source code of the book:
