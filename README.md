@@ -3,7 +3,8 @@
 # 2023/12/27 - now: round 2
 - [x] (7 days)2023/12/27 7:00 - 2024/1/2 16:00 : chapter 1, introduction
 - [x] (16 days)2024/1/2 16:00 - 1/17 19:00 : chapter 2, Vector
-- [ ] 2024/1/17 19:00 - : chapter 3, List
+- [x] (3 days) 2024/1/17 19:00 - 1/19 22:10 : chapter 3, List
+- [ ] 2024/1/19 22:10 - : chapter 4, stack and queue
 
 - [ ] make it running on Linux with gcc
 
