@@ -8,6 +8,8 @@
 
 #pragma once
 
+#include <cassert>
+
 /**
  * p: the first node of the interval
  * n: the size of the interval
@@ -15,14 +17,13 @@
  * debug: (gdb)b List_sort.h:22
 */
 template <typename T> 
-void List<T>::sort ( ListNodePosi<T> p, Rank n ) { //列表区间排序
-   /*DSA*/
-   // switch ( 3 ) {
-   switch ( rand() % 4 ) { //随机选取排序算法。可根据具体问题的特点灵活选取或扩充
-      case 1  : insertionSort( p, n ); break; //插入排序
-      case 2  : selectionSort( p, n ); break; //选择排序
-      case 3  :     mergeSort( p, n ); break; //归并排序
-      default :     radixSort( p, n ); break; //基数排序
+void List<T>::sort ( ListNodePosi<T> p, Rank n, int method_id ) { //列表区间排序
+   switch ( method_id ) {
+      case 0  : insertionSort( p, n ); break; //插入排序
+      case 1  : selectionSort( p, n ); break; //选择排序
+      case 2  :     mergeSort( p, n ); break; //归并排序
+      case 3  :     radixSort( p, n ); break; //基数排序
+      default :
+         assert(0);
    }
 }
-// 10, 11, 0

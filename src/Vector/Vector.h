@@ -36,6 +36,7 @@ protected:
    Rank partition ( Rank lo, Rank hi ); //轴点构造算法
    void quickSort ( Rank lo, Rank hi ); //快速排序算法
    void shellSort ( Rank lo, Rank hi ); //希尔排序算法
+   void insertionSort(Rank low, Rank high);
 public:
 // 构造函数
    Vector ( Rank c = DEFAULT_CAPACITY, Rank s = 0, T v = 0 ) //容量为c、规模为s、所有元素初始为v
@@ -68,7 +69,7 @@ public:
    Rank remove ( Rank lo, Rank hi ); //删除秩在区间[lo, hi)之内的元素
    Rank insert ( Rank r, T const& e ); //插入元素
    Rank insert ( T const& e ) { return insert ( _size, e ); } //默认作为末元素插入
-   void sort ( Rank lo, Rank hi, int method_id); //对[lo, hi)排序
+   void sort ( Rank low, Rank high, int method_id); //对[lo, hi)排序
    void sort(int method_id) { sort ( 0, _size, method_id ); } //整体排序
    void unsort ( Rank lo, Rank hi ); //对[lo, hi)置乱
    void unsort() { unsort ( 0, _size ); } //整体置乱

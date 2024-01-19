@@ -11,8 +11,8 @@
 //向量选择排序 [lo, hi)
 template <typename T> 
 void Vector<T>::selectionSort( Rank lo, Rank hi ) { // 0 <= lo < hi <= size
-   /*DSA*/ printf( "Vector<T>::selectionSort  [%3d, %3d)\n", lo, hi );
-   while ( lo < hi ) {
+   printf( "Vector<T>::selectionSort  [%3d, %3d)\n", lo, hi );
+   while ( lo + 1 < hi ) {
       swap( _elem[maxItem( lo, hi )], _elem[hi-1] ); //将[hi]与[lo, hi]中的最大者交换
       --hi;
    }

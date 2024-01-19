@@ -59,6 +59,7 @@
 //#include "Vector_quickSort_recursive.h"
 #include "Vector_quickSort_iterative.h"
 #include "Vector_shellSort.h"
+#include "Vector_insertionSort.h"
 
 #include "Vector_uniquify.h" //ªÚ’ﬂVector_uniquify_slow.h
 // #include "Vector_deduplicate.h"

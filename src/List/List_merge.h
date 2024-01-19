@@ -28,10 +28,59 @@ ListNodePosi<T> List<T>::merge( ListNodePosi<T> p, Rank n,
       else //否则，将q转移至p之前，以完成归入
       { 
          q = q->succ;
-         insert( L.remove( q->pred ), p ); 
+         insertBefore( p, L.remove( q->pred )); 
          m--; 
       }
    }
 
    return pp->succ; //更新的首节点
+}
+
+
+
+/*
+the list elements in the index range [rank(p), rank(p) + n) are sorted,
+the list elements in the index range [rank(q), rank(q) + m) are sorted,
+rank(p) + n <= rank(q)
+
+remove the whole right part, insert each element in the right part into the left part
+*/
+template <typename T> 
+void List<T>::merge_002( ListNodePosi<T>& p, Rank n, ListNodePosi<T> q, Rank m ) {
+   // std::cout << "src/List/List_merge.h  merge_002()" << std::endl;
+
+   // actually there is no need to use middle_sentinel
+   /*
+   if the two parts have no elements in between, just like in mergeSort(),
+   middle_sentinel will help you prevent from crossing bounds, just remove it at the end of the function
+   */
+   // ListNodePosi<T> middle_sentinel = insertBefore(q, (T)0);
+
+
+   // another trick
+   ListNodePosi<T> pred_of_logical_first_node = p->pred;
+   while ((n > 0) && (m > 0))
+   {
+      // only "<" to insertBefore, so we keep the merge sort stable 
+      if(q->data < p->data) {
+         q = q->succ;
+         insertBefore(p, remove(q->pred));
+         --m;
+      } else {
+         p = p->succ;
+         --n;
+      }
+   }
+
+   if((m > 0) && (p != q)) {
+      while (m > 0)
+      {
+         q = q->succ;
+         insertBefore(p, remove(q->pred));
+         --m;
+      }
+   }
+
+   p = pred_of_logical_first_node->succ;
+   // remove(middle_sentinel);
 }

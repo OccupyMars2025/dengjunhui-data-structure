@@ -18,5 +18,5 @@ void List<T>::radixSort( ListNodePosi<T> p, Rank n ) { // valid(p) && Rank(p) + 
    for ( U radixBit = 0x1; radixBit && (p = head); radixBit <<= 1 ) //以下反复地
       for ( Rank i = 0; i < n; i++ ) //根据当前基数位，将所有节点
          radixBit & U (p->succ->data) ? //分拣为后缀（1）与前缀（0）
-            insert( remove( p->succ ), tail ) : p = p->succ;
+            insertBefore(tail, remove( p->succ )) : p = p->succ;
 }

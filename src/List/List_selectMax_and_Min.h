@@ -9,6 +9,8 @@
 #pragma once
 
 //从起始于位置p的n个元素中选出最大者
+// if there are multiple maximum elements, choose that with the largest index,
+// so that the selection sort which uses selectMax() is stable 
 template <typename T> 
 ListNodePosi<T> List<T>::selectMax( ListNodePosi<T> p, Rank n ) {
    ListNodePosi<T> max = p; //最大者暂定为首节点p
@@ -18,9 +20,29 @@ ListNodePosi<T> List<T>::selectMax( ListNodePosi<T> p, Rank n ) {
          printf("List<T>::selectMax: error: surpass list bound\n");
          exit(1);
       }
+      // Caution: pay attention to the "equality" situation
       if ( !lt( ( cur = cur->succ )->data, max->data ) ) //若当前元素不小于max，则
          max = cur; //更新最大元素位置记录
    }
 
    return max; //返回最大节点位置
+}
+
+
+//从起始于位置p的n个元素中选出最小者
+// if there are multiple minimum elements, choose that with the smallest index,
+// so that the selection sort which uses selectMin() is stable 
+template <typename T> 
+ListNodePosi<T> List<T>::selectMin( ListNodePosi<T> p, Rank n ) {
+   ListNodePosi<T> pointer_to_min = p;
+
+   for(Rank i = 1; i < n; ++i) {
+      p = p->succ;
+      // don't use "<="
+      if(p->data < pointer_to_min->data) {
+         pointer_to_min = p;
+      }
+   }
+
+   return pointer_to_min;
 }

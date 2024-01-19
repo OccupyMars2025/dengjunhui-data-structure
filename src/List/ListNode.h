@@ -12,7 +12,9 @@ using Rank = int32_t; //秩
 
 template <typename T> struct ListNode;
 template <typename T> using ListNodePosi = ListNode<T>*; //列表节点位置
-template <typename T> struct ListNode { //列表节点模板类（以双向链表形式实现）
+
+template <typename T> 
+struct ListNode { //列表节点模板类（以双向链表形式实现）
 // 成员
    T data; ListNodePosi<T> pred, succ; //数值、前驱、后继
 // 构造函数

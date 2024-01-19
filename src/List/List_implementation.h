@@ -36,7 +36,7 @@
 
 #include "List_sort.h"
 #include "List_insertionSort.h"
-#include "List_selectMax.h"
+#include "List_selectMax_and_Min.h"
 #include "List_selectionSort.h"
 #include "List_merge.h"
 #include "List_mergeSort.h"
@@ -46,5 +46,5 @@
 #include "List_uniquify.h"
 
 #include "List_reverse1.h"
-//#include "List_reverse2.h"
-//#include "List_reverse3.h"
+// #include "List_reverse2.h"
+// #include "List_reverse3.h"

@@ -8,9 +8,24 @@
 
 #pragma once
 
-template <typename T> void List<T>::reverse() { //前后倒置
+template <typename T> 
+void List<T>::reverse() { //前后倒置
    if ( _size < 2 ) return; //平凡情况
    for ( ListNodePosi<T> p = header; p; p = p->pred ) //自前向后，依次
       swap( p->pred, p->succ ); //交换各节点的前驱、后继指针
    swap( header, trailer ); //头、尾节点互换
 }
+
+
+
+// template <typename T> 
+// void List<T>::reverse() { //前后倒置
+//    std::cout << "src/List/List_reverse2.h" << std::endl;
+
+//    if(_size < 2) return;
+
+//    for(ListNodePosi<T> p = header; p != NULL; p = p->pred) {
+//       swap(p->pred, p->succ);
+//    }
+//    swap(header, trailer);
+// }

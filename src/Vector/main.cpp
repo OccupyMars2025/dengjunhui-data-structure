@@ -144,10 +144,10 @@ void testVector( int testSize ) {
 
    // printf ( "\n  ==== Test %2d. Sort the entire vector of\n", testID++ ); 
    // PRINT ( V );
-   V.sort(1);
-   // test_if_sorted(V);  
+   V.sort(8);
+   test_if_sorted(V);  
 
-   // PRINT ( V );
+   PRINT ( V );
 
    // printf ( "\n  ==== Test %2d. SEARCH in\n", testID++ ); 
    // PRINT ( V );
@@ -248,7 +248,7 @@ int main( int argc, char* argv[] ) {
 
    const auto start_time{std::chrono::steady_clock::now()};
 
-   for(int num_of_elements = 1; num_of_elements < 5000; ++num_of_elements) {
+   for(int num_of_elements = 1; num_of_elements < 500; ++num_of_elements) {
       printf("num_of_elements = %d\n", num_of_elements);
       testVector<int>(num_of_elements);
    }

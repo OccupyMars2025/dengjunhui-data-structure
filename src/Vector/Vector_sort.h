@@ -22,6 +22,7 @@ void Vector<T>::sort( Rank low, Rank high, int method_id ) { //向量区间[low, hig
       case 5 : bubbleSort_D( low, high ); break; //bubble sort
       case 6 : bubbleSort_E( low, high ); break; //bubble sort
       case 7 : selectionSort( low, high ); break; //选择排序（习题）
+      case 8 : insertionSort(low, high); break;
       // case 6 : heapSort( low, high ); break; //堆排序（第12章）
       // case 7 : quickSort( low, high ); break; //快速排序（第14章）
       // default : shellSort( low, high ); break; //希尔排序（第14章）

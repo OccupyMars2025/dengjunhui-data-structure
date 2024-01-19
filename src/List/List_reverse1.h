@@ -8,8 +8,20 @@
 
 #pragma once
 
-template <typename T> void List<T>::reverse() { //前后倒置
+template <typename T> 
+void List<T>::reverse() { //前后倒置
    ListNodePosi<T> p = header; ListNodePosi<T> q = trailer; //头、尾节点
-   for ( Rank i = 1; i < _size; i += 2 ) //（从首、末节点开始）由外而内，捉对地
+   for ( Rank i = 2; i <= _size; i += 2 ) //（从首、末节点开始）由外而内，捉对地
       swap( ( p = p->succ )->data, ( q = q->pred )->data ); //交换对称节点的数据项
 }
+
+
+
+// template <typename T> 
+// void List<T>::reverse() { //前后倒置
+//    if(_size < 2) return;
+
+//    for(ListNodePosi<T> p1 = header->succ, p2 = trailer->pred;  p1 != p2; p1 = p1->succ, p2 = p2->pred) {
+//       swap(p1->data, p2->data);
+//    }
+// }

@@ -25,7 +25,7 @@ ListNodePosi<T> List<T>::insertAsLast( T const& e )
 
 // e当作p的后继插入
 template <typename T> 
-ListNodePosi<T> List<T>::insert( ListNodePosi<T> p, T const& e )
+ListNodePosi<T> List<T>::insertAfter( ListNodePosi<T> p, T const& e )
 { 
    _size++; 
    return p->insertAsSucc( e ); 
@@ -33,7 +33,7 @@ ListNodePosi<T> List<T>::insert( ListNodePosi<T> p, T const& e )
 
 // e当作p的前驱插入
 template <typename T> 
-ListNodePosi<T> List<T>::insert( T const& e, ListNodePosi<T> p )
+ListNodePosi<T> List<T>::insertBefore( ListNodePosi<T> p, T const& e )
 { 
    _size++; 
    return p->insertAsPred( e ); 
