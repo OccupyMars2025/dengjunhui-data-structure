@@ -48,7 +48,10 @@ void testStack ( Rank n ) {
  * 测试栈
  ******************************************************************************************/
 int main ( int argc, char* argv[] ) {
-   if ( 2 > argc ) { printf ( "Usage: %s <size of test>\a\a\n", argv[0] ); return 1; }
+   if ( 2 > argc ) { 
+      printf ( "Usage: %s <size of test>\a\a\n", argv[0] ); 
+      return 1; 
+   }
    srand((unsigned int)time(NULL)); //随机种子
    //srand( 31415926 ); //固定种子（假种子，调试用）
    testStack<int> ( atoi ( argv[1] ) ); //元素类型可以在这里任意选择

@@ -9,6 +9,7 @@
 #pragma once
 
 #include "Vector/Vector.h" //以向量为基类，派生出栈模板类
+
 template <typename T> 
 class Stack: public Vector<T> { //将向量的首/末端作为栈底/顶
 public: //原有接口一概沿用
