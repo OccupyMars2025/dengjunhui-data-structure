@@ -10,8 +10,10 @@ OBJ_DIR  := $(BUILD)/objects
 APP_DIR  := $(BUILD)/apps
 TARGET   := program
 INCLUDE  := -I../ 
-SRC      :=                    \
-   $(wildcard ./*.cpp)         \
+SRC      :=   \
+   $(wildcard ./main.cpp)      \
+   $(wildcard ../UniPrint/*.cpp) \
+
 
 OBJECTS  := $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 DEPENDENCIES \
@@ -42,8 +44,7 @@ release: CXXFLAGS += -O2
 release: all
 
 clean:
-	-@rm -rvf $(OBJ_DIR)/*
-	-@rm -rvf $(APP_DIR)/*
+	rm -rf ./build
 
 info:
 	@echo "[*] Application dir: ${APP_DIR}     "

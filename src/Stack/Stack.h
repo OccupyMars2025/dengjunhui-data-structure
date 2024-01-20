@@ -8,8 +8,8 @@
 
 #pragma once
 
-// #define DSA_STACK_VECTOR
-#define DSA_STACK_LIST
+#define DSA_STACK_VECTOR 
+// #define DSA_STACK_LIST
 
 #if defined(DSA_STACK_VECTOR)
 #include "stack_vector/stack_vector.h" //由向量派生的栈

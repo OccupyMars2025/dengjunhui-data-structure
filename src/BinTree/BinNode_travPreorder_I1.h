@@ -8,6 +8,8 @@
 
 #pragma once
 
+#include "Stack/Stack.h"
+
 // /**
 //  * Because the recursive version is a kind of "tail call",
 //  * so we can get the interative version as follows
