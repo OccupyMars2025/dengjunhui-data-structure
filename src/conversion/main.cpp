@@ -12,39 +12,32 @@
  * 进制转换
  ******************************************************************************************/
 int main ( int argc, char* argv[] ) {
-   if ( (argc < 3) || (argc % 2 != 1)) //参数检查
-   { 
-      cout << "Usage: " << argv[0] << " <integer> <base>" << endl; 
-      return -1; 
-   }
+   Stack<char> s1, s2; 
+   int64_t calculated_n;
 
-   for ( int i = 1; i < argc; i += 2 ) {
-      int64_t n = atol ( argv[i] ); //待转换的十进制数
-      if ( 0 >= n ) //参数检查
-      { 
-         cout << "But " << n << " is not a positive integer" << endl;   
-         return -2; 
+   for(int base = 2; base <= 30; ++base) {
+      std::cout << "base = " << base << std::endl;
+      for (int64_t n = 1; n <= 10000; ++n) {
+         convert_Iterative ( s1, n, base ); //进制转换   
+         convert_Recursive(s2, n, base);
+         // printf ( "%ld_(10) = ", n );
+         assert(s1.size() == s2.size());
+         calculated_n = 0;
+         while ( !s1.empty()) {
+            char c1 = s1.pop(), c2 = s2.pop();
+            assert(c1 == c2);
+            // printf ("%c", c1); 
+            if(isdigit(c1)) {
+               calculated_n = calculated_n * base + (c1 - '0');
+            } else if(isalpha(c1) && (c1 >= 'A')) {
+               calculated_n = calculated_n * base + (c1 - 'A' + 10);
+            } else {
+               assert(0);
+            }
+         }
+         assert(calculated_n == n);
+         // printf ( "_(%d)\n", base ); 
       }
-
-      int base = atoi ( argv[i+1] ); //目标进制
-      if ( 2 > base || base > 16 ) //参数检查
-      { 
-         cout << "But " << base << " is not between 2 and 16" << endl; 
-         return -2; 
-      }
-
-      Stack<char> S; //用栈记录转换得到的各数位
-      convert_Iterative ( S, n, base ); //进制转换
-      printf ( "%ld_(10) = ", n );
-      while ( !S.empty() ) 
-         printf ( "%c", ( S.pop() ) ); //逆序输出栈内数位，即正确结果
-      printf ( "_(%d)\n", base ); 
-      
-      convert_Recursive(S, n, base);
-      printf ( "%ld_(10) = ", n );
-      while ( !S.empty() ) 
-         printf ( "%c", ( S.pop() ) ); //逆序输出栈内数位，即正确结果
-      printf ( "_(%d)\n", base ); 
    }
 
    return 0;
