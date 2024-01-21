@@ -13,5 +13,4 @@ note: "./build/apps/program" is the generated executable
 ```
 ![Screenshot from 2023-12-05 17-39-03](https://github.com/OccupyMars2025/dengjunhui-data-structure-cpp-source-code/assets/31559413/e23cb3b9-cf8d-4de0-84fb-787ac180b504)
 
-## Caution: if you come across this kind of compile error "error: xxxx was not declared in this scope" which is reported by many header files that you don't include, you may refer to this issue:
-## https://github.com/OccupyMars2025/dengjunhui-data-structure-cpp-source-code/issues/7
+## Caution: if you come across this kind of compile error "error: xxxx was not declared in this scope" which is reported by many header files that you don't include, you may refer to this issue: https://github.com/OccupyMars2025/dengjunhui-data-structure-cpp-source-code/issues/7
