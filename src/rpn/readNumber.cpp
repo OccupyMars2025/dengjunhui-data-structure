@@ -6,7 +6,7 @@
  * Copyright (c) 2003-2023. All rights reserved.
  ******************************************************************************************/
 
-/*DSA*/#include "rpn/rpn.h"
+#include "rpn/rpn.h"
 
 void readNumber ( char*& p, Stack<double>& stk ) { //将起始于p的子串解析为数值，并存入操作数栈
    stk.push ( ( double ) ( *p - '0' ) ); //当前数位对应的数值进栈

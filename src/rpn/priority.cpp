@@ -6,7 +6,7 @@
  * Copyright (c) 2003-2023. All rights reserved.
  ******************************************************************************************/
 
-/*DSA*/#include "rpn.h"
+#include "rpn.h"
 
 Operator optr2rank ( char op ) { //由运算符转译出编号
    switch ( op ) {
@@ -24,4 +24,6 @@ Operator optr2rank ( char op ) { //由运算符转译出编号
 }
 
 char priority ( char op1, char op2 ) //比较两个运算符之间的优先级
-{ return pri[optr2rank ( op1 ) ][optr2rank ( op2 ) ]; }
+{ 
+   return pri[optr2rank ( op1 ) ][optr2rank ( op2 ) ]; 
+}

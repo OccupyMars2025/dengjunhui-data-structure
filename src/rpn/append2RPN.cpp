@@ -6,7 +6,7 @@
  * Copyright (c) 2003-2023. All rights reserved.
  ******************************************************************************************/
 
-/*DSA*/#include "rpn/rpn.h"
+#include "rpn/rpn.h"
 
 void append ( char* rpn, double opnd ) { //将操作数接至RPN末尾
    char buf[64];
