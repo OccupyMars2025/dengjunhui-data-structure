@@ -28,6 +28,7 @@ void testQueue ( Rank n ) {
       }
       print ( Q );
    }
+   
    printf ( "\n  ==== Test %2d. Shrinking queue\n", testID++ );
    while ( !Q.empty() ) {
       if( 70 < dice ( 100 ) ){
@@ -43,7 +44,10 @@ void testQueue ( Rank n ) {
  * 测试队列
  ******************************************************************************************/
 int main ( int argc, char* argv[] ) {
-   if ( 2 > argc ) { printf ( "Usage: %s <size of test>\n", argv[0] ); return 1; }
+   if ( 2 > argc ) { 
+      printf ( "Usage: %s <size of test>\n", argv[0] ); 
+      return 1; 
+   }
    srand((unsigned int)time(NULL)); //随机种子
    //srand( 31415926 ); //固定种子（假种子，调试用）
    testQueue<int> ( atoi ( argv[1] ) ); //元素类型可以在这里任意选择
