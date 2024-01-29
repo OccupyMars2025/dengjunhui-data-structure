@@ -12,6 +12,7 @@
 using namespace std;
 #include <cstdio>
 #include <cstdlib>
+#include "UniPrint/print.h"
 #include "Stack/Stack.h" //栈
 #include "queen.h" //引入皇后类
 

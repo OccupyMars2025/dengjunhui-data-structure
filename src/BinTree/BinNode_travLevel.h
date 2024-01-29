@@ -8,7 +8,7 @@
 
 #pragma once
 
-/*DSA*/#include "Queue/Queue.h" //引入队列
+#include "Queue/Queue.h" //引入队列
 template <typename T> template <typename VST> //元素类型、操作器
 void BinNode<T>::travLevel( VST& visit ) { //二叉树层次遍历算法
    printf("travLevel\n");

@@ -8,18 +8,27 @@
 
 #pragma once
 
-#include<iostream>
+#include <iostream>
 using namespace std;
 
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
+
+/*
+workaround: just include this header to remove some 
+"Stack not declared in this scope" errors
+*/
+#include "UniPrint/print.h"
+
+
 #include "Stack/Stack.h"
 
 #define QUEEN_MAX 20
 
 typedef enum {Continuous, Step} RunMode;
 
+// these 3 variables are declared in main.cpp
 extern RunMode runMode; //运行模式
 extern int nSolu; //解的总数
 extern int nCheck; //尝试的总次数

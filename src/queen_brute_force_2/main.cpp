@@ -6,7 +6,7 @@
  * Copyright (c) 2003-2023. All rights reserved.
  ******************************************************************************************/
 
-#include   "../queen_brute_force_1/queen.h"
+#include "queen_brute_force_1/queen.h"
 
 /******************************************************************************************
  * 全局变量
@@ -25,11 +25,22 @@ int main ( int argc, char* argv[] ) {
       place4Queens, //4皇后算法
       place5Queens  //5皇后算法
    };
+
    if ( argc < 2 ) //检查命令行格式
-      { cout << "Usage: " << argv[0] << " <-step | -cont>" << endl; return -1; }
-   if ( !strcmp ( "-step", argv[1] ) ) runMode = Step; //设定为单步演示模式
-   else if ( !strcmp ( "-cont", argv[1] ) ) runMode = Continuous; //设定为连续演示模式
-   else { cout << "Unrecognizable running mode" << endl; return -2; }
+   { 
+      cout << "Usage: " << argv[0] << " <-step | -cont>" << endl; 
+      return -1; 
+   }
+
+   if ( !strcmp ( "-step", argv[1] ) ) 
+      runMode = Step; //设定为单步演示模式
+   else if ( !strcmp ( "-cont", argv[1] ) ) 
+      runMode = Continuous; //设定为连续演示模式
+   else { 
+      cout << "Unrecognizable running mode" << endl; 
+      return -2; 
+   }
+
    for ( int i = 2; i <= 5; i++ ) { //对于2~5个皇后的情况，分别
       nSolu = 0; nCheck = 0; //初始化计数器
       ( *pPlaceQueens[i-2] ) (); //启动算法

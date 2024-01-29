@@ -9,10 +9,10 @@
 #include "queen.h"
 
 void displaySolution ( int* solu, int n ) { //输出n*n的可行布局
-   ( Step == runMode ) ? system ( "cls" ) : printf ( "--\n" );
+   ( Step == runMode ) ? system ( "clear" ) : printf ( "--\n" );
    for ( int i = 0; i < n; i++ ) {
       for ( int j = 0; j < n; j++ ) {
-         printf ( ( j == solu[i] ) ? "█" : "[]" );
+         printf ( ( j == solu[i] ) ? "[x]" : "[ ]" );
       }
       printf ( "\n" );
    }

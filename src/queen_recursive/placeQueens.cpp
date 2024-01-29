@@ -16,10 +16,12 @@ void placeQueens ( int nQueen, int k ) { //·ÅÖÃn¸ö»ÊºóÖĞµÄµÚk¸ö£¨¼ÙÉè0ÖÁk-1¾ùÒÑ¾
    static int solu[QUEEN_MAX]; //½â·¨
    if ( nQueen <= k ) { //ÈôËùÓĞ»Êºó¶¼ÒÑ¾ÍÎ»£¬Ôò
       nSolu++; displaySolution ( solu, nQueen ); //Êä³ö¿ÉĞĞ½â
-   } else //·ñÔò
+   } else {//·ñÔò
       for ( int i = 0; i < nQueen; i++ ) { //ÒÀ´Î
          solu[k] = i; //ÊÔ×Å½«µ±Ç°»Êºó·ÅÔÚ£¨µ±Ç°ĞĞµÄ£©¸÷ÁĞÉÏ
-         if ( !collide ( solu, k ) ) //ÈôÃ»ÓĞ³åÍ»£¬Ôò
+         if ( !collide ( solu, k ) ) {//ÈôÃ»ÓĞ³åÍ»£¬Ôò
             placeQueens ( nQueen, k + 1 ); //½ø¶ø¿¼ÂÇÏÂÒ»»Êºó
-      } //Ë¼¿¼£ºÕâÀïµÄ»ØËİ£¬Í¨¹ıÊ²Ã´»úÖÆÊµÏÖ£¿
+         }
+      } //Ë¼¿¼£ºÕâÀïµÄ»ØËİ£¬Í¨¹ıÊ²Ã´»úÖÆÊµÏÖ£¿ function call
+   }
 }

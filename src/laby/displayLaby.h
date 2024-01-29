@@ -30,7 +30,7 @@ void displayLaby() { //©¼©¸©´©°©¦©¤
       "©à", "©¤", "©´", "  ", "©¼",
       "©à", "©¸", "©¦", "©¼", "  "
    };
-   system ( "cls" );
+   system ( "clear" );
    printf ( "  " );
    for ( int j = 0; j < labySize; j++ )
       ( j < 10 ) ? printf ( "%2X", j ) : printf ( " %c", 'A' - 10 + j );
