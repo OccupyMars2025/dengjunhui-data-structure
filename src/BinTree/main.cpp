@@ -182,7 +182,7 @@ void  testBinTree ( int h ) { //²âÊÔ¶ş²æÊ÷
    // compare_traversal_sequences(bt, 1, 0, 3);
    // compare_traversal_sequences(bt, 1, 0, 4);
    // compare_traversal_sequences(bt, 2, 0, 1);
-   compare_traversal_sequences(bt, 2, 0, 2);
+   // compare_traversal_sequences(bt, 2, 0, 2);
    // bt.travPre ( *print_data_visit, 0 );
    // printf("\n");
    // // bt.travPre ( *double_visit, 0 );
@@ -216,7 +216,8 @@ void  testBinTree ( int h ) { //²âÊÔ¶ş²æÊ÷
 
 
    
-
+   bt.travLevel(*print_data_visit);
+   printf("\n");
    // bt.travLevel ( *double_visit ); 
    // bt.travLevel ( *increase_visit ); 
    // print ( bt );

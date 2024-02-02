@@ -33,8 +33,7 @@ public:
    template <typename VST> //操作器
    void travLevel( VST& visit ) 
    { 
-      if ( _root ) 
-         _root->travLevel( visit ); 
+      if ( _root ) _root->travLevel( visit ); 
    } //层次遍历
    
    template <typename VST> //操作器

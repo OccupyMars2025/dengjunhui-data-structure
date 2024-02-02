@@ -40,7 +40,7 @@ struct BinNode { //二叉树节点模板类
    BinNodePosi<T> insertAsRC( T const& ); //作为当前节点的右孩子插入新节点
    BinNodePosi<T> succ(); //取当前节点的直接successor
    BinNodePosi<T> pred(); //取当前节点的直接predecessor
-   template <typename VST> void travLevel( VST& ); //子树层次遍历
+   template <typename VST> void travLevel( VST& visit); //子树层次遍历
    template <typename VST> void travPre( VST& visit, int algorithm_id ); //子树先序遍历
    template <typename VST> void travIn(VST& visit, int algorithm_id); //子树中序遍历
    template <typename VST> void travPost(VST& visit, int algorithm_id); //子树后序遍历
