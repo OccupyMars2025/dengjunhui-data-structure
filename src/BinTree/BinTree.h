@@ -22,11 +22,11 @@ public:
    Rank size() const { return _size; } //规模
    bool empty() const { return !_root; } //判空
    BinNodePosi<T> root() const { return _root; } //树根
-   BinNodePosi<T> insert( T const& ); //插入根节点
-   BinNodePosi<T> insert( T const&, BinNodePosi<T> ); //插入左孩子
-   BinNodePosi<T> insert( BinNodePosi<T>, T const& ); //插入右孩子
-   BinNodePosi<T> attach( BinTree<T>*&, BinNodePosi<T> ); //接入左子树
-   BinNodePosi<T> attach( BinNodePosi<T>, BinTree<T>*& ); //接入右子树
+   BinNodePosi<T> insertAsRoot( T const& ); //插入根节点
+   BinNodePosi<T> insertAsLC( BinNodePosi<T>, T const& ); //插入左孩子
+   BinNodePosi<T> insertAsRC( BinNodePosi<T>, T const& ); //插入右孩子
+   BinNodePosi<T> attachAsLeftSubtree( BinNodePosi<T>, BinTree<T>*& ); //接入左子树
+   BinNodePosi<T> attachAsRightSubtree( BinNodePosi<T>, BinTree<T>*& ); //接入右子树
    Rank remove ( BinNodePosi<T> ); //子树删除
    BinTree<T>* secede ( BinNodePosi<T> ); //子树分离
    
@@ -38,9 +38,9 @@ public:
    } //层次遍历
    
    template <typename VST> //操作器
-   void travPre( VST& visit ) 
+   void travPre( VST& visit, int algorithm_id ) 
    { 
-      if ( _root ) _root->travPre( visit ); 
+      if ( _root ) _root->travPre( visit, algorithm_id ); 
    } //先序遍历
    
    template <typename VST> //操作器

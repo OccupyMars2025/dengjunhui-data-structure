@@ -12,7 +12,7 @@
 
 // /**
 //  * Because the recursive version is a kind of "tail call",
-//  * so we can get the interative version as follows
+//  * so we can get the iterative version as follows
 // */
 // template <typename T, typename VST> //元素类型、操作器
 // void travPre_I1( BinNodePosi<T> x, VST& visit ) { //二叉树先序遍历算法（迭代版#1）
@@ -29,24 +29,42 @@
 // }
 
 
+// template <typename T, typename VST>
+// void travPre_I1(BinNodePosi<T> node, VST &visit) {
+//    printf("travPre_I1: my rewriting\n");
+//    if(nullptr == node) return;
+
+//    Stack<BinNodePosi<T>> stack;
+//    stack.push(node);
+//    while (!stack.empty())
+//    {
+//       node = stack.pop();
+//       visit(node->data);
+
+//       if(HasRChild(*node)) {
+//          stack.push(node->rc);
+//       }
+
+//       if(HasLChild(*node)) {
+//          stack.push(node->lc);
+//       }      
+//    }
+// }
+
+
 template <typename T, typename VST>
-void travPre_I1(BinNodePosi<T> node, VST &visit) {
-   printf("travPre_I1: my rewriting\n");
-   if(nullptr == node) return;
-
+void travPre_I1(BinNodePosi<T> x, VST& visit) {
+   printf("src/BinTree/BinNode_travPreorder_I1.h  004\n");
    Stack<BinNodePosi<T>> stack;
-   stack.push(node);
-   while (!stack.empty())
+   stack.push(x);
+
+   while (stack.empty() == false)
    {
-      node = stack.pop();
-      visit(node->data);
-
-      if(HasRChild(*node)) {
-         stack.push(node->rc);
+      x = stack.pop();
+      if(x) {
+         visit(x->data);
+         stack.push(x->rc);
+         stack.push(x->lc);
       }
-
-      if(HasLChild(*node)) {
-         stack.push(node->lc);
-      }      
    }
 }

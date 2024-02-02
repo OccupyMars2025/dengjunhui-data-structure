@@ -39,6 +39,50 @@ struct PrintData
    }
 };
 
+template <typename T>
+struct CollectTraversalSequence {
+   Queue<T>& queue;
+
+   CollectTraversalSequence(Queue<T>& queue) : queue(queue) {}
+   void operator()(const T& e) {
+      queue.enqueue(e);
+   }
+};
+
+template <typename T>
+void compare_traversal_sequences(BinTree<T>& bintree, int preorder_inorder_postorder, int algorithm_1, int algorithm_2) 
+{
+   Queue<T> queue001, queue002;
+
+   CollectTraversalSequence<T> * collect_traversal_sequence001 = new CollectTraversalSequence<T>(queue001);
+   CollectTraversalSequence<T> * collect_traversal_sequence002 = new CollectTraversalSequence<T>(queue002);
+   
+   switch (preorder_inorder_postorder)
+   {
+   case 0:
+      // preorder
+      printf("Validate preorder:\n");
+      bintree.travPre(*collect_traversal_sequence001, algorithm_1);
+      bintree.travPre(*collect_traversal_sequence002, algorithm_2);
+      break;
+   
+   default:
+      assert(0);
+      break;
+   }
+ 
+   assert(queue001.size() == queue002.size());
+   assert(queue001.size() > 0);
+   while (queue001.empty() == false)
+   {
+      T data001 = queue001.dequeue();
+      T data002 = queue002.dequeue();
+      assert(data001 == data002);
+      print(data001);
+   }
+   printf("\nSuccess: The 2 traversal sequences are the same\n\n");
+}
+
 
 
 int testID = 0; //测试编号
@@ -48,9 +92,9 @@ template <typename T>
 bool randomBinTree ( BinTree<T> & bt, BinNodePosi<T> x, int h ) {
    if ( 0 >= h ) return false; //至多h层
    if ( 0 < dice ( h ) ) //以1/h的概率终止当前分支的生长
-      randomBinTree ( bt, bt.insert ( x, dice ( ( T ) h * h * h ) ), h - 1 );
+      randomBinTree ( bt, bt.insertAsRC ( x, dice ( ( T ) h * h * h ) ), h - 1 );
    if ( 0 < dice ( h ) ) //以1/h的概率终止当前分支的生长
-      randomBinTree ( bt, bt.insert ( dice ( ( T ) h * h * h ), x ), h - 1 );
+      randomBinTree ( bt, bt.insertAsLC ( x, dice ( ( T ) h * h * h ) ), h - 1 );
    return true;
 }
 
@@ -94,8 +138,6 @@ void checkPredecessorAndSuccessor(BinTree<T> &binary_tree) {
       }
       printf("\n");
    }
-   
-   
 }
 
 template <typename T> 
@@ -104,23 +146,30 @@ void  testBinTree ( int h ) { //测试二叉树
    BinTree<T> bt; 
    print ( bt );
    
-   bt.insert ( dice ( ( T ) h * h * h ) ); 
+   bt.insertAsRoot ( dice ( ( T ) h * h * h ) ); 
    print ( bt );
 
    randomBinTree<T> ( bt, bt.root(), h ); 
    print ( bt );
    
-   printf ( "\n  ==== Test %2d. Double and increase all nodes by traversal\n", testID++ );
+   // printf ( "\n  ==== Test %2d. Double and increase all nodes by traversal\n", testID++ );
+   printf ( "\n  ==== Test %2d. validate different traversal algorithms\n", testID++ );
    Double<T> *double_visit = new Double<T>();
    Increase<T> *increase_visit = new Increase<T>();
    Constant<T>* assign_constant_visit = new Constant<T>(3);
    CheckIfEqual<T> *check_if_equal_visit = new CheckIfEqual<T>(4);
    PrintData<T> *print_data_visit = new PrintData<T>();
 
-   // bt.travPre ( *double_visit ); 
-   // bt.travPre ( *increase_visit ); 
+   print(bt); 
+   compare_traversal_sequences(bt, 0, 0, 2);
+   // bt.travPre ( *print_data_visit, 0 );
+   // printf("\n");
+   // // bt.travPre ( *double_visit, 0 );
+   // bt.travPre ( *print_data_visit, 1 ); 
+   // printf("\n");
+   // bt.travPre ( *increase_visit, 0 ); 
    // print ( bt );
-   // bt.travPre(*assign_constant_visit);
+   // bt.travPre(*assign_constant_visit, 0);
    // print(bt);
    // bt.travIn(*check_if_equal_visit);
 
@@ -131,11 +180,11 @@ void  testBinTree ( int h ) { //测试二叉树
    // travIn_R(bt.root(), *print_data_visit);
    // printf("\n");
    
-   travIn_I4(bt.root(), *assign_constant_visit);
-   print(bt);
-   travIn_I4(bt.root(), *increase_visit);
-   print(bt);
-   travIn_R(bt.root(), *check_if_equal_visit);
+   // travIn_I4(bt.root(), *assign_constant_visit);
+   // print(bt);
+   // travIn_I4(bt.root(), *increase_visit);
+   // print(bt);
+   // travIn_R(bt.root(), *check_if_equal_visit);
 
    // bt.travPost ( *double_visit ); 
    // bt.travPost ( *increase_visit ); 
@@ -181,7 +230,10 @@ void  testBinTree ( int h ) { //测试二叉树
 }
 
 int main ( int argc, char* argv[] ) { //测试二叉树
-   if ( 2 > argc ) { printf ( "Usage: %s <size of test>\n", argv[0] ); return 1; }
+   if ( 2 > argc ) { 
+      printf ( "Usage: %s <size of test>\n", argv[0] ); 
+      return 1; 
+   }
    srand ( ( unsigned int ) time ( NULL ) );
    testBinTree<int> ( atoi ( argv[1] ) ); //元素类型可以在这里任意选择
    return 0;
