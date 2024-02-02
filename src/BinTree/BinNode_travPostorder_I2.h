@@ -62,39 +62,87 @@
 // }
 
 
-template <typename T>
-static void goToDeepestLeafVisibleFromLeft(Stack<BinNodePosi<T>> &stack){
-   if (stack.empty()) return;
+// template <typename T>
+// static void goToDeepestLeafVisibleFromLeft(Stack<BinNodePosi<T>> &stack){
+//    if (stack.empty()) return;
 
-   BinNodePosi<T> node;
-   while (node = stack.top())
+//    BinNodePosi<T> node;
+//    while (node = stack.top())
+//    {
+//       if(HasLChild(*node)) {
+//          if(HasRChild(*node)) {
+//             stack.push(node->rc);
+//          }
+//          stack.push(node->lc);
+//       } else {
+//          stack.push(node->rc);
+//       }
+//    }
+//    stack.pop();
+// }
+
+// template <typename T, typename VST>
+// void travPost_I2(BinNodePosi<T> node, VST& visit) {
+//    printf("travPost_I\n");
+
+//    if(nullptr == node) return;
+
+//    Stack<BinNodePosi<T>> stack;
+//    stack.push(node);
+//    while (!stack.empty())
+//    {
+//       if(node->parent != stack.top()) {
+//          goToDeepestLeafVisibleFromLeft(stack);
+//       }
+//       node = stack.pop();
+//       visit(node->data);
+//    }
+// }
+
+
+
+/*
+The core idea of this algorithm:
+go along left branch when possible
+stack.push(x->rc)
+stack.push(x->lc)
+*/
+template <typename T>
+static void goAlongLeftBranchWhenPossible(Stack<BinNodePosi<T>>& stack) {
+   if(stack.empty() == true) {
+      assert(0);
+   }
+
+   BinNodePosi<T> x;
+   while (x = stack.top())
    {
-      if(HasLChild(*node)) {
-         if(HasRChild(*node)) {
-            stack.push(node->rc);
+      if(x->lc) {
+         if(x->rc) {
+            stack.push(x->rc);
          }
-         stack.push(node->lc);
-      } else {
-         stack.push(node->rc);
+         stack.push(x->lc);
+      }else {
+         stack.push(x->rc);
       }
    }
    stack.pop();
 }
 
 template <typename T, typename VST>
-void travPost_I(BinNodePosi<T> node, VST& visit) {
-   printf("travPost_I\n");
-
-   if(nullptr == node) return;
+void travPost_I2(BinNodePosi<T> x, VST& visit) {
+   printf("src/BinTree/BinNode_travPostorder_I2.h 003\n");
+   if(nullptr == x) {
+      return;
+   }
 
    Stack<BinNodePosi<T>> stack;
-   stack.push(node);
-   while (!stack.empty())
+   stack.push(x);
+   while (stack.empty() == false)
    {
-      if(node->parent != stack.top()) {
-         goToDeepestLeafVisibleFromLeft(stack);
+      if(x->parent != stack.top()) {
+         goAlongLeftBranchWhenPossible(stack);
       }
-      node = stack.pop();
-      visit(node->data);
+      x = stack.pop();
+      visit(x->data);
    }
 }

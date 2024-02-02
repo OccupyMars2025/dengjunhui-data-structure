@@ -72,6 +72,13 @@ void compare_traversal_sequences(BinTree<T>& bintree, int preorder_inorder_posto
       bintree.travIn(*collect_traversal_sequence001, algorithm_1);
       bintree.travIn(*collect_traversal_sequence002, algorithm_2);
       break;
+
+   case 2:
+      // postorder
+      printf("Validate postorder:\n");
+      bintree.travPost(*collect_traversal_sequence001, algorithm_1);
+      bintree.travPost(*collect_traversal_sequence002, algorithm_2);
+      break;
    
    default:
       assert(0);
@@ -79,6 +86,7 @@ void compare_traversal_sequences(BinTree<T>& bintree, int preorder_inorder_posto
    }
  
    assert(queue001.size() == queue002.size());
+   // printf("%d %d\n" ,queue001.size(), queue002.size());
    assert(queue001.size() > 0);
    while (queue001.empty() == false)
    {
@@ -172,7 +180,9 @@ void  testBinTree ( int h ) { //²âÊÔ¶þ²æÊ÷
    // compare_traversal_sequences(bt, 1, 0, 1);
    // compare_traversal_sequences(bt, 1, 0, 2);
    // compare_traversal_sequences(bt, 1, 0, 3);
-   compare_traversal_sequences(bt, 1, 0, 4);
+   // compare_traversal_sequences(bt, 1, 0, 4);
+   // compare_traversal_sequences(bt, 2, 0, 1);
+   compare_traversal_sequences(bt, 2, 0, 2);
    // bt.travPre ( *print_data_visit, 0 );
    // printf("\n");
    // // bt.travPre ( *double_visit, 0 );

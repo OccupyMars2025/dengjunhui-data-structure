@@ -50,14 +50,13 @@ public:
    } //中序遍历
    
    template <typename VST> //操作器
-   void travPost( VST& visit ) 
+   void travPost(VST& visit, int algorithm_id) 
    { 
-      if ( _root ) 
-         _root->travPost( visit ); 
+      if ( _root ) _root->travPost( visit, algorithm_id ); 
    } //后序遍历
 
-   /*DSA*/template <typename VST> //操作器
-   /*DSA*/void traverse ( VST& ); //自定义遍历
+   template <typename VST> //操作器
+   void traverse ( VST& ); //自定义遍历
    bool operator<( BinTree<T> const& t ) //比较器（其余自行补充）
       { return _root && t._root && lt( _root, t._root ); }
    bool operator==( BinTree<T> const& t ) //判等器
