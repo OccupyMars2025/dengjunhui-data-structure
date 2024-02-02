@@ -44,9 +44,9 @@ public:
    } //先序遍历
    
    template <typename VST> //操作器
-   void travIn( VST& visit ) 
+   void travIn( VST& visit, int algorithm_id ) 
    { 
-      if ( _root ) _root->travIn( visit ); 
+      if ( _root ) _root->travIn( visit, algorithm_id ); 
    } //中序遍历
    
    template <typename VST> //操作器

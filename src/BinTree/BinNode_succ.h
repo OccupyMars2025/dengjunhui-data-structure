@@ -25,22 +25,42 @@
 
 
 
+// template <typename T>
+// BinNodePosi<T> BinNode<T>::succ() {
+//    BinNodePosi<T> node = this;
+//    if(rc) {
+//       node = rc;
+//       while (HasLChild(*node))
+//       {
+//          node = node->lc;
+//       }
+//    } else {
+//       while (IsRChild(*node))
+//       {
+//          node = node->parent;
+//       }
+//       node = node->parent;
+//    }
+
+//    return node;
+// }
+
+
 template <typename T>
 BinNodePosi<T> BinNode<T>::succ() {
-   BinNodePosi<T> node = this;
+   BinNodePosi<T> x;
    if(rc) {
-      node = rc;
-      while (HasLChild(*node))
+      x = rc;
+      while (x->lc)
       {
-         node = node->lc;
+         x = x->lc;
       }
+      return x;
    } else {
-      while (IsRChild(*node))
-      {
-         node = node->parent;
+      x = this;
+      while(IsRChild(*x)){
+         x = x->parent;
       }
-      node = node->parent;
+      return x->parent;
    }
-
-   return node;
 }

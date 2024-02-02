@@ -25,25 +25,56 @@
 // }
 
 
+// template <typename T, typename VST> //元素类型、操作器
+// void travIn_I4( BinNodePosi<T> node, VST& visit ) { //二叉树中序遍历（迭代版#4，无需栈或标志位）
+//    while (true)
+//    {
+//       if(HasLChild(*node)) {
+//          node = node->lc;
+//       } else {
+//          visit(node->data);
+//          while (!HasRChild(*node)) {
+//             node = node->succ();
+//             if(nullptr == node){
+//                return;
+//             }
+//             visit(node->data);
+//          }
+//          node = node->rc;
+//       }
+//    }
+// }
 
 
 
-template <typename T, typename VST> //元素类型、操作器
-void travIn_I4( BinNodePosi<T> node, VST& visit ) { //二叉树中序遍历（迭代版#4，无需栈或标志位）
+/**
+ * 1. Don't use stack
+ * 2. Don't use "backtrack"
+ * 3. Use succ()
+*/
+template <typename T, typename VST>
+void travIn_I4(BinNodePosi<T> x, VST& visit) {
+   printf("src/BinTree/BinNode_travInorder_I4.h  003\n");
+
    while (true)
    {
-      if(HasLChild(*node)) {
-         node = node->lc;
-      } else {
-         visit(node->data);
-         while (!HasRChild(*node)) {
-            node = node->succ();
-            if(nullptr == node){
-               return;
-            }
-            visit(node->data);
-         }
-         node = node->rc;
+      while (x->lc)
+      {
+         x = x->lc;
       }
+
+      visit(x->data);
+
+      while (x->rc == nullptr)
+      {
+         x = x->succ();
+         if(x == nullptr) {
+            return;
+         }
+         visit(x->data);
+      }
+      x = x->rc;
    }
 }
+
+

@@ -30,31 +30,56 @@
 // }
 
 
-// backtrack + succ()
-template <typename T, typename VST> //元素类型、操作器
-void travIn_I3( BinNodePosi<T> x, VST& visit ) { //二叉树中序遍历算法（迭代版#3，无需辅助栈）
-   printf("travIn_I3\n");
+// // backtrack + succ()
+// template <typename T, typename VST> //元素类型、操作器
+// void travIn_I3( BinNodePosi<T> x, VST& visit ) { //二叉树中序遍历算法（迭代版#3，无需辅助栈）
+//    printf("travIn_I3\n");
    
+//    bool backtrack = false;
+
+//    while (true)
+//    {
+//       if(backtrack==false && HasLChild(*x)) {
+//          x = x->lc;
+//       } else {
+//          visit(x->data);
+//          if(HasRChild(*x)) {
+//             backtrack = false;
+//             x = x->rc;
+//          } else {
+//             backtrack = true;
+//             x = x->succ();
+//             if(nullptr == x) {
+//                return;
+//             }
+//          }
+//       }
+//    }
+// }
+
+
+template <typename T, typename VST>
+void travIn_I3(BinNodePosi<T> x, VST& visit) {
+   printf("src/BinTree/BinNode_travInorder_I3.h  003 \n");
+
    bool backtrack = false;
 
    while (true)
    {
-      if(backtrack==false && HasLChild(*x)) {
+      if((backtrack == false) && (x->lc)) {
          x = x->lc;
       } else {
          visit(x->data);
-         if(HasRChild(*x)) {
-            backtrack = false;
+         if(x->rc) {
             x = x->rc;
+            backtrack = false;
          } else {
-            backtrack = true;
             x = x->succ();
             if(nullptr == x) {
                return;
             }
+            backtrack = true;
          }
-      }
-   }
-   
-
+      }   
+   }  
 }
