@@ -7,7 +7,7 @@
 ## Why do you progress so slow ? What's stopping you ? Just ignore all the C++ grammar details, let the compiler check them for you, you only focus on the algorithm ideas ! Remember this project is NOT where you study C++ grammars !
 - [ ] 2024/5/5 18:40 - : chapter 5, binary tree
 
-# =============
+---
 
 
 # The accompanying source code of the book:
