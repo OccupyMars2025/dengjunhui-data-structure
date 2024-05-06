@@ -4,6 +4,7 @@
 - [x] (16 days)2024/1/2 16:00 - 1/17 19:00 : chapter 2, Vector
 - [x] (3 days) 2024/1/17 19:00 - 1/19 22:10 : chapter 3, List
 - [x] (11 days)2024/1/19 22:10 - 1/29 22:00 : chapter 4, stack and queue
+# Why do you progress so slow ? What's stopping you ? Just ignore all the C++ grammar details, let the compiler check them for you, you only focus on the algorithm ideas !
 - [ ] 2024/5/5 18:40 - : chapter 5, binary tree
 
 # =============
